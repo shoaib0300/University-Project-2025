@@ -1951,16 +1951,21 @@ while (1) {
 
 
         if (humidity >= 40 && humidity <= 60) {
-            bl_gpio_output_set(3, 1);
-        } else {
-            bl_gpio_output_set(3, 0);
+
+          bl_gpio_output_set(3, 1);
+            printf("Warning Humidity: %d\r\n", humidity);
+        }
+        else {
+          bl_gpio_output_set(3, 0);
+
         }
 
 
         if (temperature >= 16 && temperature <= 26) {
             bl_gpio_output_set(11, 0);
         } else {
-            bl_gpio_output_set(11, 1);
+          bl_gpio_output_set(11, 1);
+            printf("Warning Temperature: %d\r\n", temperature);
         }
     } else {
         printf("Failed to read DHT11 sensor data\n");
@@ -1972,8 +1977,8 @@ while (1) {
 
 
   vTaskDelete(
-# 58 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 3 4
+# 63 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 3 4
              ((void *)0)
-# 58 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
+# 63 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
                  );
 }

@@ -35,19 +35,24 @@ while (1) {
 
         // Control LEDs based on humidity
         if (humidity >= 40 && humidity <= 60) {
-            bl_gpio_output_set(LED_B_PIN, LED_ON);
-        } else {
-            bl_gpio_output_set(LED_B_PIN, LED_OFF);
+          bl_gpio_output_set(LED_B_PIN, LED_ON);
+          printf("Warning Humidity: %d\r\n", humidity);
+        } 
+        else {
+          bl_gpio_output_set(LED_B_PIN, LED_OFF);
         }
         
         // Control temperature threshold
         if (temperature >= 16 && temperature <= 26) {
             bl_gpio_output_set(LED_BB_PIN, LED_OFF);
-        } else {
-            bl_gpio_output_set(LED_BB_PIN, LED_ON);
+        } 
+        else {
+          bl_gpio_output_set(LED_BB_PIN, LED_ON);
+          printf("Warning Temperature: %d\r\n", temperature);
         }
-    } else {
-        printf("Failed to read DHT11 sensor data\n");
+    } 
+    else {
+      printf("Failed to read DHT11 sensor data\n");
     }
 
     // Wait for 2 seconds before next iteration

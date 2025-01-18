@@ -31,11 +31,15 @@ task_led:
 	sw	s1,36(sp)
 	sw	s2,32(sp)
 	sw	s3,28(sp)
+	sw	s4,24(sp)
+	sw	s5,20(sp)
 	.cfi_offset 1, -4
 	.cfi_offset 8, -8
 	.cfi_offset 9, -12
 	.cfi_offset 18, -16
 	.cfi_offset 19, -20
+	.cfi_offset 20, -24
+	.cfi_offset 21, -28
 	.loc 1 22 3
 	call	bl_gpio_enable_output
 .LVL2:
@@ -66,14 +70,18 @@ task_led:
 	addi	a0,s0,%lo(.LC0)
 	call	printf
 .LVL6:
-	.loc 1 50 9 is_stmt 0
-	lui	s0,%hi(.LC3)
+	.loc 1 55 9 is_stmt 0
+	lui	s0,%hi(.LC5)
 	.loc 1 34 9
 	lui	s1,%hi(.LC2)
 	.loc 1 37 12
 	li	s2,20
-	.loc 1 44 12
+	.loc 1 48 12
 	li	s3,10
+	.loc 1 52 13
+	lui	s4,%hi(.LC4)
+	.loc 1 40 13
+	lui	s5,%hi(.LC3)
 .L7:
 	.loc 1 32 1 is_stmt 1
 	.loc 1 33 5
@@ -90,55 +98,72 @@ task_led:
 	.loc 1 33 39 discriminator 1
 	bne	a0,zero,.L2
 	.loc 1 34 9 is_stmt 1
-	lbu	a1,14(sp)
 	lbu	a2,15(sp)
+	lbu	a1,14(sp)
 	addi	a0,s1,%lo(.LC2)
 	call	printf
 .LVL9:
 	.loc 1 37 9
 	.loc 1 37 28 is_stmt 0
 	lbu	a5,14(sp)
-	.loc 1 38 13
-	li	a1,1
-	.loc 1 37 28
 	addi	a5,a5,-40
 	.loc 1 37 12
 	andi	a5,a5,0xff
-	bleu	a5,s2,.L9
-	.loc 1 40 13 is_stmt 1
-	li	a1,0
-.L9:
+	bgtu	a5,s2,.L3
+	.loc 1 39 11 is_stmt 1
+	li	a1,1
 	li	a0,3
 	call	bl_gpio_output_set
 .LVL10:
-	.loc 1 44 9
-	.loc 1 44 31 is_stmt 0
+	.loc 1 40 13
+	lbu	a1,14(sp)
+	addi	a0,s5,%lo(.LC3)
+	call	printf
+.LVL11:
+.L4:
+	.loc 1 48 9
+	.loc 1 48 31 is_stmt 0
 	lbu	a5,15(sp)
-	.loc 1 45 13
-	li	a1,0
-	.loc 1 44 31
 	addi	a5,a5,-16
-	.loc 1 44 12
+	.loc 1 48 12
 	andi	a5,a5,0xff
-	bleu	a5,s3,.L10
-	.loc 1 47 13 is_stmt 1
-	li	a1,1
-.L10:
+	bgtu	a5,s3,.L5
+	.loc 1 49 13 is_stmt 1
+	li	a1,0
 	li	a0,11
 	call	bl_gpio_output_set
-.LVL11:
+.LVL12:
 .L6:
-	.loc 1 54 5
+	.loc 1 59 5
 	li	a0,2000
 	call	vTaskDelay
-.LVL12:
+.LVL13:
 	.loc 1 33 8 is_stmt 0
 	j	.L7
-.L2:
-	.loc 1 50 9 is_stmt 1
-	addi	a0,s0,%lo(.LC3)
+.L3:
+	.loc 1 43 11 is_stmt 1
+	li	a1,0
+	li	a0,3
+	call	bl_gpio_output_set
+.LVL14:
+	j	.L4
+.L5:
+	.loc 1 51 11
+	li	a1,1
+	li	a0,11
+	call	bl_gpio_output_set
+.LVL15:
+	.loc 1 52 13
+	lbu	a1,15(sp)
+	addi	a0,s4,%lo(.LC4)
 	call	printf
-.LVL13:
+.LVL16:
+	j	.L6
+.L2:
+	.loc 1 55 9
+	addi	a0,s0,%lo(.LC5)
+	call	printf
+.LVL17:
 	j	.L6
 	.cfi_endproc
 .LFE4:
@@ -154,6 +179,12 @@ task_led:
 .LC2:
 	.string	"Humidity: %d, Temperature: %d\r\n"
 .LC3:
+	.string	"Warning Humidity: %d\r\n"
+	.zero	1
+.LC4:
+	.string	"Warning Temperature: %d\r\n"
+	.zero	2
+.LC5:
 	.string	"Failed to read DHT11 sensor data\n"
 	.text
 .Letext0:
@@ -169,7 +200,7 @@ task_led:
 	.file 11 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0xaed
+	.4byte	0xb55
 	.2byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
@@ -1382,7 +1413,7 @@ task_led:
 	.4byte	.LFE4-.LFB4
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xaa7
+	.4byte	0xb0f
 	.byte	0x22
 	.4byte	.LASF138
 	.byte	0x1
@@ -1410,7 +1441,7 @@ task_led:
 	.byte	0x5f
 	.byte	0x24
 	.4byte	.LVL2
-	.4byte	0xaa7
+	.4byte	0xb0f
 	.4byte	0x9b7
 	.byte	0x25
 	.byte	0x1
@@ -1430,7 +1461,7 @@ task_led:
 	.byte	0
 	.byte	0x24
 	.4byte	.LVL3
-	.4byte	0xaa7
+	.4byte	0xb0f
 	.4byte	0x9d4
 	.byte	0x25
 	.byte	0x1
@@ -1450,7 +1481,7 @@ task_led:
 	.byte	0
 	.byte	0x24
 	.4byte	.LVL4
-	.4byte	0xab3
+	.4byte	0xb1b
 	.4byte	0x9eb
 	.byte	0x25
 	.byte	0x1
@@ -1461,7 +1492,7 @@ task_led:
 	.byte	0
 	.byte	0x24
 	.4byte	.LVL5
-	.4byte	0xab3
+	.4byte	0xb1b
 	.4byte	0xa02
 	.byte	0x25
 	.byte	0x1
@@ -1472,7 +1503,7 @@ task_led:
 	.byte	0
 	.byte	0x24
 	.4byte	.LVL6
-	.4byte	0xab3
+	.4byte	0xb1b
 	.4byte	0xa19
 	.byte	0x25
 	.byte	0x1
@@ -1483,7 +1514,7 @@ task_led:
 	.byte	0
 	.byte	0x24
 	.4byte	.LVL7
-	.4byte	0xabf
+	.4byte	0xb27
 	.4byte	0xa2d
 	.byte	0x25
 	.byte	0x1
@@ -1494,7 +1525,7 @@ task_led:
 	.byte	0
 	.byte	0x24
 	.4byte	.LVL8
-	.4byte	0xacb
+	.4byte	0xb33
 	.4byte	0xa41
 	.byte	0x25
 	.byte	0x1
@@ -1505,7 +1536,7 @@ task_led:
 	.byte	0
 	.byte	0x24
 	.4byte	.LVL9
-	.4byte	0xab3
+	.4byte	0xb1b
 	.4byte	0xa58
 	.byte	0x25
 	.byte	0x1
@@ -1516,28 +1547,49 @@ task_led:
 	.byte	0
 	.byte	0x24
 	.4byte	.LVL10
-	.4byte	0xad7
-	.4byte	0xa6b
+	.4byte	0xb3f
+	.4byte	0xa70
 	.byte	0x25
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x1
 	.byte	0x33
+	.byte	0x25
+	.byte	0x1
+	.byte	0x5b
+	.byte	0x1
+	.byte	0x31
 	.byte	0
 	.byte	0x24
 	.4byte	.LVL11
-	.4byte	0xad7
-	.4byte	0xa7e
+	.4byte	0xb1b
+	.4byte	0xa87
+	.byte	0x25
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x5
+	.byte	0x3
+	.4byte	.LC3
+	.byte	0
+	.byte	0x24
+	.4byte	.LVL12
+	.4byte	0xb3f
+	.4byte	0xa9f
 	.byte	0x25
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x1
 	.byte	0x3b
+	.byte	0x25
+	.byte	0x1
+	.byte	0x5b
+	.byte	0x1
+	.byte	0x30
 	.byte	0
 	.byte	0x24
-	.4byte	.LVL12
-	.4byte	0xae3
-	.4byte	0xa93
+	.4byte	.LVL13
+	.4byte	0xb4b
+	.4byte	0xab4
 	.byte	0x25
 	.byte	0x1
 	.byte	0x5a
@@ -1545,15 +1597,56 @@ task_led:
 	.byte	0xa
 	.2byte	0x7d0
 	.byte	0
-	.byte	0x26
-	.4byte	.LVL13
-	.4byte	0xab3
+	.byte	0x24
+	.4byte	.LVL14
+	.4byte	0xb3f
+	.4byte	0xacc
+	.byte	0x25
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x1
+	.byte	0x33
+	.byte	0x25
+	.byte	0x1
+	.byte	0x5b
+	.byte	0x1
+	.byte	0x30
+	.byte	0
+	.byte	0x24
+	.4byte	.LVL15
+	.4byte	0xb3f
+	.4byte	0xae4
+	.byte	0x25
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x1
+	.byte	0x3b
+	.byte	0x25
+	.byte	0x1
+	.byte	0x5b
+	.byte	0x1
+	.byte	0x31
+	.byte	0
+	.byte	0x24
+	.4byte	.LVL16
+	.4byte	0xb1b
+	.4byte	0xafb
 	.byte	0x25
 	.byte	0x1
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC3
+	.4byte	.LC4
+	.byte	0
+	.byte	0x26
+	.4byte	.LVL17
+	.4byte	0xb1b
+	.byte	0x25
+	.byte	0x1
+	.byte	0x5a
+	.byte	0x5
+	.byte	0x3
+	.4byte	.LC5
 	.byte	0
 	.byte	0
 	.byte	0x27
