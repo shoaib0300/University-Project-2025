@@ -3,7 +3,6 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
-
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h" 1
 # 34 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 1 3 4
@@ -317,7 +316,7 @@ typedef struct xSTATIC_STREAM_BUFFER
 
 
 typedef StaticStreamBuffer_t StaticMessageBuffer_t;
-# 3 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
+# 2 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h" 1
 # 36 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/list.h" 1
@@ -637,9 +636,7 @@ TaskHandle_t pvTaskIncrementMutexHeldCount( void ) ;
 
 
 void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut ) ;
-# 4 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
-
-
+# 3 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 1 3
 # 29 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/_ansi.h" 1 3
@@ -1900,9 +1897,7 @@ _putchar_unlocked(int _c)
 }
 # 797 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 
-# 7 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
-
-
+# 4 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_gpio.h" 1
 # 34 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_gpio.h"
 
@@ -1926,59 +1921,75 @@ int bl_gpio_int_clear(uint8_t gpioPin,uint8_t intClear);
 void bl_gpio_intmask(uint8_t gpiopin, uint8_t mask);
 void bl_set_gpio_intmod(uint8_t gpioPin, uint8_t intCtrlMod, uint8_t intTrgMod);
 void bl_gpio_register(gpio_ctx_t *pstnode);
-# 10 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
-
-
+# 5 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h" 1
-# 18 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h"
+# 17 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h"
 void init_adc(uint8_t pin);
 uint32_t read_adc();
 void convert_to_binary(uint32_t n);
-# 13 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
-# 33 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
+
+uint8_t read_humidity(uint8_t *humidity);
+uint8_t read_temperature(uint8_t *temperature);
+# 6 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
+# 20 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
 void task_led(void *pvParameters)
 {
   printf("LED task started\r\n");
 
 
   bl_gpio_enable_output(3, 0, 0);
+  bl_gpio_enable_output(11, 0, 0);
+
+  uint8_t humidity = 0;
+  uint8_t temperature = 0;
+    printf("The Current Room Temperature and Humidity are: \r\n");
+
+
+while (1) {
+
+    if (read_humidity(&humidity) == 0 && read_temperature(&temperature) == 0) {
+        printf("Humidity: %d, Temperature: %d\r\n", humidity, temperature);
+
+
+        if (humidity >= 40 && humidity <= 60) {
+            bl_gpio_output_set(3, 1);
+        } else {
+            bl_gpio_output_set(3, 0);
+        }
+
+
+        if (temperature >= 16 && temperature <= 26) {
+            bl_gpio_output_set(11, 0);
+        } else {
+            bl_gpio_output_set(11, 1);
+        }
+    } else {
+        printf("Failed to read DHT11 sensor data\n");
+    }
+
+
+    vTaskDelay(2000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
 
 
 
 
 
 
-  vTaskDelay(100 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
+    vTaskDelay(2000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
 
 
-  while (1) {
-    printf("ADC task started\r\n");
-# 59 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
-    bl_gpio_output_set(3, 1);
-    bl_gpio_output_set(11, 1);
 
-    vTaskDelay(1000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
-    bl_gpio_output_set(3, 0);
-    bl_gpio_output_set(11, 0);
 
-    vTaskDelay(1000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
 
+
+    vTaskDelay(2000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
   }
 
 
+
   vTaskDelete(
-# 71 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 3 4
+# 75 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 3 4
              ((void *)0)
-# 71 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
+# 75 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
                  );
-}
-
-void task_adc_init(void){
-  printf("ADC task started\r\n");
-
-
-  init_adc(4);
-
-  printf("ADC initialized\r\n");
-
 }

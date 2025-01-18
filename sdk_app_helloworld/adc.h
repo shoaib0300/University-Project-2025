@@ -13,10 +13,12 @@
 
 #define ADC_PIN 4
 
-
-/* function prototypes (needed for compiler, functions are implemented below) */
+// Function prototypes for ADC and DHT11
 void init_adc(uint8_t pin);
 uint32_t read_adc();
 void convert_to_binary(uint32_t n);
+
+uint8_t read_humidity(uint8_t *humidity);
+uint8_t read_temperature(uint8_t *temperature);
 
 #endif

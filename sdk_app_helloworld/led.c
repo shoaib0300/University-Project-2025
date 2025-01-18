@@ -1,82 +1,76 @@
-// FreeRTOS
 #include <FreeRTOS.h>
 #include <task.h>
-
-// Input/output
 #include <stdio.h>
-
-// GPIO library
 #include <bl_gpio.h>
-
-
-#include "adc.h"
+#include "adc.h"  // Include header file for ADC and DHT11
 
 // Define LED pins
 #define LED_B_PIN 3
 #define LED_BB_PIN 11
 
-// define outputs
-#define LED_ON 1 // high voltage
+// Define outputs
+#define LED_ON 1  // high voltage
 #define LED_OFF 0 // low voltage
 
-// Pullup/pulldown resistors
-#define ENABLE_PULLUP 1
 #define DISABLE_PULLUP 0
-
-#define ENABLE_PULLDOWN 1
 #define DISABLE_PULLDOWN 0
 
-//extern read_humidity();
-//extern read_temperature()
 
 /* LED task */
 void task_led(void *pvParameters)
 {
   printf("LED task started\r\n");
-  
-  // define LEDs as outputs
+
+  // Define LEDs as outputs
   bl_gpio_enable_output(LED_B_PIN, DISABLE_PULLUP, DISABLE_PULLDOWN);
-  
-  
-  //task_adc_init();
+  bl_gpio_enable_output(LED_BB_PIN, DISABLE_PULLUP, DISABLE_PULLDOWN);
 
+  uint8_t humidity = 0;
+  uint8_t temperature = 0;
+    printf("The Current Room Temperature and Humidity are: \r\n");
 
-  // wait for 100ms
-  vTaskDelay(100 / portTICK_PERIOD_MS);
-  
-  // counter
-  while (1) {
-    printf("ADC task started\r\n");
-    //uint8_t humidity = read_humidity()
-    //uint8_t temparature = read_temperature();
+  // Task will perform reading of humidity and temperature every cycle
+while (1) {
+    // Simulate reading humidity and temperature (e.g., using fluctuating values)
+    if (read_humidity(&humidity) == 0 && read_temperature(&temperature) == 0) {
+        printf("Humidity: %d, Temperature: %d\r\n", humidity, temperature);
+
+        // Control LEDs based on humidity
+        if (humidity >= 40 && humidity <= 60) {
+            bl_gpio_output_set(LED_B_PIN, LED_ON);  // Turn on LED if humidity is in acceptable range
+        } else {
+            bl_gpio_output_set(LED_B_PIN, LED_OFF);  // Turn off LED if humidity is too low or too high
+        }
+        
+        // Control temperature threshold (for example, turn on LED_BB_PIN if temperature > 30)
+        if (temperature >= 16 && temperature <= 26) {
+            bl_gpio_output_set(LED_BB_PIN, LED_OFF); // Turn off LED if temperature is in comfortable range
+        } else {
+            bl_gpio_output_set(LED_BB_PIN, LED_ON);  // Turn on LED if temperature is too hot or too cold
+        }
+    } else {
+        printf("Failed to read DHT11 sensor data\n");
+    }
+
+    // Wait for 2 seconds before next iteration
+    vTaskDelay(2000 / portTICK_PERIOD_MS); // Delay for 2 seconds
+
+    // Turn on both LEDs for 2 seconds
+    // bl_gpio_output_set(LED_B_PIN, LED_ON);
+    // bl_gpio_output_set(LED_BB_PIN, LED_ON);
+
+    // Wait for 2 seconds
+    vTaskDelay(2000 / portTICK_PERIOD_MS);
     
-    // if (humidity > 20){
-    //   bl_gpio_output_set(LED_B_PIN, LED_ON);
-    // } else {
-    //   bl_gpio_output_set(LED_B_PIN, LED_OFF);
-    // }
-    
-    bl_gpio_output_set(LED_B_PIN, LED_ON);
-    bl_gpio_output_set(LED_BB_PIN, LED_ON);
-    // wait for 1s
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-    bl_gpio_output_set(LED_B_PIN, LED_OFF);
-    bl_gpio_output_set(LED_BB_PIN, LED_OFF);
+    // Turn off both LEDs
+    // bl_gpio_output_set(LED_B_PIN, LED_OFF);
+    // bl_gpio_output_set(LED_BB_PIN, LED_OFF);
 
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-
+    // Wait for 2 seconds
+    vTaskDelay(2000 / portTICK_PERIOD_MS);
   }
-  
-  // should never happen but would delete the task and free allocated resources
-  vTaskDelete(NULL);
-}
 
-void task_adc_init(void){
-  printf("ADC task started\r\n");
   
-  // Set GPIO pin for ADC. You can change this to any pin that supports ADC and has a sensor connected.
-  init_adc(ADC_PIN);
-  
-  printf("ADC initialized\r\n");
-  
+  // Cleanup
+  vTaskDelete(NULL);
 }

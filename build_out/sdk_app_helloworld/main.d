@@ -20,7 +20,15 @@ main.o: \
  /home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/RISCV/Core/Include/riscv_encoding.h \
  /home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_common.h \
  /home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/bl602.h \
- /home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/platform_print/bflb_platform.h
+ /home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/platform_print/bflb_platform.h \
+ /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h \
+ /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c \
+ /home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h \
+ /home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/aon_reg.h \
+ /home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/gpip_reg.h \
+ /home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_adc.h \
+ /home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_dma.h \
+ /home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h
 
 /home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h:
 
@@ -63,4 +71,20 @@ main.o: \
 /home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/bl602.h:
 
 /home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/platform_print/bflb_platform.h:
+
+/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h:
+
+/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c:
+
+/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h:
+
+/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/aon_reg.h:
+
+/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/gpip_reg.h:
+
+/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_adc.h:
+
+/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_dma.h:
+
+/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h:
 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/./main.c:

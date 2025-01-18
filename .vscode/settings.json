@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.html5": "html",
+        "*.text": "dockercompose",
+        "\"files.associations\": { \"*.module\": \"php\" }": "\"files.associations\": { \"*.module\": \"php\" }",
+        "stdlib.h": "c"
+    }
+}

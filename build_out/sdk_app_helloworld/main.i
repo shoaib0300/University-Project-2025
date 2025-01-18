@@ -1901,6 +1901,69 @@ _putchar_unlocked(int _c)
 # 797 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 
 # 7 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 1 3
+# 18 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 3
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_intsup.h" 1 3
+# 35 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_intsup.h" 3
+       
+       
+       
+       
+       
+       
+       
+       
+# 190 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_intsup.h" 3
+       
+       
+       
+       
+       
+       
+       
+       
+# 19 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 2 3
+
+
+
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 1 3 4
+# 23 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 2 3
+
+
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 1 3
+# 9 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 3
+struct __locale_t;
+typedef struct __locale_t *locale_t;
+# 26 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 2 3
+# 312 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 3
+typedef struct {
+  intmax_t quot;
+  intmax_t rem;
+} imaxdiv_t;
+
+struct _reent;
+
+
+
+
+
+extern intmax_t imaxabs(intmax_t j);
+extern imaxdiv_t imaxdiv(intmax_t numer, intmax_t denomer);
+extern intmax_t strtoimax(const char *restrict, char **restrict, int);
+extern intmax_t _strtoimax_r(struct _reent *, const char *restrict, char **restrict, int);
+extern uintmax_t strtoumax(const char *restrict, char **restrict, int);
+extern uintmax_t _strtoumax_r(struct _reent *, const char *restrict, char **restrict, int);
+extern intmax_t wcstoimax(const wchar_t *restrict, wchar_t **restrict, int);
+extern intmax_t _wcstoimax_r(struct _reent *, const wchar_t *restrict, wchar_t **restrict, int);
+extern uintmax_t wcstoumax(const wchar_t *restrict, wchar_t **restrict, int);
+extern uintmax_t _wcstoumax_r(struct _reent *, const wchar_t *restrict, wchar_t **restrict, int);
+
+
+extern intmax_t strtoimax_l(const char *restrict, char **_restrict, int, locale_t);
+extern uintmax_t strtoumax_l(const char *restrict, char **_restrict, int, locale_t);
+extern intmax_t wcstoimax_l(const wchar_t *restrict, wchar_t **_restrict, int, locale_t);
+extern uintmax_t wcstoumax_l(const wchar_t *restrict, wchar_t **_restrict, int, locale_t);
+# 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 
 
 # 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_uart.h" 1
@@ -2404,13 +2467,7 @@ typedef volatile struct uart_reg uart_reg_t;
 # 18 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 2 3
 
 
-# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 1 3
-# 9 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 3
 
-# 9 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 3
-struct __locale_t;
-typedef struct __locale_t *locale_t;
-# 21 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/string.h" 2 3
 
 
 
@@ -2418,6 +2475,8 @@ typedef struct __locale_t *locale_t;
 # 44 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/strings.h" 3
 
 
+
+# 46 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/strings.h" 3
 int bcmp(const void *, const void *, size_t) __attribute__((__pure__));
 void bcopy(const void *, void *, size_t);
 void bzero(void *, size_t);
@@ -2852,7 +2911,1453 @@ int bl_uart_int_rx_notify_register(uint8_t id, cb_uart_notify_t cb, void *arg);
 int bl_uart_int_tx_notify_register(uint8_t id, cb_uart_notify_t cb, void *arg);
 int bl_uart_int_rx_notify_unregister(uint8_t id, cb_uart_notify_t cb, void *arg);
 int bl_uart_int_tx_notify_unregister(uint8_t id, cb_uart_notify_t cb, void *arg);
-# 10 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 11 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h" 1
+# 17 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h"
+void init_adc(uint8_t pin);
+uint32_t read_adc();
+void convert_to_binary(uint32_t n);
+
+uint8_t read_humidity(uint8_t *humidity);
+uint8_t read_temperature(uint8_t *temperature);
+# 12 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 1
+
+
+
+
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 1 3
+# 10 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/machine/ieeefp.h" 1 3
+# 11 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 2 3
+
+
+
+
+
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 1 3 4
+# 17 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 2 3
+
+
+
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/machine/stdlib.h" 1 3
+# 21 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 2 3
+
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/alloca.h" 1 3
+# 23 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 2 3
+# 33 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
+
+
+
+# 35 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
+typedef struct
+{
+  int quot;
+  int rem;
+} div_t;
+
+typedef struct
+{
+  long quot;
+  long rem;
+} ldiv_t;
+
+
+typedef struct
+{
+  long long int quot;
+  long long int rem;
+} lldiv_t;
+
+
+
+
+typedef int (*__compar_fn_t) (const void *, const void *);
+
+
+
+
+
+
+
+int __locale_mb_cur_max (void);
+
+
+
+void abort (void) __attribute__ ((__noreturn__));
+int abs (int);
+
+__uint32_t arc4random (void);
+__uint32_t arc4random_uniform (__uint32_t);
+void arc4random_buf (void *, size_t);
+
+int atexit (void (*__func)(void));
+double atof (const char *__nptr);
+
+float atoff (const char *__nptr);
+
+int atoi (const char *__nptr);
+int _atoi_r (struct _reent *, const char *__nptr);
+long atol (const char *__nptr);
+long _atol_r (struct _reent *, const char *__nptr);
+void * bsearch (const void *__key,
+         const void *__base,
+         size_t __nmemb,
+         size_t __size,
+         __compar_fn_t _compar);
+void *calloc(size_t, size_t) __attribute__((__malloc__)) __attribute__((__warn_unused_result__))
+      __attribute__((__alloc_size__(1, 2))) ;
+div_t div (int __numer, int __denom);
+void exit (int __status) __attribute__ ((__noreturn__));
+void free (void *) ;
+char * getenv (const char *__string);
+char * _getenv_r (struct _reent *, const char *__string);
+
+
+
+char * _findenv (const char *, int *);
+char * _findenv_r (struct _reent *, const char *, int *);
+
+extern char *suboptarg;
+int getsubopt (char **, char * const *, char **);
+
+long labs (long);
+ldiv_t ldiv (long __numer, long __denom);
+void *malloc(size_t) __attribute__((__malloc__)) __attribute__((__warn_unused_result__)) __attribute__((__alloc_size__(1))) ;
+int mblen (const char *, size_t);
+int _mblen_r (struct _reent *, const char *, size_t, _mbstate_t *);
+int mbtowc (wchar_t *restrict, const char *restrict, size_t);
+int _mbtowc_r (struct _reent *, wchar_t *restrict, const char *restrict, size_t, _mbstate_t *);
+int wctomb (char *, wchar_t);
+int _wctomb_r (struct _reent *, char *, wchar_t, _mbstate_t *);
+size_t mbstowcs (wchar_t *restrict, const char *restrict, size_t);
+size_t _mbstowcs_r (struct _reent *, wchar_t *restrict, const char *restrict, size_t, _mbstate_t *);
+size_t wcstombs (char *restrict, const wchar_t *restrict, size_t);
+size_t _wcstombs_r (struct _reent *, char *restrict, const wchar_t *restrict, size_t, _mbstate_t *);
+
+
+char * mkdtemp (char *);
+
+
+
+
+
+
+int mkstemp (char *);
+
+
+int mkstemps (char *, int);
+
+
+char * mktemp (char *) __attribute__ ((__deprecated__("the use of `mktemp' is dangerous; use `mkstemp' instead")));
+
+
+char * _mkdtemp_r (struct _reent *, char *);
+int _mkostemp_r (struct _reent *, char *, int);
+int _mkostemps_r (struct _reent *, char *, int, int);
+int _mkstemp_r (struct _reent *, char *);
+int _mkstemps_r (struct _reent *, char *, int);
+char * _mktemp_r (struct _reent *, char *) __attribute__ ((__deprecated__("the use of `mktemp' is dangerous; use `mkstemp' instead")));
+void qsort (void *__base, size_t __nmemb, size_t __size, __compar_fn_t _compar);
+int rand (void);
+void *realloc(void *, size_t) __attribute__((__warn_unused_result__)) __attribute__((__alloc_size__(2))) ;
+
+void *reallocarray(void *, size_t, size_t) __attribute__((__warn_unused_result__)) __attribute__((__alloc_size__(2, 3)));
+void *reallocf(void *, size_t) __attribute__((__warn_unused_result__)) __attribute__((__alloc_size__(2)));
+
+
+char * realpath (const char *restrict path, char *restrict resolved_path);
+
+
+int rpmatch (const char *response);
+
+
+
+
+void srand (unsigned __seed);
+double strtod (const char *restrict __n, char **restrict __end_PTR);
+double _strtod_r (struct _reent *,const char *restrict __n, char **restrict __end_PTR);
+
+float strtof (const char *restrict __n, char **restrict __end_PTR);
+
+
+
+
+
+
+
+long strtol (const char *restrict __n, char **restrict __end_PTR, int __base);
+long _strtol_r (struct _reent *,const char *restrict __n, char **restrict __end_PTR, int __base);
+unsigned long strtoul (const char *restrict __n, char **restrict __end_PTR, int __base);
+unsigned long _strtoul_r (struct _reent *,const char *restrict __n, char **restrict __end_PTR, int __base);
+# 191 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
+int system (const char *__string);
+
+
+long a64l (const char *__input);
+char * l64a (long __input);
+char * _l64a_r (struct _reent *,long __input);
+
+
+int on_exit (void (*__func)(int, void *),void *__arg);
+
+
+void _Exit (int __status) __attribute__ ((__noreturn__));
+
+
+int putenv (char *__string);
+
+int _putenv_r (struct _reent *, char *__string);
+void * _reallocf_r (struct _reent *, void *, size_t);
+
+int setenv (const char *__string, const char *__value, int __overwrite);
+
+int _setenv_r (struct _reent *, const char *__string, const char *__value, int __overwrite);
+# 224 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
+char * __itoa (int, char *, int);
+char * __utoa (unsigned, char *, int);
+
+char * itoa (int, char *, int);
+char * utoa (unsigned, char *, int);
+
+
+int rand_r (unsigned *__seed);
+
+
+
+double drand48 (void);
+double _drand48_r (struct _reent *);
+double erand48 (unsigned short [3]);
+double _erand48_r (struct _reent *, unsigned short [3]);
+long jrand48 (unsigned short [3]);
+long _jrand48_r (struct _reent *, unsigned short [3]);
+void lcong48 (unsigned short [7]);
+void _lcong48_r (struct _reent *, unsigned short [7]);
+long lrand48 (void);
+long _lrand48_r (struct _reent *);
+long mrand48 (void);
+long _mrand48_r (struct _reent *);
+long nrand48 (unsigned short [3]);
+long _nrand48_r (struct _reent *, unsigned short [3]);
+unsigned short *
+       seed48 (unsigned short [3]);
+unsigned short *
+       _seed48_r (struct _reent *, unsigned short [3]);
+void srand48 (long);
+void _srand48_r (struct _reent *, long);
+
+
+char * initstate (unsigned, char *, size_t);
+long random (void);
+char * setstate (char *);
+void srandom (unsigned);
+
+
+long long atoll (const char *__nptr);
+
+long long _atoll_r (struct _reent *, const char *__nptr);
+
+long long llabs (long long);
+lldiv_t lldiv (long long __numer, long long __denom);
+long long strtoll (const char *restrict __n, char **restrict __end_PTR, int __base);
+
+long long _strtoll_r (struct _reent *, const char *restrict __n, char **restrict __end_PTR, int __base);
+
+unsigned long long strtoull (const char *restrict __n, char **restrict __end_PTR, int __base);
+
+unsigned long long _strtoull_r (struct _reent *, const char *restrict __n, char **restrict __end_PTR, int __base);
+
+
+
+void cfree (void *);
+
+
+int unsetenv (const char *__string);
+
+int _unsetenv_r (struct _reent *, const char *__string);
+
+
+
+int posix_memalign (void **, size_t, size_t) __attribute__((__nonnull__ (1)))
+     __attribute__((__warn_unused_result__));
+
+
+char * _dtoa_r (struct _reent *, double, int, int, int *, int*, char**);
+
+void * _malloc_r (struct _reent *, size_t) ;
+void * _calloc_r (struct _reent *, size_t, size_t) ;
+void _free_r (struct _reent *, void *) ;
+void * _realloc_r (struct _reent *, void *, size_t) ;
+void _mstats_r (struct _reent *, char *);
+
+int _system_r (struct _reent *, const char *);
+
+void __eprintf (const char *, const char *, unsigned int, const char *);
+# 312 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
+void qsort_r (void *__base, size_t __nmemb, size_t __size, void *__thunk, int (*_compar)(void *, const void *, const void *))
+             __asm__ ("" "__bsd_qsort_r");
+# 322 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
+extern long double _strtold_r (struct _reent *, const char *restrict, char **restrict);
+
+extern long double strtold (const char *restrict, char **restrict);
+# 339 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
+
+# 6 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
+
+# 1 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h" 1
+# 39 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h"
+# 1 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/aon_reg.h" 1
+# 1076 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/aon_reg.h"
+
+# 1076 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/aon_reg.h"
+struct aon_reg {
+
+    uint8_t RESERVED0x0[2048];
+
+
+    union {
+        struct {
+            uint32_t aon_resv : 8;
+            uint32_t reserved_8_11 : 4;
+            uint32_t pu_aon_dc_tbuf : 1;
+            uint32_t reserved_13_19 : 7;
+            uint32_t ldo11_rt_pulldown : 1;
+            uint32_t ldo11_rt_pulldown_sel : 1;
+            uint32_t sw_pu_ldo11_rt : 1;
+            uint32_t reserved_23_31 : 9;
+        }BF;
+        uint32_t WORD;
+    } aon;
+
+
+    union {
+        struct {
+            uint32_t tmux_aon : 3;
+            uint32_t reserved_3 : 1;
+            uint32_t ten_aon : 1;
+            uint32_t dten_xtal32k : 1;
+            uint32_t ten_xtal32k : 1;
+            uint32_t reserved_7 : 1;
+            uint32_t ten_vddcore_aon : 1;
+            uint32_t ten_ldo11soc_aon : 1;
+            uint32_t ten_dcdc18_0_aon : 1;
+            uint32_t ten_dcdc18_1_aon : 1;
+            uint32_t ten_bg_sys_aon : 1;
+            uint32_t reserved_13_15 : 3;
+            uint32_t ten_ldo15rf_aon : 1;
+            uint32_t ten_xtal_aon : 1;
+            uint32_t dten_xtal_aon : 1;
+            uint32_t ten_mbg_aon : 1;
+            uint32_t ten_cip_misc_aon : 1;
+            uint32_t reserved_21_31 : 11;
+        }BF;
+        uint32_t WORD;
+    } aon_common;
+
+
+    union {
+        struct {
+            uint32_t sw_soc_en_aon : 1;
+            uint32_t sw_wb_en_aon : 1;
+            uint32_t reserved_2_31 : 30;
+        }BF;
+        uint32_t WORD;
+    } aon_misc;
+
+
+    uint8_t RESERVED0x80c[4];
+
+
+    union {
+        struct {
+            uint32_t pmip_resv : 8;
+            uint32_t pu_bg_sys_aon : 1;
+            uint32_t reserved_9_11 : 3;
+            uint32_t bg_sys_start_ctrl_aon : 1;
+            uint32_t reserved_13_31 : 19;
+        }BF;
+        uint32_t WORD;
+    } bg_sys_top;
+
+
+    union {
+        struct {
+            uint32_t reserved_0 : 1;
+            uint32_t dcdc18_vout_sel_aon : 5;
+            uint32_t reserved_6_7 : 2;
+            uint32_t dcdc18_vpfm_aon : 4;
+            uint32_t dcdc18_osc_2m_mode_aon : 1;
+            uint32_t reserved_13_15 : 3;
+            uint32_t dcdc18_osc_freq_trim_aon : 4;
+            uint32_t dcdc18_slope_curr_sel_aon : 5;
+            uint32_t dcdc18_stop_osc_aon : 1;
+            uint32_t dcdc18_slow_osc_aon : 1;
+            uint32_t dcdc18_osc_inhibit_t2_aon : 1;
+            uint32_t dcdc18_sstart_time_aon : 2;
+            uint32_t reserved_30 : 1;
+            uint32_t dcdc18_rdy_aon : 1;
+        }BF;
+        uint32_t WORD;
+    } dcdc18_top_0;
+
+
+    union {
+        struct {
+            uint32_t dcdc18_force_cs_zvs_aon : 1;
+            uint32_t dcdc18_cs_delay_aon : 3;
+            uint32_t dcdc18_zvs_td_opt_aon : 3;
+            uint32_t reserved_7 : 1;
+            uint32_t dcdc18_nonoverlap_td_aon : 5;
+            uint32_t reserved_13_15 : 3;
+            uint32_t dcdc18_rc_sel_aon : 4;
+            uint32_t dcdc18_chf_sel_aon : 4;
+            uint32_t dcdc18_cfb_sel_aon : 4;
+            uint32_t dcdc18_en_antiring_aon : 1;
+            uint32_t dcdc18_pulldown_aon : 1;
+            uint32_t reserved_30_31 : 2;
+        }BF;
+        uint32_t WORD;
+    } dcdc18_top_1;
+
+
+    union {
+        struct {
+            uint32_t pu_ldo11soc_aon : 1;
+            uint32_t reserved_1_3 : 3;
+            uint32_t ldo11soc_sstart_sel_aon : 1;
+            uint32_t reserved_5_7 : 3;
+            uint32_t ldo11soc_sstart_delay_aon : 2;
+            uint32_t ldo11soc_pulldown_aon : 1;
+            uint32_t ldo11soc_pulldown_sel_aon : 1;
+            uint32_t ldo11soc_vth_sel_aon : 2;
+            uint32_t reserved_14_23 : 10;
+            uint32_t ldo11soc_cc_aon : 2;
+            uint32_t reserved_26_27 : 2;
+            uint32_t ldo11soc_rdy_aon : 1;
+            uint32_t ldo11soc_power_good_aon : 1;
+            uint32_t pu_vddcore_misc_aon : 1;
+            uint32_t pmip_dc_tp_out_en_aon : 1;
+        }BF;
+        uint32_t WORD;
+    } ldo11soc_and_dctest;
+
+
+    union {
+        struct {
+            uint32_t pu_ir_psw_aon : 1;
+            uint32_t reserved_1_31 : 31;
+        }BF;
+        uint32_t WORD;
+    } psw_irrcv;
+
+
+    uint8_t RESERVED0x824[92];
+
+
+    union {
+        struct {
+            uint32_t pu_mbg_aon : 1;
+            uint32_t pu_ldo15rf_aon : 1;
+            uint32_t pu_sfreg_aon : 1;
+            uint32_t reserved_3 : 1;
+            uint32_t pu_xtal_buf_aon : 1;
+            uint32_t pu_xtal_aon : 1;
+            uint32_t reserved_6_7 : 2;
+            uint32_t ldo15rf_sstart_sel_aon : 1;
+            uint32_t ldo15rf_sstart_delay_aon : 2;
+            uint32_t reserved_11 : 1;
+            uint32_t ldo15rf_pulldown_aon : 1;
+            uint32_t ldo15rf_pulldown_sel_aon : 1;
+            uint32_t reserved_14_15 : 2;
+            uint32_t ldo15rf_vout_sel_aon : 3;
+            uint32_t reserved_19_23 : 5;
+            uint32_t ldo15rf_cc_aon : 2;
+            uint32_t reserved_26_27 : 2;
+            uint32_t ldo15rf_bypass_aon : 1;
+            uint32_t reserved_29_31 : 3;
+        }BF;
+        uint32_t WORD;
+    } rf_top_aon;
+
+
+    union {
+        struct {
+            uint32_t xtal_bk_aon : 2;
+            uint32_t xtal_capcode_extra_aon : 1;
+            uint32_t xtal_ext_sel_aon : 1;
+            uint32_t xtal_buf_en_aon : 4;
+            uint32_t xtal_buf_hp_aon : 4;
+            uint32_t xtal_fast_startup_aon : 1;
+            uint32_t xtal_sleep_aon : 1;
+            uint32_t xtal_amp_ctrl_aon : 2;
+            uint32_t xtal_capcode_out_aon : 6;
+            uint32_t xtal_capcode_in_aon : 6;
+            uint32_t xtal_gm_boost_aon : 2;
+            uint32_t xtal_rdy_sel_aon : 2;
+        }BF;
+        uint32_t WORD;
+    } xtal_cfg;
+
+
+    union {
+        struct {
+            uint32_t tsen_refcode_corner : 12;
+            uint32_t reserved_12_15 : 4;
+            uint32_t tsen_refcode_rfcal : 12;
+            uint32_t xtal_rdy : 1;
+            uint32_t xtal_inn_cfg_en_aon : 1;
+            uint32_t xtal_rdy_int_sel_aon : 2;
+        }BF;
+        uint32_t WORD;
+    } tsen;
+
+
+    uint8_t RESERVED0x88c[116];
+
+
+    union {
+        struct {
+            uint32_t acomp0_en : 1;
+            uint32_t reserved_1_3 : 3;
+            uint32_t acomp0_hyst_seln : 3;
+            uint32_t acomp0_hyst_selp : 3;
+            uint32_t acomp0_bias_prog : 2;
+            uint32_t acomp0_level_sel : 6;
+            uint32_t acomp0_neg_sel : 4;
+            uint32_t acomp0_pos_sel : 4;
+            uint32_t acomp0_muxen : 1;
+            uint32_t reserved_27_31 : 5;
+        }BF;
+        uint32_t WORD;
+    } acomp0_ctrl;
+
+
+    union {
+        struct {
+            uint32_t acomp1_en : 1;
+            uint32_t reserved_1_3 : 3;
+            uint32_t acomp1_hyst_seln : 3;
+            uint32_t acomp1_hyst_selp : 3;
+            uint32_t acomp1_bias_prog : 2;
+            uint32_t acomp1_level_sel : 6;
+            uint32_t acomp1_neg_sel : 4;
+            uint32_t acomp1_pos_sel : 4;
+            uint32_t acomp1_muxen : 1;
+            uint32_t reserved_27_31 : 5;
+        }BF;
+        uint32_t WORD;
+    } acomp1_ctrl;
+
+
+    union {
+        struct {
+            uint32_t acomp1_rstn_ana : 1;
+            uint32_t acomp0_rstn_ana : 1;
+            uint32_t reserved_2_7 : 6;
+            uint32_t acomp1_test_en : 1;
+            uint32_t acomp0_test_en : 1;
+            uint32_t acomp1_test_sel : 2;
+            uint32_t acomp0_test_sel : 2;
+            uint32_t reserved_14_16 : 3;
+            uint32_t acomp1_out_raw : 1;
+            uint32_t reserved_18 : 1;
+            uint32_t acomp0_out_raw : 1;
+            uint32_t reserved_20_23 : 4;
+            uint32_t acomp_reserved : 8;
+        }BF;
+        uint32_t WORD;
+    } acomp_ctrl;
+
+
+    union {
+        struct {
+            uint32_t gpadc_global_en : 1;
+            uint32_t gpadc_conv_start : 1;
+            uint32_t gpadc_soft_rst : 1;
+            uint32_t gpadc_neg_sel : 5;
+            uint32_t gpadc_pos_sel : 5;
+            uint32_t gpadc_neg_gnd : 1;
+            uint32_t gpadc_micbias_en : 1;
+            uint32_t gpadc_micpga_en : 1;
+            uint32_t gpadc_byp_micboost : 1;
+            uint32_t reserved_17 : 1;
+            uint32_t gpadc_dwa_en : 1;
+            uint32_t gpadc_mic2_diff : 1;
+            uint32_t gpadc_mic1_diff : 1;
+            uint32_t gpadc_mic_pga2_gain : 2;
+            uint32_t gpadc_micboost_32db_en : 1;
+            uint32_t reserved_24_26 : 3;
+            uint32_t gpadc_chip_sen_pu : 1;
+            uint32_t gpadc_sen_sel : 2;
+            uint32_t gpadc_sen_test_en : 1;
+            uint32_t reserved_31 : 1;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_cmd;
+
+
+    union {
+        struct {
+            uint32_t gpadc_cal_os_en : 1;
+            uint32_t gpadc_cont_conv_en : 1;
+            uint32_t gpadc_res_sel : 3;
+            uint32_t reserved_5_16 : 12;
+            uint32_t gpadc_clk_ana_inv : 1;
+            uint32_t gpadc_clk_div_ratio : 3;
+            uint32_t gpadc_scan_length : 4;
+            uint32_t gpadc_scan_en : 1;
+            uint32_t gpadc_dither_en : 1;
+            uint32_t gpadc_v11_sel : 2;
+            uint32_t gpadc_v18_sel : 2;
+            uint32_t reserved_31 : 1;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_config1;
+
+
+    union {
+        struct {
+            uint32_t reserved_0_1 : 2;
+            uint32_t gpadc_diff_mode : 1;
+            uint32_t gpadc_vref_sel : 1;
+            uint32_t gpadc_vbat_en : 1;
+            uint32_t gpadc_tsext_sel : 1;
+            uint32_t gpadc_ts_en : 1;
+            uint32_t gpadc_pga_vcm : 2;
+            uint32_t gpadc_pga_os_cal : 4;
+            uint32_t gpadc_pga_en : 1;
+            uint32_t gpadc_pga_vcmi_en : 1;
+            uint32_t gpadc_chop_mode : 2;
+            uint32_t gpadc_bias_sel : 1;
+            uint32_t gpadc_test_en : 1;
+            uint32_t gpadc_test_sel : 3;
+            uint32_t gpadc_pga2_gain : 3;
+            uint32_t gpadc_pga1_gain : 3;
+            uint32_t gpadc_dly_sel : 3;
+            uint32_t gpadc_tsvbe_low : 1;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_config2;
+
+
+    union {
+        struct {
+            uint32_t gpadc_scan_pos_0 : 5;
+            uint32_t gpadc_scan_pos_1 : 5;
+            uint32_t gpadc_scan_pos_2 : 5;
+            uint32_t gpadc_scan_pos_3 : 5;
+            uint32_t gpadc_scan_pos_4 : 5;
+            uint32_t gpadc_scan_pos_5 : 5;
+            uint32_t reserved_30_31 : 2;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_scn_pos1;
+
+
+    union {
+        struct {
+            uint32_t gpadc_scan_pos_6 : 5;
+            uint32_t gpadc_scan_pos_7 : 5;
+            uint32_t gpadc_scan_pos_8 : 5;
+            uint32_t gpadc_scan_pos_9 : 5;
+            uint32_t gpadc_scan_pos_10 : 5;
+            uint32_t gpadc_scan_pos_11 : 5;
+            uint32_t reserved_30_31 : 2;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_scn_pos2;
+
+
+    union {
+        struct {
+            uint32_t gpadc_scan_neg_0 : 5;
+            uint32_t gpadc_scan_neg_1 : 5;
+            uint32_t gpadc_scan_neg_2 : 5;
+            uint32_t gpadc_scan_neg_3 : 5;
+            uint32_t gpadc_scan_neg_4 : 5;
+            uint32_t gpadc_scan_neg_5 : 5;
+            uint32_t reserved_30_31 : 2;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_scn_neg1;
+
+
+    union {
+        struct {
+            uint32_t gpadc_scan_neg_6 : 5;
+            uint32_t gpadc_scan_neg_7 : 5;
+            uint32_t gpadc_scan_neg_8 : 5;
+            uint32_t gpadc_scan_neg_9 : 5;
+            uint32_t gpadc_scan_neg_10 : 5;
+            uint32_t gpadc_scan_neg_11 : 5;
+            uint32_t reserved_30_31 : 2;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_scn_neg2;
+
+
+    union {
+        struct {
+            uint32_t gpadc_data_rdy : 1;
+            uint32_t reserved_1_15 : 15;
+            uint32_t gpadc_reserved : 16;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_status;
+
+
+    union {
+        struct {
+            uint32_t gpadc_neg_satur : 1;
+            uint32_t gpadc_pos_satur : 1;
+            uint32_t reserved_2_3 : 2;
+            uint32_t gpadc_neg_satur_clr : 1;
+            uint32_t gpadc_pos_satur_clr : 1;
+            uint32_t reserved_6_7 : 2;
+            uint32_t gpadc_neg_satur_mask : 1;
+            uint32_t gpadc_pos_satur_mask : 1;
+            uint32_t reserved_10_31 : 22;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_isr;
+
+
+    union {
+        struct {
+            uint32_t gpadc_data_out : 26;
+            uint32_t reserved_26_31 : 6;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_result;
+
+
+    union {
+        struct {
+            uint32_t gpadc_raw_data : 12;
+            uint32_t reserved_12_31 : 20;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_raw_result;
+
+
+    union {
+        struct {
+            uint32_t gpadc_os_cal_data : 16;
+            uint32_t reserved_16_31 : 16;
+        }BF;
+        uint32_t WORD;
+    } gpadc_reg_define;
+
+
+    union {
+        struct {
+            uint32_t hbncore_resv0_data : 32;
+        }BF;
+        uint32_t WORD;
+    } hbncore_resv0;
+
+
+    union {
+        struct {
+            uint32_t hbncore_resv1_data : 32;
+        }BF;
+        uint32_t WORD;
+    } hbncore_resv1;
+
+};
+
+typedef volatile struct aon_reg aon_reg_t;
+# 40 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h" 2
+# 1 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/gpip_reg.h" 1
+# 210 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/gpip_reg.h"
+struct gpip_reg {
+
+    union {
+        struct {
+            uint32_t gpadc_dma_en : 1;
+            uint32_t gpadc_fifo_clr : 1;
+            uint32_t gpadc_fifo_ne : 1;
+            uint32_t gpadc_fifo_full : 1;
+            uint32_t gpadc_rdy : 1;
+            uint32_t gpadc_fifo_overrun : 1;
+            uint32_t gpadc_fifo_underrun : 1;
+            uint32_t reserved_7 : 1;
+            uint32_t gpadc_rdy_clr : 1;
+            uint32_t gpadc_fifo_overrun_clr : 1;
+            uint32_t gpadc_fifo_underrun_clr : 1;
+            uint32_t reserved_11 : 1;
+            uint32_t gpadc_rdy_mask : 1;
+            uint32_t gpadc_fifo_overrun_mask : 1;
+            uint32_t gpadc_fifo_underrun_mask : 1;
+            uint32_t reserved_15 : 1;
+            uint32_t gpadc_fifo_data_count : 6;
+            uint32_t gpadc_fifo_thl : 2;
+            uint32_t rsvd_31_24 : 8;
+        }BF;
+        uint32_t WORD;
+    } gpadc_config;
+
+
+    union {
+        struct {
+            uint32_t gpadc_dma_rdata : 26;
+            uint32_t rsvd_31_26 : 6;
+        }BF;
+        uint32_t WORD;
+    } gpadc_dma_rdata;
+
+
+    uint8_t RESERVED0x8[56];
+
+
+    union {
+        struct {
+            uint32_t gpdac_en : 1;
+            uint32_t gpdac_en2 : 1;
+            uint32_t reserved_2_3 : 2;
+            uint32_t dsm_mode : 2;
+            uint32_t reserved_6_7 : 2;
+            uint32_t gpdac_mode : 3;
+            uint32_t reserved_11_15 : 5;
+            uint32_t gpdac_ch_a_sel : 4;
+            uint32_t gpdac_ch_b_sel : 4;
+            uint32_t rsvd_31_24 : 8;
+        }BF;
+        uint32_t WORD;
+    } gpdac_config;
+
+
+    union {
+        struct {
+            uint32_t gpdac_dma_tx_en : 1;
+            uint32_t reserved_1_3 : 3;
+            uint32_t gpdac_dma_format : 2;
+            uint32_t reserved_6_31 : 26;
+        }BF;
+        uint32_t WORD;
+    } gpdac_dma_config;
+
+
+    union {
+        struct {
+            uint32_t gpdac_dma_wdata : 32;
+        }BF;
+        uint32_t WORD;
+    } gpdac_dma_wdata;
+
+
+    union {
+        struct {
+            uint32_t tx_fifo_empty : 1;
+            uint32_t tx_fifo_full : 1;
+            uint32_t tx_cs : 2;
+            uint32_t TxFifoRdPtr : 3;
+            uint32_t reserved_7 : 1;
+            uint32_t TxFifoWrPtr : 2;
+            uint32_t reserved_10_31 : 22;
+        }BF;
+        uint32_t WORD;
+    } gpdac_tx_fifo_status;
+
+};
+
+typedef volatile struct gpip_reg gpip_reg_t;
+# 41 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h" 2
+# 58 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h"
+typedef enum {
+    ADC_CHAN0,
+    ADC_CHAN1,
+    ADC_CHAN2,
+    ADC_CHAN3,
+    ADC_CHAN4,
+    ADC_CHAN5,
+    ADC_CHAN6,
+    ADC_CHAN7,
+    ADC_CHAN8,
+    ADC_CHAN9,
+    ADC_CHAN10,
+    ADC_CHAN11,
+    ADC_CHAN_DAC_OUTA,
+    ADC_CHAN_DAC_OUTB,
+    ADC_CHAN_TSEN_P,
+    ADC_CHAN_TSEN_N,
+    ADC_CHAN_VREF,
+    ADC_CHAN_DCTEST,
+    ADC_CHAN_VABT_HALF,
+    ADC_CHAN_SENP3,
+    ADC_CHAN_SENP2,
+    ADC_CHAN_SENP1,
+    ADC_CHAN_SENP0,
+    ADC_CHAN_GND,
+}ADC_Chan_Type;
+
+
+
+
+typedef enum {
+    ADC_V18_SEL_1P62V,
+    ADC_V18_SEL_1P72V,
+    ADC_V18_SEL_1P82V,
+    ADC_V18_SEL_1P92V,
+}ADC_V18_SEL_Type;
+
+
+
+
+typedef enum {
+    ADC_V11_SEL_1P0V,
+    ADC_V11_SEL_1P1V,
+    ADC_V11_SEL_1P18V,
+    ADC_V11_SEL_1P26V,
+}ADC_V11_SEL_Type;
+
+
+
+
+typedef enum {
+    ADC_CLK_DIV_1,
+    ADC_CLK_DIV_4,
+    ADC_CLK_DIV_8,
+    ADC_CLK_DIV_12,
+    ADC_CLK_DIV_16,
+    ADC_CLK_DIV_20,
+    ADC_CLK_DIV_24,
+    ADC_CLK_DIV_32,
+}ADC_CLK_Type;
+
+
+
+
+typedef enum {
+    ADC_DELAY_SEL_0,
+    ADC_DELAY_SEL_1,
+    ADC_DELAY_SEL_2,
+    ADC_DELAY_SEL_3,
+    ADC_DELAY_SEL_4,
+    ADC_DELAY_SEL_5,
+    ADC_DELAY_SEL_6,
+    ADC_DELAY_SEL_7,
+}ADC_DELAY_SEL_Type;
+
+
+
+
+typedef enum {
+    ADC_PGA_GAIN_NONE,
+    ADC_PGA_GAIN_1,
+    ADC_PGA_GAIN_2,
+    ADC_PGA_GAIN_4,
+    ADC_PGA_GAIN_8,
+    ADC_PGA_GAIN_16,
+    ADC_PGA_GAIN_32,
+}ADC_PGA_GAIN_Type;
+
+
+
+
+typedef enum {
+    ADC_BIAS_SEL_MAIN_BANDGAP,
+    ADC_BIAS_SEL_AON_BANDGAP,
+}ADC_BIAS_SEL_Type;
+
+
+
+
+typedef enum {
+    ADC_CHOP_MOD_ALL_OFF,
+    ADC_CHOP_MOD_AZ_ON,
+    ADC_CHOP_MOD_AZ_PGA_ON,
+    ADC_CHOP_MOD_AZ_PGA_RPC_ON,
+}ADC_CHOP_MOD_Type;
+
+
+
+
+typedef enum {
+    ADC_PGA_VCM_1V,
+    ADC_PGA_VCM_1P2V,
+    ADC_PGA_VCM_1P4V,
+    ADC_PGA_VCM_1P6V,
+}ADC_PGA_VCM_Type;
+
+
+
+
+typedef enum {
+    ADC_TSEN_MOD_INTERNAL_DIODE,
+    ADC_TSEN_MOD_EXTERNAL_DIODE,
+}ADC_TSEN_MOD_Type;
+
+
+
+
+typedef enum {
+    ADC_VREF_3P2V,
+    ADC_VREF_2V,
+}ADC_VREF_Type;
+
+
+
+
+typedef enum {
+    ADC_INPUT_SINGLE_END,
+    ADC_INPUT_DIFF,
+}ADC_SIG_INPUT_Type;
+
+
+
+
+typedef enum {
+    ADC_DATA_WIDTH_12,
+    ADC_DATA_WIDTH_14_WITH_16_AVERAGE,
+    ADC_DATA_WIDTH_16_WITH_64_AVERAGE,
+    ADC_DATA_WIDTH_16_WITH_128_AVERAGE,
+    ADC_DATA_WIDTH_16_WITH_256_AVERAGE,
+}ADC_Data_Width_Type;
+
+
+
+
+typedef enum {
+    ADC_MICBOOST_DB_16DB,
+    ADC_MICBOOST_DB_32DB,
+}ADC_MICBOOST_DB_Type;
+
+
+
+
+typedef enum {
+    ADC_PGA2_GAIN_0DB,
+    ADC_PGA2_GAIN_6DB,
+    ADC_PGA2_GAIN_N6DB,
+    ADC_PGA2_GAIN_12DB,
+}ADC_PGA2_GAIN_Type;
+
+
+
+
+typedef enum {
+    ADC_MIC_MODE_SINGLE,
+    ADC_MIC_MODE_DIFF,
+}ADC_MIC_MODE_Type;
+
+
+
+
+typedef struct {
+    ADC_MICBOOST_DB_Type micboostDb;
+    ADC_PGA2_GAIN_Type micPga2Gain;
+    ADC_MIC_MODE_Type mic1Mode;
+    ADC_MIC_MODE_Type mic2Mode;
+    BL_Fun_Type dwaEn;
+    BL_Fun_Type micboostBypassEn;
+    BL_Fun_Type micPgaEn;
+    BL_Fun_Type micBiasEn;
+}ADC_MIC_Type;
+
+
+
+
+typedef struct {
+    ADC_V18_SEL_Type v18Sel;
+    ADC_V11_SEL_Type v11Sel;
+    ADC_CLK_Type clkDiv;
+    ADC_PGA_GAIN_Type gain1;
+    ADC_PGA_GAIN_Type gain2;
+    ADC_CHOP_MOD_Type chopMode;
+    ADC_BIAS_SEL_Type biasSel;
+    ADC_PGA_VCM_Type vcm;
+    ADC_VREF_Type vref;
+    ADC_SIG_INPUT_Type inputMode;
+    ADC_Data_Width_Type resWidth;
+    BL_Fun_Type offsetCalibEn;
+    int16_t offsetCalibVal;
+}ADC_CFG_Type;
+
+
+
+
+typedef struct {
+    int8_t posChan;
+    int8_t negChan;
+    uint16_t value;
+    float volt;
+}ADC_Result_Type;
+
+
+
+
+typedef enum {
+    ADC_FIFO_THRESHOLD_1,
+    ADC_FIFO_THRESHOLD_4,
+    ADC_FIFO_THRESHOLD_8,
+    ADC_FIFO_THRESHOLD_16,
+}ADC_FIFO_Threshold_Type;
+
+
+
+
+typedef enum {
+    ADC_INT_POS_SATURATION,
+    ADC_INT_NEG_SATURATION,
+    ADC_INT_FIFO_UNDERRUN,
+    ADC_INT_FIFO_OVERRUN,
+    ADC_INT_ADC_READY,
+    ADC_INT_ALL,
+}ADC_INT_Type;
+
+
+
+
+typedef struct {
+    ADC_FIFO_Threshold_Type fifoThreshold;
+    BL_Fun_Type dmaEn;
+}ADC_FIFO_Cfg_Type;
+
+
+
+
+typedef struct {
+    BL_Fun_Type adcGainCoeffEnable;
+    uint16_t adcgainCoeffVal;
+    float coe;
+}ADC_Gain_Coeff_Type;
+# 500 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h"
+void ADC_Vbat_Enable(void);
+void ADC_Vbat_Disable(void);
+void ADC_Reset(void);
+void ADC_Enable(void);
+void ADC_Disable(void);
+void ADC_Init(ADC_CFG_Type* cfg);
+void ADC_Channel_Config(ADC_Chan_Type posCh,ADC_Chan_Type negCh,BL_Fun_Type contEn);
+void ADC_Scan_Channel_Config(ADC_Chan_Type posChList[],ADC_Chan_Type negChList[],uint8_t scanLength,BL_Fun_Type contEn);
+void ADC_Start(void);
+void ADC_Stop(void);
+void ADC_FIFO_Cfg(ADC_FIFO_Cfg_Type *fifoCfg);
+uint8_t ADC_Get_FIFO_Count(void);
+BL_Sts_Type ADC_FIFO_Is_Empty(void);
+BL_Sts_Type ADC_FIFO_Is_Full(void);
+uint32_t ADC_Read_FIFO(void);
+void ADC_Parse_Result(uint32_t *orgVal,uint32_t len,ADC_Result_Type *result);
+void ADC_IntMask(ADC_INT_Type intType, BL_Mask_Type intMask);
+void ADC_IntClr(ADC_INT_Type intType);
+BL_Sts_Type ADC_GetIntStatus(ADC_INT_Type intType);
+void ADC_Int_Callback_Install(ADC_INT_Type intType,intCallback_Type* cbFun);
+void ADC_IntMask(ADC_INT_Type intType, BL_Mask_Type intMask);
+void ADC_SET_TSVBE_LOW(void);
+void ADC_SET_TSVBE_HIGH(void);
+void ADC_Tsen_Init(ADC_TSEN_MOD_Type tsenMod);
+BL_Err_Type ADC_Mic_Init(ADC_MIC_Type * adc_mic_config);
+void ADC_MIC_Bias_Disable(void);
+void ADC_MIC_Bias_Enable(void);
+BL_Err_Type ADC_Trim_TSEN(uint16_t * tsen_offset);
+BL_Err_Type ADC_Gain_Trim(void);
+uint32_t ADC_Cal_Reg_Coeff_Value(uint32_t raw_reg);
+float TSEN_Get_Temp(uint32_t tsen_offset);
+# 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
+# 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_adc.h" 1
+# 36 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_adc.h"
+typedef void (*bl_adc_cb_t)(int mode, uint32_t *data_ptr, uint32_t data_size);
+typedef struct adc_ctx {
+    int mode;
+    uint32_t *channel_data;
+    void *adc_lli;
+    int lli_flag;
+    uint32_t chan_init_table;
+    uint32_t data_size;
+    bl_adc_cb_t cb;
+}adc_ctx_t;
+
+int test_adc_init(void);
+int test_adc_get(int16_t *tmp);
+int test_adc_test(void);
+int bl_tsen_adc_get(int16_t *temp, uint8_t log_flag);
+
+
+int bl_adc_init(int mode, int gpio_num);
+int bl_adc_dma_init(int mode, uint32_t data_num);
+int bl_adc_start(void);
+int bl_adc_gpio_init(int gpio_num);
+int bl_adc_get_channel_by_gpio(int gpio_num);
+int bl_adc_freq_init(int mode, uint32_t freq);
+int32_t bl_adc_parse_data(uint32_t *parr, int data_size, int channel, int raw_flag);
+# 9 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
+# 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_dma.h" 1
+# 33 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_dma.h"
+# 1 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h" 1
+# 36 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 1 3 4
+# 37 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h" 2
+
+struct utils_list_hdr
+{
+    struct utils_list_hdr *next;
+};
+
+struct utils_list
+{
+
+    struct utils_list_hdr *first;
+
+    struct utils_list_hdr *last;
+};
+# 62 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+void utils_list_init(struct utils_list *list);
+# 75 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+void utils_list_pool_init(struct utils_list *list, void *pool, size_t elmt_size, unsigned int elmt_cnt, void *default_value);
+# 85 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+void utils_list_push_back(struct utils_list *list,
+                       struct utils_list_hdr *list_hdr);
+# 96 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+void utils_list_push_front(struct utils_list *list, struct utils_list_hdr *list_hdr);
+# 106 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+struct utils_list_hdr *utils_list_pop_front(struct utils_list *list);
+# 119 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+void utils_list_extract(struct utils_list *list, struct utils_list_hdr *list_hdr);
+# 131 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+int utils_list_find(struct utils_list *list, struct utils_list_hdr *list_hdr);
+# 148 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+void utils_list_insert(struct utils_list * const list, struct utils_list_hdr * const element,
+        int (*cmp)(struct utils_list_hdr const *elementA,
+        struct utils_list_hdr const *elementB));
+# 166 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+void utils_list_insert_after(struct utils_list * const list, struct utils_list_hdr * const prev_element, struct utils_list_hdr * const element);
+# 182 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+void utils_list_insert_before(struct utils_list * const list, struct utils_list_hdr * const next_element, struct utils_list_hdr * const element);
+# 194 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+void utils_list_concat(struct utils_list *list1, struct utils_list *list2);
+# 210 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+void utils_list_remove(struct utils_list *list, struct utils_list_hdr *prev_element, struct utils_list_hdr *element);
+# 220 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+static inline int utils_list_is_empty(const struct utils_list *const list)
+{
+    return (
+# 222 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h" 3 4
+           ((void *)0) 
+# 222 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+                == list->first);
+}
+# 234 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+unsigned int utils_list_cnt(const struct utils_list *const list);
+# 245 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+static inline struct utils_list_hdr *utils_list_pick(const struct utils_list *const list)
+{
+    return list->first;
+}
+
+static inline struct utils_list_hdr *utils_list_pick_last(const struct utils_list *const list)
+{
+    return list->last;
+}
+
+static inline struct utils_list_hdr *utils_list_next(const struct utils_list_hdr *const list_hdr)
+{
+    return list_hdr->next;
+}
+# 280 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+typedef struct utils_dlist_s {
+    struct utils_dlist_s *prev;
+    struct utils_dlist_s *next;
+} utils_dlist_t;
+
+static inline void __utils_dlist_add(utils_dlist_t *node, utils_dlist_t *prev, utils_dlist_t *next)
+{
+    node->next = next;
+    node->prev = prev;
+
+    prev->next = node;
+    next->prev = node;
+}
+# 305 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+static inline void utils_dlist_add(utils_dlist_t *node, utils_dlist_t *queue)
+{
+    __utils_dlist_add(node, queue, queue->next);
+}
+
+static inline void utils_dlist_add_tail(utils_dlist_t *node, utils_dlist_t *queue)
+{
+    __utils_dlist_add(node, queue->prev, queue);
+}
+
+static inline void utils_dlist_del(utils_dlist_t *node)
+{
+    utils_dlist_t *prev = node->prev;
+    utils_dlist_t *next = node->next;
+
+    prev->next = next;
+    next->prev = prev;
+}
+
+static inline void utils_dlist_init(utils_dlist_t *node)
+{
+    node->next = node->prev = node;
+}
+
+static inline void INIT_UTILS_DLIST_HEAD(utils_dlist_t *list)
+{
+    list->next = list;
+    list->prev = list;
+}
+
+static inline int utils_dlist_empty(const utils_dlist_t *head)
+{
+    return head->next == head;
+}
+# 434 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+static inline int utils_dlist_entry_number(utils_dlist_t *queue)
+{
+    int num;
+    utils_dlist_t *cur = queue;
+    for (num=0;cur->next != queue;cur=cur->next, num++)
+        ;
+
+    return num;
+}
+# 462 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+typedef struct utils_slist_s {
+    struct utils_slist_s *next;
+} utils_slist_t;
+
+static inline void utils_slist_add(utils_slist_t *node, utils_slist_t *head)
+{
+    node->next = head->next;
+    head->next = node;
+}
+
+static inline void utils_slist_add_tail(utils_slist_t *node, utils_slist_t *head)
+{
+    while (head->next) {
+        head = head->next;
+    }
+
+    utils_slist_add(node, head);
+}
+
+static inline void utils_slist_del(utils_slist_t *node, utils_slist_t *head)
+{
+    while (head->next) {
+        if (head->next == node) {
+            head->next = node->next;
+            break;
+        }
+
+        head = head->next;
+    }
+}
+
+static inline int utils_slist_empty(const utils_slist_t *head)
+{
+    return !head->next;
+}
+
+static inline void utils_slist_init(utils_slist_t *head)
+{
+    head->next = 0;
+}
+# 571 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h"
+static inline int utils_slist_entry_number(utils_slist_t *queue)
+{
+    int num;
+    utils_slist_t *cur = queue;
+    for (num=0;cur->next;cur=cur->next, num++)
+        ;
+
+    return num;
+}
+# 34 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_dma.h" 2
+# 57 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_dma.h"
+struct bl_dma_item {
+    struct utils_list_hdr item;
+    void (*cb)(void *arg);
+    void *arg;
+
+    uint32_t src;
+    uint32_t dst;
+    uint32_t next;
+    uint32_t ctrl;
+};
+
+
+void bl_dma_copy(struct bl_dma_item *item);
+void bl_dma_init(void);
+void bl_dma_test(void);
+int bl_dma_int_clear(int ch);
+void bl_dma_update_memsrc(uint8_t ch, uint32_t src, uint32_t len);
+void bl_dma_update_memdst(uint8_t ch, uint32_t dst, uint32_t len);
+int bl_dma_irq_register(int channel, void *tc_handler, void *interr_handler, void *ctx);
+int bl_dma_irq_unregister(int channel);
+void *bl_dma_find_node_by_channel(int channel);
+void *bl_dma_find_ctx_by_channel(int channel);
+void *bl_dma_mem_malloc(uint32_t size);
+void bl_dma_mem_free(void *ptr);
+# 10 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
+# 18 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
+void task_adc(void *pvParameters)
+{
+  printf("ADC task started\r\n");
+
+
+  init_adc(4);
+
+  printf("ADC initialized\r\n");
+
+
+  vTaskDelay(2000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
+
+
+  while (1) {
+    printf("\nCurrent value of digitized analog signal: %"
+# 32 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 3
+                                                         "l" 
+# 32 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
+                                                         "u""\r\n", read_adc());
+    convert_to_binary(read_adc());
+    vTaskDelay(5000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
+  }
+
+  vTaskDelete(
+# 37 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 3 4
+             ((void *)0)
+# 37 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
+                 );
+}
+
+
+
+uint8_t read_humidity(uint8_t *humidity) {
+
+  int fluctuation = rand() % 5 - 2;
+  *humidity = 38 + fluctuation;
+
+
+  if (*humidity > 100) *humidity = 100;
+
+  return 0;
+}
+
+
+uint8_t read_temperature(uint8_t *temperature) {
+
+  int fluctuation = rand() % 3 - 1;
+  *temperature = 26 + fluctuation;
+
+  return 0;
+}
+
+void convert_to_binary(uint32_t n) {
+  int a[32], i;
+  for(i = 0; n > 0; i++) {
+    a[i] = n % 2;
+    n = n / 2;
+  }
+  printf("\nBinary of Given Number is=");
+  for(i = i-1; i >= 0; i--) {
+    printf("%d", a[i]);
+  }
+  printf("\r\n");
+}
+# 13 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+
 
 
 extern uint8_t _heap_start;
@@ -2865,14 +4370,14 @@ static HeapRegion_t xHeapRegions[] =
   { &_heap_start, (unsigned int) &_heap_size},
   { &_heap_wifi_start, (unsigned int) &_heap_wifi_size },
   { 
-# 21 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
+# 25 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
    ((void *)0)
-# 21 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
+# 25 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
        , 0},
   { 
-# 22 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
+# 26 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
    ((void *)0)
-# 22 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
+# 26 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
        , 0}
 };
 
@@ -2887,17 +4392,20 @@ void bfl_main(void)
 
 
 
-  bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
+    bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
 
 
-  vPortDefineHeapRegions(xHeapRegions);
+    vPortDefineHeapRegions(xHeapRegions);
 
 
-  static StackType_t led_stack[512];
-  static StaticTask_t led_task;
+    static StackType_t led_stack[512];
+    static StaticTask_t led_task;
 
 
   extern void task_led(void *pvParameters);
+
+
+
 
 
 
@@ -2907,9 +4415,9 @@ void bfl_main(void)
     (char*)"led",
     512,
     
-# 55 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
+# 62 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
    ((void *)0)
-# 55 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
+# 62 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
        ,
     15,
     led_stack,
