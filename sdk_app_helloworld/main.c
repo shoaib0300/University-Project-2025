@@ -1,16 +1,11 @@
 // FreeRTOS includes
 #include <FreeRTOS.h>
 #include <task.h>
-
-// Input/Output
 #include <stdio.h>
 #include <inttypes.h>
-
-// UART library
 #include <bl_uart.h>
 #include "adc.h"
 #include "adc.c"
-
 
 /* Define heap regions */
 extern uint8_t _heap_start;
@@ -31,28 +26,21 @@ static HeapRegion_t xHeapRegions[] =
 
 void bfl_main(void)
 {
-    printf("program started\r\n");
-
   /* Initialize UART
    * Ports: 16+7 (TX+RX)
    * Baudrate: 2 million
    */
-    bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
+  bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
   
    /* (Re)define Heap */
-    vPortDefineHeapRegions(xHeapRegions);
+  vPortDefineHeapRegions(xHeapRegions);
   
   /* Set up LED task */
-    static StackType_t led_stack[LED_STACK_SIZE];
-    static StaticTask_t led_task;
-  
+  static StackType_t led_stack[LED_STACK_SIZE];
+  static StaticTask_t led_task;
+
   /* Start up LED task */
   extern void task_led(void *pvParameters); 
-  /* This function is defined in led.c but add prototype here so that the compiler knows we define this in another file.
-  You could also use a header file for this */
-  // uint32_t dht22_data=1;
-  // uint8_t tempe;
-  // read_temperature(dht22_data, &tempe);
 
   /* Create the task */
   xTaskCreateStatic(

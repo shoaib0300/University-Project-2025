@@ -2236,7 +2236,6 @@ extern long double strtold (const char *restrict, char **restrict);
 # 339 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
 
 # 6 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
-
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h" 1
 # 39 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h"
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/aon_reg.h" 1
@@ -3614,7 +3613,7 @@ BL_Err_Type ADC_Trim_TSEN(uint16_t * tsen_offset);
 BL_Err_Type ADC_Gain_Trim(void);
 uint32_t ADC_Cal_Reg_Coeff_Value(uint32_t raw_reg);
 float TSEN_Get_Temp(uint32_t tsen_offset);
-# 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
+# 7 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_adc.h" 1
 # 36 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_adc.h"
 typedef void (*bl_adc_cb_t)(int mode, uint32_t *data_ptr, uint32_t data_size);
@@ -3641,7 +3640,7 @@ int bl_adc_gpio_init(int gpio_num);
 int bl_adc_get_channel_by_gpio(int gpio_num);
 int bl_adc_freq_init(int mode, uint32_t freq);
 int32_t bl_adc_parse_data(uint32_t *parr, int data_size, int channel, int raw_flag);
-# 9 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
+# 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_dma.h" 1
 # 33 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_dma.h"
 # 1 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h" 1
@@ -3850,8 +3849,7 @@ void *bl_dma_find_node_by_channel(int channel);
 void *bl_dma_find_ctx_by_channel(int channel);
 void *bl_dma_mem_malloc(uint32_t size);
 void bl_dma_mem_free(void *ptr);
-# 10 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
-
+# 9 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h" 1
 # 17 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h"
 void init_adc(uint8_t pin);
@@ -3860,7 +3858,7 @@ void convert_to_binary(uint32_t n);
 
 uint8_t read_humidity(uint8_t *humidity);
 uint8_t read_temperature(uint8_t *temperature);
-# 12 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
+# 10 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
 
 
 
@@ -3882,21 +3880,20 @@ void task_adc(void *pvParameters)
 
   while (1) {
     printf("\nCurrent value of digitized analog signal: %"
-# 32 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 3
+# 30 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 3
                                                          "l" 
-# 32 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
+# 30 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
                                                          "u""\r\n", read_adc());
     convert_to_binary(read_adc());
     vTaskDelay(5000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
   }
 
   vTaskDelete(
-# 37 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 3 4
+# 35 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 3 4
              ((void *)0)
-# 37 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
+# 35 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
                  );
 }
-
 
 
 uint8_t read_humidity(uint8_t *humidity) {

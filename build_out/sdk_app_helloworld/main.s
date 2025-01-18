@@ -13,37 +13,37 @@
 read_humidity:
 .LFB28:
 	.file 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
-	.loc 1 42 42
+	.loc 1 39 42
 	.cfi_startproc
 .LVL0:
-	.loc 1 44 3
-	.loc 1 42 42 is_stmt 0
+	.loc 1 41 3
+	.loc 1 39 42 is_stmt 0
 	addi	sp,sp,-16
 	.cfi_def_cfa_offset 16
 	sw	s0,8(sp)
 	sw	ra,12(sp)
 	.cfi_offset 8, -8
 	.cfi_offset 1, -4
-	.loc 1 42 42
+	.loc 1 39 42
 	mv	s0,a0
-	.loc 1 44 21
+	.loc 1 41 21
 	call	rand
 .LVL1:
-	.loc 1 45 3 is_stmt 1
-	.loc 1 44 28 is_stmt 0
+	.loc 1 42 3 is_stmt 1
+	.loc 1 41 28 is_stmt 0
 	li	a5,5
 	rem	a0,a0,a5
 .LVL2:
-	.loc 1 51 1
+	.loc 1 48 1
 	lw	ra,12(sp)
 	.cfi_restore 1
-	.loc 1 45 18
+	.loc 1 42 18
 	addi	a0,a0,36
-	.loc 1 45 13
+	.loc 1 42 13
 	sb	a0,0(s0)
-	.loc 1 48 3 is_stmt 1
-	.loc 1 50 3
-	.loc 1 51 1 is_stmt 0
+	.loc 1 45 3 is_stmt 1
+	.loc 1 47 3
+	.loc 1 48 1 is_stmt 0
 	lw	s0,8(sp)
 	.cfi_restore 8
 .LVL3:
@@ -60,36 +60,36 @@ read_humidity:
 	.type	read_temperature, @function
 read_temperature:
 .LFB29:
-	.loc 1 54 48 is_stmt 1
+	.loc 1 51 48 is_stmt 1
 	.cfi_startproc
 .LVL4:
-	.loc 1 56 3
-	.loc 1 54 48 is_stmt 0
+	.loc 1 53 3
+	.loc 1 51 48 is_stmt 0
 	addi	sp,sp,-16
 	.cfi_def_cfa_offset 16
 	sw	s0,8(sp)
 	sw	ra,12(sp)
 	.cfi_offset 8, -8
 	.cfi_offset 1, -4
-	.loc 1 54 48
+	.loc 1 51 48
 	mv	s0,a0
-	.loc 1 56 21
+	.loc 1 53 21
 	call	rand
 .LVL5:
-	.loc 1 57 3 is_stmt 1
-	.loc 1 56 28 is_stmt 0
+	.loc 1 54 3 is_stmt 1
+	.loc 1 53 28 is_stmt 0
 	li	a5,3
 	rem	a0,a0,a5
 .LVL6:
-	.loc 1 60 1
+	.loc 1 57 1
 	lw	ra,12(sp)
 	.cfi_restore 1
-	.loc 1 57 21
+	.loc 1 54 21
 	addi	a0,a0,25
-	.loc 1 57 16
+	.loc 1 54 16
 	sb	a0,0(s0)
-	.loc 1 59 3 is_stmt 1
-	.loc 1 60 1 is_stmt 0
+	.loc 1 56 3 is_stmt 1
+	.loc 1 57 1 is_stmt 0
 	lw	s0,8(sp)
 	.cfi_restore 8
 .LVL7:
@@ -106,12 +106,12 @@ read_temperature:
 	.type	convert_to_binary, @function
 convert_to_binary:
 .LFB30:
-	.loc 1 62 36 is_stmt 1
+	.loc 1 59 36 is_stmt 1
 	.cfi_startproc
 .LVL8:
-	.loc 1 63 3
-	.loc 1 64 3
-	.loc 1 62 36 is_stmt 0
+	.loc 1 60 3
+	.loc 1 61 3
+	.loc 1 59 36 is_stmt 0
 	addi	sp,sp,-144
 	.cfi_def_cfa_offset 144
 	sw	s0,136(sp)
@@ -122,31 +122,31 @@ convert_to_binary:
 	.cfi_offset 1, -4
 	.cfi_offset 9, -12
 	.cfi_offset 18, -16
-	.loc 1 64 9
+	.loc 1 61 9
 	li	s0,0
 .LVL9:
 .L6:
-	.loc 1 64 3 discriminator 1
+	.loc 1 61 3 discriminator 1
 	bne	a0,zero,.L7
-	.loc 1 68 3 is_stmt 1
+	.loc 1 65 3 is_stmt 1
 	lui	a0,%hi(.LC0)
 .LVL10:
 	addi	a0,a0,%lo(.LC0)
 	call	printf
 .LVL11:
-	.loc 1 69 3
-	.loc 1 69 9 is_stmt 0
+	.loc 1 66 3
+	.loc 1 66 9 is_stmt 0
 	addi	s0,s0,-1
 .LVL12:
-	.loc 1 69 3
+	.loc 1 66 3
 	li	s1,-1
-	.loc 1 70 5
+	.loc 1 67 5
 	lui	s2,%hi(.LC1)
 .L8:
-	.loc 1 69 3 discriminator 1
+	.loc 1 66 3 discriminator 1
 	bne	s0,s1,.L9
-	.loc 1 72 3 is_stmt 1
-	.loc 1 73 1 is_stmt 0
+	.loc 1 69 3 is_stmt 1
+	.loc 1 70 1 is_stmt 0
 	lw	s0,136(sp)
 	.cfi_remember_state
 	.cfi_restore 8
@@ -157,46 +157,46 @@ convert_to_binary:
 	.cfi_restore 9
 	lw	s2,128(sp)
 	.cfi_restore 18
-	.loc 1 72 3
+	.loc 1 69 3
 	lui	a0,%hi(.LC2)
-	.loc 1 73 1
-	.loc 1 72 3
+	.loc 1 70 1
+	.loc 1 69 3
 	addi	a0,a0,%lo(.LC2)
-	.loc 1 73 1
+	.loc 1 70 1
 	addi	sp,sp,144
 	.cfi_def_cfa_offset 0
-	.loc 1 72 3
+	.loc 1 69 3
 	tail	printf
 .LVL14:
 .L7:
 	.cfi_restore_state
-	.loc 1 65 5 is_stmt 1 discriminator 3
-	.loc 1 65 10 is_stmt 0 discriminator 3
+	.loc 1 62 5 is_stmt 1 discriminator 3
+	.loc 1 62 10 is_stmt 0 discriminator 3
 	slli	a5,s0,2
-	.loc 1 65 14 discriminator 3
+	.loc 1 62 14 discriminator 3
 	andi	a4,a0,1
-	.loc 1 65 10 discriminator 3
+	.loc 1 62 10 discriminator 3
 	add	a5,sp,a5
 	sw	a4,0(a5)
-	.loc 1 66 5 is_stmt 1 discriminator 3
-	.loc 1 66 7 is_stmt 0 discriminator 3
+	.loc 1 63 5 is_stmt 1 discriminator 3
+	.loc 1 63 7 is_stmt 0 discriminator 3
 	srli	a0,a0,1
 .LVL15:
-	.loc 1 64 22 discriminator 3
+	.loc 1 61 22 discriminator 3
 	addi	s0,s0,1
 .LVL16:
 	j	.L6
 .LVL17:
 .L9:
-	.loc 1 70 5 is_stmt 1 discriminator 3
+	.loc 1 67 5 is_stmt 1 discriminator 3
 	slli	a5,s0,2
 	add	a5,sp,a5
 	lw	a1,0(a5)
 	addi	a0,s2,%lo(.LC1)
-	.loc 1 69 25 is_stmt 0 discriminator 3
+	.loc 1 66 25 is_stmt 0 discriminator 3
 	addi	s0,s0,-1
 .LVL18:
-	.loc 1 70 5 discriminator 3
+	.loc 1 67 5 discriminator 3
 	call	printf
 .LVL19:
 	j	.L8
@@ -209,62 +209,62 @@ convert_to_binary:
 	.type	task_adc, @function
 task_adc:
 .LFB27:
-	.loc 1 19 1 is_stmt 1
+	.loc 1 17 1 is_stmt 1
 	.cfi_startproc
 .LVL20:
-	.loc 1 20 3
+	.loc 1 18 3
 	lui	a0,%hi(.LC3)
 .LVL21:
-	.loc 1 19 1 is_stmt 0
+	.loc 1 17 1 is_stmt 0
 	addi	sp,sp,-16
 	.cfi_def_cfa_offset 16
-	.loc 1 20 3
+	.loc 1 18 3
 	addi	a0,a0,%lo(.LC3)
-	.loc 1 19 1
+	.loc 1 17 1
 	sw	ra,12(sp)
 	sw	s0,8(sp)
 	sw	s1,4(sp)
 	.cfi_offset 1, -4
 	.cfi_offset 8, -8
 	.cfi_offset 9, -12
-	.loc 1 20 3
+	.loc 1 18 3
 	call	printf
 .LVL22:
-	.loc 1 23 3 is_stmt 1
+	.loc 1 21 3 is_stmt 1
 	li	a0,4
 	call	init_adc
 .LVL23:
-	.loc 1 25 3
+	.loc 1 23 3
 	lui	a0,%hi(.LC4)
 	addi	a0,a0,%lo(.LC4)
 	call	printf
 .LVL24:
-	.loc 1 28 3
+	.loc 1 26 3
 	li	a0,2000
-	.loc 1 34 5 is_stmt 0
+	.loc 1 32 5 is_stmt 0
 	li	s0,4096
-	.loc 1 28 3
+	.loc 1 26 3
 	call	vTaskDelay
 .LVL25:
-	.loc 1 32 5
+	.loc 1 30 5
 	lui	s1,%hi(.LC5)
-	.loc 1 34 5
+	.loc 1 32 5
 	addi	s0,s0,904
 .L12:
-	.loc 1 31 3 is_stmt 1 discriminator 1
-	.loc 1 32 5 discriminator 1
+	.loc 1 29 3 is_stmt 1 discriminator 1
+	.loc 1 30 5 discriminator 1
 	call	read_adc
 .LVL26:
 	mv	a1,a0
 	addi	a0,s1,%lo(.LC5)
 	call	printf
 .LVL27:
-	.loc 1 33 5 discriminator 1
+	.loc 1 31 5 discriminator 1
 	call	read_adc
 .LVL28:
 	call	convert_to_binary
 .LVL29:
-	.loc 1 34 5 discriminator 1
+	.loc 1 32 5 discriminator 1
 	mv	a0,s0
 	call	vTaskDelay
 .LVL30:
@@ -279,62 +279,57 @@ task_adc:
 bfl_main:
 .LFB31:
 	.file 2 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
-	.loc 2 33 1
+	.loc 2 28 1
 	.cfi_startproc
-	.loc 2 34 5
-	lui	a0,%hi(.LC6)
-	.loc 2 33 1 is_stmt 0
+	.loc 2 33 3
+	li	a5,1998848
+	.loc 2 28 1 is_stmt 0
 	addi	sp,sp,-16
 	.cfi_def_cfa_offset 16
-	.loc 2 34 5
-	addi	a0,a0,%lo(.LC6)
-	.loc 2 33 1
-	sw	ra,12(sp)
-	.cfi_offset 1, -4
-	.loc 2 34 5
-	call	printf
-.LVL31:
-	.loc 2 40 5 is_stmt 1
-	li	a5,1998848
+	.loc 2 33 3
 	addi	a5,a5,1152
 	li	a4,255
 	li	a3,255
 	li	a2,7
 	li	a1,16
 	li	a0,0
+	.loc 2 28 1
+	sw	ra,12(sp)
+	.cfi_offset 1, -4
+	.loc 2 33 3
 	call	bl_uart_init
-.LVL32:
-	.loc 2 43 5
+.LVL31:
+	.loc 2 36 3 is_stmt 1
 	lui	a0,%hi(.LANCHOR0)
 	addi	a0,a0,%lo(.LANCHOR0)
 	call	vPortDefineHeapRegions
-.LVL33:
-	.loc 2 46 5
-	.loc 2 47 5
-	.loc 2 50 3
-	.loc 2 58 3
+.LVL32:
+	.loc 2 39 3
+	.loc 2 40 3
+	.loc 2 43 3
+	.loc 2 46 3
 	lui	a6,%hi(.LANCHOR1)
 	lui	a5,%hi(led_stack.4806)
-	lui	a1,%hi(.LC7)
+	lui	a1,%hi(.LC6)
 	lui	a0,%hi(task_led)
 	addi	a6,a6,%lo(.LANCHOR1)
 	addi	a5,a5,%lo(led_stack.4806)
 	li	a4,15
 	li	a3,0
 	li	a2,512
-	addi	a1,a1,%lo(.LC7)
+	addi	a1,a1,%lo(.LC6)
 	addi	a0,a0,%lo(task_led)
 	call	xTaskCreateStatic
-.LVL34:
-	.loc 2 69 3
-	.loc 2 70 1 is_stmt 0
+.LVL33:
+	.loc 2 57 3
+	.loc 2 58 1 is_stmt 0
 	lw	ra,12(sp)
 	.cfi_restore 1
 	addi	sp,sp,16
 	.cfi_def_cfa_offset 0
-	.loc 2 69 3
+	.loc 2 57 3
 	tail	vTaskStartScheduler
-.LVL35:
+.LVL34:
 	.cfi_endproc
 .LFE31:
 	.size	bfl_main, .-bfl_main
@@ -368,9 +363,6 @@ xHeapRegions:
 	.section	.rodata.bfl_main.str1.4,"aMS",@progbits,1
 	.align	2
 .LC6:
-	.string	"program started\r\n"
-	.zero	2
-.LC7:
 	.string	"led"
 	.section	.rodata.convert_to_binary.str1.4,"aMS",@progbits,1
 	.align	2
@@ -404,13 +396,13 @@ xHeapRegions:
 	.file 11 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/RISCV/Device/Bouffalo/BL602/Startup/system_bl602.h"
 	.file 12 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_common.h"
 	.file 13 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h"
-	.file 14 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h"
-	.file 15 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_uart.h"
-	.file 16 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
+	.file 14 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_uart.h"
+	.file 15 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
+	.file 16 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h"
 	.file 17 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0xec8
+	.4byte	0xeb1
 	.2byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
@@ -1852,25 +1844,25 @@ xHeapRegions:
 	.byte	0x6
 	.4byte	.LASF154
 	.byte	0x2
-	.byte	0x10
+	.byte	0xb
 	.byte	0x10
 	.4byte	0x67
 	.byte	0x6
 	.4byte	.LASF155
 	.byte	0x2
-	.byte	0x11
+	.byte	0xc
 	.byte	0x10
 	.4byte	0x67
 	.byte	0x6
 	.4byte	.LASF156
 	.byte	0x2
-	.byte	0x12
+	.byte	0xd
 	.byte	0x10
 	.4byte	0x67
 	.byte	0x6
 	.4byte	.LASF157
 	.byte	0x2
-	.byte	0x13
+	.byte	0xe
 	.byte	0x10
 	.4byte	0x67
 	.byte	0xc
@@ -1883,7 +1875,7 @@ xHeapRegions:
 	.byte	0x22
 	.4byte	.LASF158
 	.byte	0x2
-	.byte	0x15
+	.byte	0x10
 	.byte	0x15
 	.4byte	0xb60
 	.byte	0x5
@@ -1892,27 +1884,27 @@ xHeapRegions:
 	.byte	0x23
 	.4byte	.LASF161
 	.byte	0x2
-	.byte	0x20
+	.byte	0x1b
 	.byte	0x6
 	.4byte	.LFB31
 	.4byte	.LFE31-.LFB31
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xc72
+	.4byte	0xc5b
 	.byte	0x22
 	.4byte	.LASF159
 	.byte	0x2
-	.byte	0x2e
-	.byte	0x18
-	.4byte	0xc72
+	.byte	0x27
+	.byte	0x16
+	.4byte	0xc5b
 	.byte	0x5
 	.byte	0x3
 	.4byte	led_stack.4806
 	.byte	0x22
 	.4byte	.LASF160
 	.byte	0x2
-	.byte	0x2f
-	.byte	0x19
+	.byte	0x28
+	.byte	0x17
 	.4byte	0x234
 	.byte	0x5
 	.byte	0x3
@@ -1920,7 +1912,7 @@ xHeapRegions:
 	.byte	0x24
 	.4byte	.LASF183
 	.byte	0x2
-	.byte	0x32
+	.byte	0x2b
 	.byte	0xf
 	.4byte	0xbce
 	.byte	0x18
@@ -1928,19 +1920,8 @@ xHeapRegions:
 	.byte	0
 	.byte	0x25
 	.4byte	.LVL31
-	.4byte	0xe5c
-	.4byte	0xbe5
-	.byte	0x26
-	.byte	0x1
-	.byte	0x5a
-	.byte	0x5
-	.byte	0x3
-	.4byte	.LC6
-	.byte	0
-	.byte	0x25
-	.4byte	.LVL32
-	.4byte	0xe68
-	.4byte	0xc17
+	.4byte	0xe45
+	.4byte	0xc00
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5a
@@ -1976,9 +1957,9 @@ xHeapRegions:
 	.4byte	0x1e8480
 	.byte	0
 	.byte	0x25
-	.4byte	.LVL33
-	.4byte	0xe74
-	.4byte	0xc2e
+	.4byte	.LVL32
+	.4byte	0xe51
+	.4byte	0xc17
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5a
@@ -1987,15 +1968,15 @@ xHeapRegions:
 	.4byte	.LANCHOR0
 	.byte	0
 	.byte	0x25
-	.4byte	.LVL34
-	.4byte	0xe80
-	.4byte	0xc68
+	.4byte	.LVL33
+	.4byte	0xe5d
+	.4byte	0xc51
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5b
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC7
+	.4byte	.LC6
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5c
@@ -2026,12 +2007,12 @@ xHeapRegions:
 	.4byte	.LANCHOR1
 	.byte	0
 	.byte	0x27
-	.4byte	.LVL35
-	.4byte	0xe8d
+	.4byte	.LVL34
+	.4byte	0xe6a
 	.byte	0
 	.byte	0xc
 	.4byte	0x9d
-	.4byte	0xc83
+	.4byte	0xc6c
 	.byte	0x28
 	.4byte	0x38
 	.2byte	0x1ff
@@ -2039,40 +2020,40 @@ xHeapRegions:
 	.byte	0x23
 	.4byte	.LASF162
 	.byte	0x1
-	.byte	0x3e
+	.byte	0x3b
 	.byte	0x6
 	.4byte	.LFB30
 	.4byte	.LFE30-.LFB30
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xd05
+	.4byte	0xcee
 	.byte	0x29
 	.string	"n"
 	.byte	0x1
-	.byte	0x3e
+	.byte	0x3b
 	.byte	0x21
 	.4byte	0x81
 	.4byte	.LLST4
 	.byte	0x2a
 	.string	"a"
 	.byte	0x1
-	.byte	0x3f
+	.byte	0x3c
 	.byte	0x7
-	.4byte	0xd05
+	.4byte	0xcee
 	.byte	0x3
 	.byte	0x91
 	.byte	0xf0,0x7e
 	.byte	0x2b
 	.string	"i"
 	.byte	0x1
-	.byte	0x3f
+	.byte	0x3c
 	.byte	0xe
 	.4byte	0x25
 	.4byte	.LLST5
 	.byte	0x25
 	.4byte	.LVL11
-	.4byte	0xe5c
-	.4byte	0xcda
+	.4byte	0xe77
+	.4byte	0xcc3
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5a
@@ -2082,8 +2063,8 @@ xHeapRegions:
 	.byte	0
 	.byte	0x2c
 	.4byte	.LVL14
-	.4byte	0xe5c
-	.4byte	0xcf1
+	.4byte	0xe77
+	.4byte	0xcda
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5a
@@ -2093,7 +2074,7 @@ xHeapRegions:
 	.byte	0
 	.byte	0x2d
 	.4byte	.LVL19
-	.4byte	0xe5c
+	.4byte	0xe77
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5a
@@ -2104,7 +2085,7 @@ xHeapRegions:
 	.byte	0
 	.byte	0xc
 	.4byte	0x25
-	.4byte	0xd15
+	.4byte	0xcfe
 	.byte	0xd
 	.4byte	0x38
 	.byte	0x1f
@@ -2112,82 +2093,82 @@ xHeapRegions:
 	.byte	0x2e
 	.4byte	.LASF165
 	.byte	0x1
-	.byte	0x36
+	.byte	0x33
 	.byte	0x9
 	.4byte	0x67
 	.4byte	.LFB29
 	.4byte	.LFE29-.LFB29
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xd59
+	.4byte	0xd42
 	.byte	0x2f
 	.4byte	.LASF163
 	.byte	0x1
-	.byte	0x36
+	.byte	0x33
 	.byte	0x23
 	.4byte	0x101
 	.4byte	.LLST2
 	.byte	0x30
 	.4byte	.LASF164
 	.byte	0x1
-	.byte	0x38
+	.byte	0x35
 	.byte	0x7
 	.4byte	0x25
 	.4byte	.LLST3
 	.byte	0x31
 	.4byte	.LVL5
-	.4byte	0xe9a
+	.4byte	0xe83
 	.byte	0
 	.byte	0x2e
 	.4byte	.LASF166
 	.byte	0x1
-	.byte	0x2a
+	.byte	0x27
 	.byte	0x9
 	.4byte	0x67
 	.4byte	.LFB28
 	.4byte	.LFE28-.LFB28
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xd9d
+	.4byte	0xd86
 	.byte	0x2f
 	.4byte	.LASF167
 	.byte	0x1
-	.byte	0x2a
+	.byte	0x27
 	.byte	0x20
 	.4byte	0x101
 	.4byte	.LLST0
 	.byte	0x30
 	.4byte	.LASF164
 	.byte	0x1
-	.byte	0x2c
+	.byte	0x29
 	.byte	0x7
 	.4byte	0x25
 	.4byte	.LLST1
 	.byte	0x31
 	.4byte	.LVL1
-	.4byte	0xe9a
+	.4byte	0xe83
 	.byte	0
 	.byte	0x23
 	.4byte	.LASF168
 	.byte	0x1
-	.byte	0x12
+	.byte	0x10
 	.byte	0x6
 	.4byte	.LFB27
 	.4byte	.LFE27-.LFB27
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xe5c
+	.4byte	0xe45
 	.byte	0x2f
 	.4byte	.LASF169
 	.byte	0x1
-	.byte	0x12
+	.byte	0x10
 	.byte	0x15
 	.4byte	0x9b
 	.4byte	.LLST6
 	.byte	0x25
 	.4byte	.LVL22
-	.4byte	0xe5c
-	.4byte	0xdda
+	.4byte	0xe77
+	.4byte	0xdc3
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5a
@@ -2197,8 +2178,8 @@ xHeapRegions:
 	.byte	0
 	.byte	0x25
 	.4byte	.LVL23
-	.4byte	0xea6
-	.4byte	0xded
+	.4byte	0xe8f
+	.4byte	0xdd6
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5a
@@ -2207,8 +2188,8 @@ xHeapRegions:
 	.byte	0
 	.byte	0x25
 	.4byte	.LVL24
-	.4byte	0xe5c
-	.4byte	0xe04
+	.4byte	0xe77
+	.4byte	0xded
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5a
@@ -2218,8 +2199,8 @@ xHeapRegions:
 	.byte	0
 	.byte	0x25
 	.4byte	.LVL25
-	.4byte	0xeb2
-	.4byte	0xe19
+	.4byte	0xe9b
+	.4byte	0xe02
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5a
@@ -2229,11 +2210,11 @@ xHeapRegions:
 	.byte	0
 	.byte	0x31
 	.4byte	.LVL26
-	.4byte	0xebf
+	.4byte	0xea8
 	.byte	0x25
 	.4byte	.LVL27
-	.4byte	0xe5c
-	.4byte	0xe39
+	.4byte	0xe77
+	.4byte	0xe22
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5a
@@ -2243,13 +2224,13 @@ xHeapRegions:
 	.byte	0
 	.byte	0x31
 	.4byte	.LVL28
-	.4byte	0xebf
+	.4byte	0xea8
 	.byte	0x31
 	.4byte	.LVL29
-	.4byte	0xc83
+	.4byte	0xc6c
 	.byte	0x2d
 	.4byte	.LVL30
-	.4byte	0xeb2
+	.4byte	0xe9b
 	.byte	0x26
 	.byte	0x1
 	.byte	0x5a
@@ -2262,32 +2243,32 @@ xHeapRegions:
 	.4byte	.LASF170
 	.4byte	.LASF170
 	.byte	0xe
-	.byte	0xc8
-	.byte	0x5
-	.byte	0x32
-	.4byte	.LASF171
-	.4byte	.LASF171
-	.byte	0xf
 	.byte	0x26
 	.byte	0x5
 	.byte	0x32
-	.4byte	.LASF172
-	.4byte	.LASF172
+	.4byte	.LASF171
+	.4byte	.LASF171
 	.byte	0x6
 	.byte	0x8b
 	.byte	0x6
 	.byte	0x33
-	.4byte	.LASF173
-	.4byte	.LASF173
-	.byte	0x10
+	.4byte	.LASF172
+	.4byte	.LASF172
+	.byte	0xf
 	.2byte	0x1be
 	.byte	0x12
 	.byte	0x33
+	.4byte	.LASF173
+	.4byte	.LASF173
+	.byte	0xf
+	.2byte	0x497
+	.byte	0x6
+	.byte	0x32
 	.4byte	.LASF174
 	.4byte	.LASF174
 	.byte	0x10
-	.2byte	0x497
-	.byte	0x6
+	.byte	0xc8
+	.byte	0x5
 	.byte	0x32
 	.4byte	.LASF175
 	.4byte	.LASF175
@@ -2303,7 +2284,7 @@ xHeapRegions:
 	.byte	0x33
 	.4byte	.LASF177
 	.4byte	.LASF177
-	.byte	0x10
+	.byte	0xf
 	.2byte	0x2f6
 	.byte	0x6
 	.byte	0x32
@@ -3205,7 +3186,7 @@ xHeapRegions:
 	.section	.debug_line,"",@progbits
 .Ldebug_line0:
 	.section	.debug_str,"MS",@progbits,1
-.LASF170:
+.LASF174:
 	.string	"printf"
 .LASF2:
 	.string	"short int"
@@ -3271,7 +3252,7 @@ xHeapRegions:
 	.string	"_cookie"
 .LASF114:
 	.string	"__sglue"
-.LASF171:
+.LASF170:
 	.string	"bl_uart_init"
 .LASF5:
 	.string	"long int"
@@ -3305,7 +3286,7 @@ xHeapRegions:
 	.string	"_heap_start"
 .LASF73:
 	.string	"_fns"
-.LASF174:
+.LASF173:
 	.string	"vTaskStartScheduler"
 .LASF28:
 	.string	"uxDummy5"
@@ -3315,7 +3296,7 @@ xHeapRegions:
 	.string	"_stderr"
 .LASF31:
 	.string	"uxDummy9"
-.LASF173:
+.LASF172:
 	.string	"xTaskCreateStatic"
 .LASF183:
 	.string	"task_led"
@@ -3439,7 +3420,7 @@ xHeapRegions:
 	.string	"_h_errno"
 .LASF64:
 	.string	"__tm_yday"
-.LASF172:
+.LASF171:
 	.string	"vPortDefineHeapRegions"
 .LASF74:
 	.string	"__sbuf"

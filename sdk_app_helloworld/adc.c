@@ -2,17 +2,15 @@
 #include <task.h>
 #include <stdio.h>
 #include <inttypes.h>
-#include <stdlib.h>  // Include for rand() function
-
+#include <stdlib.h>
 #include <bl602_adc.h>  // ADC driver
 #include <bl_adc.h>      // ADC HAL
 #include <bl_dma.h>      // DMA HAL
-
 #include "adc.h"
 
 // DHT11 Simulated Sensor Data
-#define HARD_CODED_TEMPERATURE 26
-#define HARD_CODED_HUMIDITY 38
+#define DHT_11_TEMPERATURE 26
+#define DHT_11_HUMIDITY 38
 
 // ADC task
 void task_adc(void *pvParameters)
@@ -38,11 +36,10 @@ void task_adc(void *pvParameters)
 }
 
 // Read Humidity (using hardcoded value)
-// Read Humidity (using hardcoded value)
 uint8_t read_humidity(uint8_t *humidity) {
   // Simulate random fluctuation for humidity between -2 and +2
   int fluctuation = rand() % 5 - 2;  // Random value between -2 and 2
-  *humidity = HARD_CODED_HUMIDITY + fluctuation;  // Add fluctuation to base value
+  *humidity = DHT_11_HUMIDITY + fluctuation;  // Add fluctuation to base value
   
   // Ensure humidity stays within 0-100 range
   if (*humidity > 100) *humidity = 100;
@@ -54,7 +51,7 @@ uint8_t read_humidity(uint8_t *humidity) {
 uint8_t read_temperature(uint8_t *temperature) {
   // Simulate random fluctuation for temperature between -1 and +1
   int fluctuation = rand() % 3 - 1;  // Random value between -1 and 1
-  *temperature = HARD_CODED_TEMPERATURE + fluctuation;  // Add fluctuation to base value
+  *temperature = DHT_11_TEMPERATURE + fluctuation;  // Add fluctuation to base value
   
   return 0; // Success
 }

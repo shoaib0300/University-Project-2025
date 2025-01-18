@@ -638,8 +638,6 @@ TaskHandle_t pvTaskIncrementMutexHeldCount( void ) ;
 
 void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut ) ;
 # 4 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
-
-
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 1 3
 # 29 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/_ansi.h" 1 3
@@ -1900,7 +1898,7 @@ _putchar_unlocked(int _c)
 }
 # 797 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 
-# 7 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 5 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 1 3
 # 18 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 3
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_intsup.h" 1 3
@@ -1963,9 +1961,7 @@ extern intmax_t strtoimax_l(const char *restrict, char **_restrict, int, locale_
 extern uintmax_t strtoumax_l(const char *restrict, char **_restrict, int, locale_t);
 extern intmax_t wcstoimax_l(const wchar_t *restrict, wchar_t **_restrict, int, locale_t);
 extern uintmax_t wcstoumax_l(const wchar_t *restrict, wchar_t **_restrict, int, locale_t);
-# 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
-
-
+# 6 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_uart.h" 1
 # 33 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_uart.h"
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_uart.h" 1
@@ -2911,7 +2907,7 @@ int bl_uart_int_rx_notify_register(uint8_t id, cb_uart_notify_t cb, void *arg);
 int bl_uart_int_tx_notify_register(uint8_t id, cb_uart_notify_t cb, void *arg);
 int bl_uart_int_rx_notify_unregister(uint8_t id, cb_uart_notify_t cb, void *arg);
 int bl_uart_int_tx_notify_unregister(uint8_t id, cb_uart_notify_t cb, void *arg);
-# 11 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 7 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h" 1
 # 17 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h"
 void init_adc(uint8_t pin);
@@ -2920,7 +2916,7 @@ void convert_to_binary(uint32_t n);
 
 uint8_t read_humidity(uint8_t *humidity);
 uint8_t read_temperature(uint8_t *temperature);
-# 12 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 1
 
 
@@ -3203,7 +3199,6 @@ extern long double strtold (const char *restrict, char **restrict);
 # 339 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
 
 # 6 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
-
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h" 1
 # 39 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_adc.h"
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/aon_reg.h" 1
@@ -4054,7 +4049,7 @@ BL_Err_Type ADC_Trim_TSEN(uint16_t * tsen_offset);
 BL_Err_Type ADC_Gain_Trim(void);
 uint32_t ADC_Cal_Reg_Coeff_Value(uint32_t raw_reg);
 float TSEN_Get_Temp(uint32_t tsen_offset);
-# 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
+# 7 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_adc.h" 1
 # 36 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_adc.h"
 typedef void (*bl_adc_cb_t)(int mode, uint32_t *data_ptr, uint32_t data_size);
@@ -4081,7 +4076,7 @@ int bl_adc_gpio_init(int gpio_num);
 int bl_adc_get_channel_by_gpio(int gpio_num);
 int bl_adc_freq_init(int mode, uint32_t freq);
 int32_t bl_adc_parse_data(uint32_t *parr, int data_size, int channel, int raw_flag);
-# 9 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
+# 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_dma.h" 1
 # 33 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_dma.h"
 # 1 "/home/shoaib/bl_iot_sdk/components/utils/include/utils_list.h" 1
@@ -4290,8 +4285,14 @@ void *bl_dma_find_node_by_channel(int channel);
 void *bl_dma_find_ctx_by_channel(int channel);
 void *bl_dma_mem_malloc(uint32_t size);
 void bl_dma_mem_free(void *ptr);
-# 10 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
-# 18 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
+# 9 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 2
+
+
+
+
+
+
+
 void task_adc(void *pvParameters)
 {
   printf("ADC task started\r\n");
@@ -4307,21 +4308,20 @@ void task_adc(void *pvParameters)
 
   while (1) {
     printf("\nCurrent value of digitized analog signal: %"
-# 32 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 3
+# 30 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 3
                                                          "l" 
-# 32 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
+# 30 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
                                                          "u""\r\n", read_adc());
     convert_to_binary(read_adc());
     vTaskDelay(5000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
   }
 
   vTaskDelete(
-# 37 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 3 4
+# 35 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c" 3 4
              ((void *)0)
-# 37 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
+# 35 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
                  );
 }
-
 
 
 uint8_t read_humidity(uint8_t *humidity) {
@@ -4356,8 +4356,7 @@ void convert_to_binary(uint32_t n) {
   }
   printf("\r\n");
 }
-# 13 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
-
+# 9 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 
 
 extern uint8_t _heap_start;
@@ -4370,14 +4369,14 @@ static HeapRegion_t xHeapRegions[] =
   { &_heap_start, (unsigned int) &_heap_size},
   { &_heap_wifi_start, (unsigned int) &_heap_wifi_size },
   { 
-# 25 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
+# 20 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
    ((void *)0)
-# 25 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
+# 20 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
        , 0},
   { 
-# 26 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
+# 21 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
    ((void *)0)
-# 26 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
+# 21 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
        , 0}
 };
 
@@ -4386,28 +4385,21 @@ static HeapRegion_t xHeapRegions[] =
 
 void bfl_main(void)
 {
-    printf("program started\r\n");
 
 
 
 
-
-    bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
-
-
-    vPortDefineHeapRegions(xHeapRegions);
+  bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
 
 
-    static StackType_t led_stack[512];
-    static StaticTask_t led_task;
+  vPortDefineHeapRegions(xHeapRegions);
+
+
+  static StackType_t led_stack[512];
+  static StaticTask_t led_task;
 
 
   extern void task_led(void *pvParameters);
-
-
-
-
-
 
 
   xTaskCreateStatic(
@@ -4415,9 +4407,9 @@ void bfl_main(void)
     (char*)"led",
     512,
     
-# 62 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
+# 50 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 3 4
    ((void *)0)
-# 62 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
+# 50 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
        ,
     15,
     led_stack,

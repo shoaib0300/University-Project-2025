@@ -13,37 +13,37 @@
 read_humidity:
 .LFB28:
 	.file 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.c"
-	.loc 1 42 42
+	.loc 1 39 42
 	.cfi_startproc
 .LVL0:
-	.loc 1 44 3
-	.loc 1 42 42 is_stmt 0
+	.loc 1 41 3
+	.loc 1 39 42 is_stmt 0
 	addi	sp,sp,-16
 	.cfi_def_cfa_offset 16
 	sw	s0,8(sp)
 	sw	ra,12(sp)
 	.cfi_offset 8, -8
 	.cfi_offset 1, -4
-	.loc 1 42 42
+	.loc 1 39 42
 	mv	s0,a0
-	.loc 1 44 21
+	.loc 1 41 21
 	call	rand
 .LVL1:
-	.loc 1 45 3 is_stmt 1
-	.loc 1 44 28 is_stmt 0
+	.loc 1 42 3 is_stmt 1
+	.loc 1 41 28 is_stmt 0
 	li	a5,5
 	rem	a0,a0,a5
 .LVL2:
-	.loc 1 51 1
+	.loc 1 48 1
 	lw	ra,12(sp)
 	.cfi_restore 1
-	.loc 1 45 18
+	.loc 1 42 18
 	addi	a0,a0,36
-	.loc 1 45 13
+	.loc 1 42 13
 	sb	a0,0(s0)
-	.loc 1 48 3 is_stmt 1
-	.loc 1 50 3
-	.loc 1 51 1 is_stmt 0
+	.loc 1 45 3 is_stmt 1
+	.loc 1 47 3
+	.loc 1 48 1 is_stmt 0
 	lw	s0,8(sp)
 	.cfi_restore 8
 .LVL3:
@@ -60,36 +60,36 @@ read_humidity:
 	.type	read_temperature, @function
 read_temperature:
 .LFB29:
-	.loc 1 54 48 is_stmt 1
+	.loc 1 51 48 is_stmt 1
 	.cfi_startproc
 .LVL4:
-	.loc 1 56 3
-	.loc 1 54 48 is_stmt 0
+	.loc 1 53 3
+	.loc 1 51 48 is_stmt 0
 	addi	sp,sp,-16
 	.cfi_def_cfa_offset 16
 	sw	s0,8(sp)
 	sw	ra,12(sp)
 	.cfi_offset 8, -8
 	.cfi_offset 1, -4
-	.loc 1 54 48
+	.loc 1 51 48
 	mv	s0,a0
-	.loc 1 56 21
+	.loc 1 53 21
 	call	rand
 .LVL5:
-	.loc 1 57 3 is_stmt 1
-	.loc 1 56 28 is_stmt 0
+	.loc 1 54 3 is_stmt 1
+	.loc 1 53 28 is_stmt 0
 	li	a5,3
 	rem	a0,a0,a5
 .LVL6:
-	.loc 1 60 1
+	.loc 1 57 1
 	lw	ra,12(sp)
 	.cfi_restore 1
-	.loc 1 57 21
+	.loc 1 54 21
 	addi	a0,a0,25
-	.loc 1 57 16
+	.loc 1 54 16
 	sb	a0,0(s0)
-	.loc 1 59 3 is_stmt 1
-	.loc 1 60 1 is_stmt 0
+	.loc 1 56 3 is_stmt 1
+	.loc 1 57 1 is_stmt 0
 	lw	s0,8(sp)
 	.cfi_restore 8
 .LVL7:
@@ -106,12 +106,12 @@ read_temperature:
 	.type	convert_to_binary, @function
 convert_to_binary:
 .LFB30:
-	.loc 1 62 36 is_stmt 1
+	.loc 1 59 36 is_stmt 1
 	.cfi_startproc
 .LVL8:
-	.loc 1 63 3
-	.loc 1 64 3
-	.loc 1 62 36 is_stmt 0
+	.loc 1 60 3
+	.loc 1 61 3
+	.loc 1 59 36 is_stmt 0
 	addi	sp,sp,-144
 	.cfi_def_cfa_offset 144
 	sw	s0,136(sp)
@@ -122,31 +122,31 @@ convert_to_binary:
 	.cfi_offset 1, -4
 	.cfi_offset 9, -12
 	.cfi_offset 18, -16
-	.loc 1 64 9
+	.loc 1 61 9
 	li	s0,0
 .LVL9:
 .L6:
-	.loc 1 64 3 discriminator 1
+	.loc 1 61 3 discriminator 1
 	bne	a0,zero,.L7
-	.loc 1 68 3 is_stmt 1
+	.loc 1 65 3 is_stmt 1
 	lui	a0,%hi(.LC0)
 .LVL10:
 	addi	a0,a0,%lo(.LC0)
 	call	printf
 .LVL11:
-	.loc 1 69 3
-	.loc 1 69 9 is_stmt 0
+	.loc 1 66 3
+	.loc 1 66 9 is_stmt 0
 	addi	s0,s0,-1
 .LVL12:
-	.loc 1 69 3
+	.loc 1 66 3
 	li	s1,-1
-	.loc 1 70 5
+	.loc 1 67 5
 	lui	s2,%hi(.LC1)
 .L8:
-	.loc 1 69 3 discriminator 1
+	.loc 1 66 3 discriminator 1
 	bne	s0,s1,.L9
-	.loc 1 72 3 is_stmt 1
-	.loc 1 73 1 is_stmt 0
+	.loc 1 69 3 is_stmt 1
+	.loc 1 70 1 is_stmt 0
 	lw	s0,136(sp)
 	.cfi_remember_state
 	.cfi_restore 8
@@ -157,46 +157,46 @@ convert_to_binary:
 	.cfi_restore 9
 	lw	s2,128(sp)
 	.cfi_restore 18
-	.loc 1 72 3
+	.loc 1 69 3
 	lui	a0,%hi(.LC2)
-	.loc 1 73 1
-	.loc 1 72 3
+	.loc 1 70 1
+	.loc 1 69 3
 	addi	a0,a0,%lo(.LC2)
-	.loc 1 73 1
+	.loc 1 70 1
 	addi	sp,sp,144
 	.cfi_def_cfa_offset 0
-	.loc 1 72 3
+	.loc 1 69 3
 	tail	printf
 .LVL14:
 .L7:
 	.cfi_restore_state
-	.loc 1 65 5 is_stmt 1 discriminator 3
-	.loc 1 65 10 is_stmt 0 discriminator 3
+	.loc 1 62 5 is_stmt 1 discriminator 3
+	.loc 1 62 10 is_stmt 0 discriminator 3
 	slli	a5,s0,2
-	.loc 1 65 14 discriminator 3
+	.loc 1 62 14 discriminator 3
 	andi	a4,a0,1
-	.loc 1 65 10 discriminator 3
+	.loc 1 62 10 discriminator 3
 	add	a5,sp,a5
 	sw	a4,0(a5)
-	.loc 1 66 5 is_stmt 1 discriminator 3
-	.loc 1 66 7 is_stmt 0 discriminator 3
+	.loc 1 63 5 is_stmt 1 discriminator 3
+	.loc 1 63 7 is_stmt 0 discriminator 3
 	srli	a0,a0,1
 .LVL15:
-	.loc 1 64 22 discriminator 3
+	.loc 1 61 22 discriminator 3
 	addi	s0,s0,1
 .LVL16:
 	j	.L6
 .LVL17:
 .L9:
-	.loc 1 70 5 is_stmt 1 discriminator 3
+	.loc 1 67 5 is_stmt 1 discriminator 3
 	slli	a5,s0,2
 	add	a5,sp,a5
 	lw	a1,0(a5)
 	addi	a0,s2,%lo(.LC1)
-	.loc 1 69 25 is_stmt 0 discriminator 3
+	.loc 1 66 25 is_stmt 0 discriminator 3
 	addi	s0,s0,-1
 .LVL18:
-	.loc 1 70 5 discriminator 3
+	.loc 1 67 5 discriminator 3
 	call	printf
 .LVL19:
 	j	.L8
@@ -209,62 +209,62 @@ convert_to_binary:
 	.type	task_adc, @function
 task_adc:
 .LFB27:
-	.loc 1 19 1 is_stmt 1
+	.loc 1 17 1 is_stmt 1
 	.cfi_startproc
 .LVL20:
-	.loc 1 20 3
+	.loc 1 18 3
 	lui	a0,%hi(.LC3)
 .LVL21:
-	.loc 1 19 1 is_stmt 0
+	.loc 1 17 1 is_stmt 0
 	addi	sp,sp,-16
 	.cfi_def_cfa_offset 16
-	.loc 1 20 3
+	.loc 1 18 3
 	addi	a0,a0,%lo(.LC3)
-	.loc 1 19 1
+	.loc 1 17 1
 	sw	ra,12(sp)
 	sw	s0,8(sp)
 	sw	s1,4(sp)
 	.cfi_offset 1, -4
 	.cfi_offset 8, -8
 	.cfi_offset 9, -12
-	.loc 1 20 3
+	.loc 1 18 3
 	call	printf
 .LVL22:
-	.loc 1 23 3 is_stmt 1
+	.loc 1 21 3 is_stmt 1
 	li	a0,4
 	call	init_adc
 .LVL23:
-	.loc 1 25 3
+	.loc 1 23 3
 	lui	a0,%hi(.LC4)
 	addi	a0,a0,%lo(.LC4)
 	call	printf
 .LVL24:
-	.loc 1 28 3
+	.loc 1 26 3
 	li	a0,2000
-	.loc 1 34 5 is_stmt 0
+	.loc 1 32 5 is_stmt 0
 	li	s0,4096
-	.loc 1 28 3
+	.loc 1 26 3
 	call	vTaskDelay
 .LVL25:
-	.loc 1 32 5
+	.loc 1 30 5
 	lui	s1,%hi(.LC5)
-	.loc 1 34 5
+	.loc 1 32 5
 	addi	s0,s0,904
 .L12:
-	.loc 1 31 3 is_stmt 1 discriminator 1
-	.loc 1 32 5 discriminator 1
+	.loc 1 29 3 is_stmt 1 discriminator 1
+	.loc 1 30 5 discriminator 1
 	call	read_adc
 .LVL26:
 	mv	a1,a0
 	addi	a0,s1,%lo(.LC5)
 	call	printf
 .LVL27:
-	.loc 1 33 5 discriminator 1
+	.loc 1 31 5 discriminator 1
 	call	read_adc
 .LVL28:
 	call	convert_to_binary
 .LVL29:
-	.loc 1 34 5 discriminator 1
+	.loc 1 32 5 discriminator 1
 	mv	a0,s0
 	call	vTaskDelay
 .LVL30:
@@ -1556,7 +1556,7 @@ task_adc:
 	.byte	0x22
 	.4byte	.LASF135
 	.byte	0x1
-	.byte	0x3e
+	.byte	0x3b
 	.byte	0x6
 	.4byte	.LFB30
 	.4byte	.LFE30-.LFB30
@@ -1566,14 +1566,14 @@ task_adc:
 	.byte	0x23
 	.string	"n"
 	.byte	0x1
-	.byte	0x3e
+	.byte	0x3b
 	.byte	0x21
 	.4byte	0x75
 	.4byte	.LLST4
 	.byte	0x24
 	.string	"a"
 	.byte	0x1
-	.byte	0x3f
+	.byte	0x3c
 	.byte	0x7
 	.4byte	0xa2c
 	.byte	0x3
@@ -1582,7 +1582,7 @@ task_adc:
 	.byte	0x25
 	.string	"i"
 	.byte	0x1
-	.byte	0x3f
+	.byte	0x3c
 	.byte	0xe
 	.4byte	0x25
 	.4byte	.LLST5
@@ -1629,7 +1629,7 @@ task_adc:
 	.byte	0x2a
 	.4byte	.LASF132
 	.byte	0x1
-	.byte	0x36
+	.byte	0x33
 	.byte	0x9
 	.4byte	0x5b
 	.4byte	.LFB29
@@ -1640,14 +1640,14 @@ task_adc:
 	.byte	0x2b
 	.4byte	.LASF130
 	.byte	0x1
-	.byte	0x36
+	.byte	0x33
 	.byte	0x23
 	.4byte	0xb5
 	.4byte	.LLST2
 	.byte	0x2c
 	.4byte	.LASF131
 	.byte	0x1
-	.byte	0x38
+	.byte	0x35
 	.byte	0x7
 	.4byte	0x25
 	.4byte	.LLST3
@@ -1658,7 +1658,7 @@ task_adc:
 	.byte	0x2a
 	.4byte	.LASF133
 	.byte	0x1
-	.byte	0x2a
+	.byte	0x27
 	.byte	0x9
 	.4byte	0x5b
 	.4byte	.LFB28
@@ -1669,14 +1669,14 @@ task_adc:
 	.byte	0x2b
 	.4byte	.LASF134
 	.byte	0x1
-	.byte	0x2a
+	.byte	0x27
 	.byte	0x20
 	.4byte	0xb5
 	.4byte	.LLST0
 	.byte	0x2c
 	.4byte	.LASF131
 	.byte	0x1
-	.byte	0x2c
+	.byte	0x29
 	.byte	0x7
 	.4byte	0x25
 	.4byte	.LLST1
@@ -1687,7 +1687,7 @@ task_adc:
 	.byte	0x22
 	.4byte	.LASF136
 	.byte	0x1
-	.byte	0x12
+	.byte	0x10
 	.byte	0x6
 	.4byte	.LFB27
 	.4byte	.LFE27-.LFB27
@@ -1697,7 +1697,7 @@ task_adc:
 	.byte	0x2b
 	.4byte	.LASF137
 	.byte	0x1
-	.byte	0x12
+	.byte	0x10
 	.byte	0x15
 	.4byte	0x8f
 	.4byte	.LLST6

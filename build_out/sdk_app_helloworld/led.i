@@ -1931,22 +1931,21 @@ void convert_to_binary(uint32_t n);
 uint8_t read_humidity(uint8_t *humidity);
 uint8_t read_temperature(uint8_t *temperature);
 # 6 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
-# 20 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
+# 19 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
 void task_led(void *pvParameters)
 {
-  printf("LED task started\r\n");
-
 
   bl_gpio_enable_output(3, 0, 0);
   bl_gpio_enable_output(11, 0, 0);
 
   uint8_t humidity = 0;
   uint8_t temperature = 0;
-    printf("The Current Room Temperature and Humidity are: \r\n");
+  printf("***************************************\r\n");
+  printf("* The Current Room Conditions are:    *\r\n");
+  printf("***************************************\r\n");
 
 
 while (1) {
-
     if (read_humidity(&humidity) == 0 && read_temperature(&temperature) == 0) {
         printf("Humidity: %d, Temperature: %d\r\n", humidity, temperature);
 
@@ -1969,27 +1968,12 @@ while (1) {
 
 
     vTaskDelay(2000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
-
-
-
-
-
-
-    vTaskDelay(2000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
-
-
-
-
-
-
-    vTaskDelay(2000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
   }
 
 
-
   vTaskDelete(
-# 75 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 3 4
+# 58 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 3 4
              ((void *)0)
-# 75 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
+# 58 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
                  );
 }
