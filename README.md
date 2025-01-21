@@ -1,5 +1,4 @@
 # University-Project-2025
-# University-Project-2025
 
 ## Setup Environment
 
@@ -70,4 +69,9 @@ picocom -b 115200 /dev/ttyUSB0
 Minicom settings:
 ```sh
 sudo minicom -s
+```
+
+Screen settings:
+```sh
+screen /dev/ttyUSB0 2000000
 ```
