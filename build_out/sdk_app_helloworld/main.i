@@ -3,7 +3,7 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
-# 15 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
+# 25 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h" 1
 # 34 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 1 3 4
@@ -317,7 +317,7 @@ typedef struct xSTATIC_STREAM_BUFFER
 
 
 typedef StaticStreamBuffer_t StaticMessageBuffer_t;
-# 16 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 26 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h" 1
 # 36 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/list.h" 1
@@ -637,7 +637,7 @@ TaskHandle_t pvTaskIncrementMutexHeldCount( void ) ;
 
 
 void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut ) ;
-# 17 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 27 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 1 3
 # 29 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/_ansi.h" 1 3
@@ -1898,7 +1898,7 @@ _putchar_unlocked(int _c)
 }
 # 797 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 
-# 18 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 28 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 1 3
 # 18 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 3
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_intsup.h" 1 3
@@ -1961,7 +1961,7 @@ extern intmax_t strtoimax_l(const char *restrict, char **_restrict, int, locale_
 extern uintmax_t strtoumax_l(const char *restrict, char **_restrict, int, locale_t);
 extern intmax_t wcstoimax_l(const wchar_t *restrict, wchar_t **_restrict, int, locale_t);
 extern uintmax_t wcstoumax_l(const wchar_t *restrict, wchar_t **_restrict, int, locale_t);
-# 19 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 29 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_uart.h" 1
 # 33 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_uart.h"
 # 1 "/home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_uart.h" 1
@@ -2907,7 +2907,7 @@ int bl_uart_int_rx_notify_register(uint8_t id, cb_uart_notify_t cb, void *arg);
 int bl_uart_int_tx_notify_register(uint8_t id, cb_uart_notify_t cb, void *arg);
 int bl_uart_int_rx_notify_unregister(uint8_t id, cb_uart_notify_t cb, void *arg);
 int bl_uart_int_tx_notify_unregister(uint8_t id, cb_uart_notify_t cb, void *arg);
-# 20 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 30 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_gpio.h" 1
 # 34 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_gpio.h"
 typedef struct _gpio_ctx_desc {
@@ -2929,13 +2929,13 @@ int bl_gpio_int_clear(uint8_t gpioPin,uint8_t intClear);
 void bl_gpio_intmask(uint8_t gpiopin, uint8_t mask);
 void bl_set_gpio_intmod(uint8_t gpioPin, uint8_t intCtrlMod, uint8_t intTrgMod);
 void bl_gpio_register(gpio_ctx_t *pstnode);
-# 21 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 31 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_timer.h" 1
 # 33 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_timer.h"
 uint32_t bl_timer_now_us(void);
 void bl_timer_delay_us(uint32_t us);
 uint64_t bl_timer_now_us64(void);
-# 22 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+# 32 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 
 # 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.h" 1
 
@@ -2951,8 +2951,11 @@ typedef struct
 
 
 void DHT_GetData (DHT_DataTypedef *DHT_Data);
-# 24 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
-# 42 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
+# 34 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
+
+
+void DHT_init(uint8_t pin);
+# 55 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
 DHT_DataTypedef DHT11_Data;
 float Temperature, Humidity;
 uint8_t good_rep;
@@ -2993,30 +2996,31 @@ int bfl_main(void)
 
     while (1) {
 
-        good_rep = DHT_GetData(&DHT11_Data);
+        DHT_GetData(&DHT11_Data);
+        good_rep = (DHT11_Data.Temperature != 0 && DHT11_Data.Humidity != 0) ? 1 : 0;
 
         if (good_rep) {
 
             Temperature = DHT11_Data.Temperature;
             Humidity = DHT11_Data.Humidity;
             printf("DHT Sensor Reading: Temperature = %.2f°C, Humidity = %.2f%%\n", Temperature, Humidity);
+
         } else {
 
             printf("Failed to read from DHT sensor.\n");
         }
 
-
         if (Temperature > 30) {
-
             LED_Blink(3, 500000);
+            printf("Temperature exceeds threshold!\n");
         } else {
 
             LED_SetState(3, 0);
         }
 
         if (Humidity < 40) {
-
             LED_Blink(11, 500000);
+            printf("Humidity falls below threshold!\n");
         } else {
 
             LED_SetState(11, 0);

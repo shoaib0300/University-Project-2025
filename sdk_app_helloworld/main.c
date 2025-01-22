@@ -10,6 +10,16 @@
 // The program runs in a continuous loop, reading data from the DHT sensor
 // every 3 seconds and adjusting the LED states accordingly.
 
+//The DHT11 sensor has a typical accuracy of ±5% RH (relative humidity).
+
+// Key Concepts
+//  Relative Humidity (RH):
+//  It is expressed as a percentage (%).
+//  RH = (Actual Water Vapor Density / Maximum Water Vapor Density) x 100%
+
+// Saturation Point:
+//  At 22°C, air can hold a maximum of approximately 19.8 g/m³ of water vapor. 
+//  If the air contains 19.8 g/m³, the RH is 100%. If it contains half that amount (9.9 g/m³), the RH is 50%.
 
 // FreeRTOS includes
 #include <FreeRTOS.h>
@@ -89,26 +99,24 @@ int bfl_main(void)
             // If data is successfully retrieved, store it
             Temperature = DHT11_Data.Temperature;
             Humidity = DHT11_Data.Humidity;
-            printf("\rDHT Sensor Reading: Temperature = %.2f°C, Humidity = %.2f%%", Temperature, Humidity);
-            fflush(stdout); // Ensure the output is flushed to the terminal immediately
-
+            printf("DHT Sensor Reading: Temperature = %.2f°C, Humidity = %.2f%%\n", Temperature, Humidity);
+            // fflush(stdout); // Ensure the output is flushed to the terminal immediately
         } else {
             // If data is not successfully retrieved, print an error
             printf("Failed to read from DHT sensor.\n");
         }
 
-        // Control LED behavior based on temperature and humidity
         if (Temperature > TEMP_THRESHOLD) {
-            // If temperature is above threshold, blink LED 1 (LED_11_PIN)
             LED_Blink(LED_11_PIN, 500000); // Blink every 500ms (500,000 microseconds)
+            printf("Temperature exceeds threshold!\n");
         } else {
             // Otherwise, turn off LED 1
             LED_SetState(LED_11_PIN, LED_OFF);
         }
 
         if (Humidity < HUM_THRESHOLD) {
-            // If humidity is below threshold, blink LED 2 (LED_14_PIN)
             LED_Blink(LED_14_PIN, 500000); // Blink every 500ms (500,000 microseconds)
+            // printf("Humidity falls below threshold!\n");
         } else {
             // Otherwise, turn off LED 2
             LED_SetState(LED_14_PIN, LED_OFF);
