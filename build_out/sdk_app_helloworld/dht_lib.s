@@ -175,12 +175,12 @@ DHT_Check_Response:
 	.type	DHT_Read, @function
 DHT_Read:
 .LFB6:
-	.loc 1 65 1 is_stmt 1
+	.loc 1 64 1 is_stmt 1
 	.cfi_startproc
-	.loc 1 66 5
+	.loc 1 65 5
 .LVL15:
-	.loc 1 69 5
-	.loc 1 65 1 is_stmt 0
+	.loc 1 68 5
+	.loc 1 64 1 is_stmt 0
 	addi	sp,sp,-32
 	.cfi_def_cfa_offset 32
 	sw	s0,24(sp)
@@ -195,30 +195,30 @@ DHT_Read:
 	.cfi_offset 19, -20
 	.cfi_offset 20, -24
 	.cfi_offset 1, -4
-	.loc 1 65 1
+	.loc 1 64 1
 	li	s1,7
-	.loc 1 66 13
+	.loc 1 65 13
 	li	s0,0
-	.loc 1 72 18
+	.loc 1 71 18
 	lui	s2,%hi(pinDht)
 	li	s4,1
-	.loc 1 69 5
+	.loc 1 68 5
 	li	s3,-1
 .LVL16:
 .L12:
-	.loc 1 72 51 is_stmt 1 discriminator 1
-	.loc 1 72 18 is_stmt 0 discriminator 1
+	.loc 1 71 51 is_stmt 1 discriminator 1
+	.loc 1 71 18 is_stmt 0 discriminator 1
 	lbu	a0,%lo(pinDht)(s2)
 	call	bl_gpio_input_get_value
 .LVL17:
-	.loc 1 72 15 discriminator 1
+	.loc 1 71 15 discriminator 1
 	beq	a0,zero,.L12
-	.loc 1 75 9 is_stmt 1
+	.loc 1 74 9 is_stmt 1
 	li	a0,40
 	call	bl_timer_delay_us
 .LVL18:
-	.loc 1 78 9
-	.loc 1 78 15 is_stmt 0
+	.loc 1 77 9
+	.loc 1 77 15 is_stmt 0
 	lbu	a0,%lo(pinDht)(s2)
 	slli	s0,s0,24
 	srai	s0,s0,24
@@ -227,31 +227,31 @@ DHT_Read:
 	sll	a5,s4,s1
 	slli	a5,a5,24
 	srai	a5,a5,24
-	.loc 1 78 12
+	.loc 1 77 12
 	bne	a0,zero,.L13
-	.loc 1 80 13 is_stmt 1
-	.loc 1 80 15 is_stmt 0
+	.loc 1 79 13 is_stmt 1
+	.loc 1 79 15 is_stmt 0
 	not	a5,a5
 	and	s0,s0,a5
 .L22:
-	.loc 1 84 15
+	.loc 1 83 15
 	andi	s0,s0,0xff
 .LVL20:
 .L15:
-	.loc 1 88 50 is_stmt 1 discriminator 1
-	.loc 1 88 17 is_stmt 0 discriminator 1
+	.loc 1 87 50 is_stmt 1 discriminator 1
+	.loc 1 87 17 is_stmt 0 discriminator 1
 	lbu	a0,%lo(pinDht)(s2)
 	call	bl_gpio_input_get_value
 .LVL21:
-	.loc 1 88 15 discriminator 1
+	.loc 1 87 15 discriminator 1
 	bne	a0,zero,.L15
 .LVL22:
 	addi	s1,s1,-1
 .LVL23:
-	.loc 1 69 5 discriminator 2
+	.loc 1 68 5 discriminator 2
 	bne	s1,s3,.L12
-	.loc 1 90 5 is_stmt 1
-	.loc 1 91 1 is_stmt 0
+	.loc 1 89 5 is_stmt 1
+	.loc 1 90 1 is_stmt 0
 	mv	a0,s0
 	lw	ra,28(sp)
 	.cfi_remember_state
@@ -273,8 +273,8 @@ DHT_Read:
 .LVL25:
 .L13:
 	.cfi_restore_state
-	.loc 1 84 13 is_stmt 1
-	.loc 1 84 15 is_stmt 0
+	.loc 1 83 13 is_stmt 1
+	.loc 1 83 15 is_stmt 0
 	or	s0,a5,s0
 	j	.L22
 	.cfi_endproc
@@ -286,12 +286,12 @@ DHT_Read:
 	.type	DHT_GetData, @function
 DHT_GetData:
 .LFB7:
-	.loc 1 97 1 is_stmt 1
+	.loc 1 94 1 is_stmt 1
 	.cfi_startproc
 .LVL26:
-	.loc 1 98 5
-	.loc 1 100 5
-	.loc 1 97 1 is_stmt 0
+	.loc 1 95 5
+	.loc 1 97 5
+	.loc 1 94 1 is_stmt 0
 	addi	sp,sp,-32
 	.cfi_def_cfa_offset 32
 	sw	ra,28(sp)
@@ -306,111 +306,111 @@ DHT_GetData:
 	.cfi_offset 18, -16
 	.cfi_offset 19, -20
 	.cfi_offset 20, -24
-	.loc 1 97 1
+	.loc 1 94 1
 	mv	s1,a0
-	.loc 1 100 5
+	.loc 1 97 5
 	call	DHT_Start
 .LVL27:
-	.loc 1 103 5 is_stmt 1
+	.loc 1 99 5 is_stmt 1
 	call	DHT_Check_Response
 .LVL28:
-	.loc 1 106 5
-	.loc 1 106 16 is_stmt 0
+	.loc 1 102 5
+	.loc 1 102 16 is_stmt 0
 	call	DHT_Read
 .LVL29:
 	mv	s2,a0
 .LVL30:
-	.loc 1 107 5 is_stmt 1
-	.loc 1 107 16 is_stmt 0
+	.loc 1 103 5 is_stmt 1
+	.loc 1 103 16 is_stmt 0
 	call	DHT_Read
 .LVL31:
 	mv	s0,a0
 .LVL32:
-	.loc 1 108 5 is_stmt 1
-	.loc 1 108 18 is_stmt 0
+	.loc 1 104 5 is_stmt 1
+	.loc 1 104 18 is_stmt 0
 	call	DHT_Read
 .LVL33:
 	mv	s3,a0
 .LVL34:
-	.loc 1 109 5 is_stmt 1
-	.loc 1 109 18 is_stmt 0
+	.loc 1 105 5 is_stmt 1
+	.loc 1 105 18 is_stmt 0
 	call	DHT_Read
 .LVL35:
 	mv	s4,a0
 .LVL36:
-	.loc 1 110 5 is_stmt 1
-	.loc 1 110 11 is_stmt 0
+	.loc 1 106 5 is_stmt 1
+	.loc 1 106 11 is_stmt 0
 	call	DHT_Read
 .LVL37:
-	.loc 1 113 5 is_stmt 1
-	.loc 1 115 5
-	.loc 1 113 41 is_stmt 0
+	.loc 1 109 5 is_stmt 1
+	.loc 1 111 5
+	.loc 1 109 41 is_stmt 0
 	add	a5,s2,s0
-	.loc 1 113 52
+	.loc 1 109 52
 	add	a5,a5,s3
-	.loc 1 113 65
+	.loc 1 109 65
 	add	a5,a5,s4
-	.loc 1 115 8
+	.loc 1 111 8
 	bne	a0,a5,.L23
 .LBB2:
-	.loc 1 118 9 is_stmt 1
-	.loc 1 118 31 is_stmt 0
+	.loc 1 114 9 is_stmt 1
+	.loc 1 114 31 is_stmt 0
 	fcvt.s.wu	fa5,s3
 	fsw	fa5,0(s1)
-	.loc 1 119 9 is_stmt 1
-	.loc 1 119 28 is_stmt 0
+	.loc 1 115 9 is_stmt 1
+	.loc 1 115 28 is_stmt 0
 	fcvt.s.wu	fa5,s2
 	fsw	fa5,4(s1)
-	.loc 1 121 9 is_stmt 1
-	.loc 1 121 38 is_stmt 0
+	.loc 1 117 9 is_stmt 1
+	.loc 1 117 38 is_stmt 0
 	call	rand
 .LVL38:
 	mv	s0,a0
 .LVL39:
-	.loc 1 122 9 is_stmt 1
-	.loc 1 122 37 is_stmt 0
+	.loc 1 118 9 is_stmt 1
+	.loc 1 118 37 is_stmt 0
 	call	rand
 .LVL40:
-	.loc 1 125 9 is_stmt 1
-	.loc 1 121 45 is_stmt 0
+	.loc 1 121 9 is_stmt 1
+	.loc 1 117 45 is_stmt 0
 	li	a5,21
 	rem	a4,s0,a5
-	.loc 1 125 31
+	.loc 1 121 31
 	flw	fa3,0(s1)
-	.loc 1 122 44
+	.loc 1 118 44
 	rem	a0,a0,a5
 .LVL41:
-	.loc 1 121 51
+	.loc 1 117 51
 	addi	a4,a4,-10
-	.loc 1 121 57
+	.loc 1 117 57
 	fcvt.s.w	fa4,a4
-	.loc 1 121 15
+	.loc 1 117 15
 	lui	a4,%hi(.LC0)
 	flw	fa2,%lo(.LC0)(a4)
 	fdiv.s	fa4,fa4,fa2
 .LVL42:
-	.loc 1 125 31
+	.loc 1 121 31
 	fadd.s	fa4,fa3,fa4
 .LVL43:
 	fsw	fa4,0(s1)
-	.loc 1 126 9 is_stmt 1
-	.loc 1 126 28 is_stmt 0
+	.loc 1 122 9 is_stmt 1
+	.loc 1 122 28 is_stmt 0
 	flw	fa4,4(s1)
-	.loc 1 122 50
+	.loc 1 118 50
 	addi	a0,a0,-10
-	.loc 1 122 56
+	.loc 1 118 56
 	fcvt.s.w	fa5,a0
-	.loc 1 122 15
+	.loc 1 118 15
 	fdiv.s	fa5,fa5,fa2
 .LVL44:
-	.loc 1 126 28
+	.loc 1 122 28
 	fadd.s	fa5,fa4,fa5
 .LVL45:
 	fsw	fa5,4(s1)
 .LVL46:
 .L23:
 .LBE2:
-	.loc 1 128 1
+	.loc 1 124 1
 	lw	ra,28(sp)
 	.cfi_restore 1
 	lw	s0,24(sp)
@@ -446,8 +446,8 @@ DHT_GetData:
 	.file 5 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/reent.h"
 	.file 6 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/lock.h"
 	.file 7 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_stdint.h"
-	.file 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.h"
-	.file 9 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h"
+	.file 8 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h"
+	.file 9 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.h"
 	.file 10 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_gpio.h"
 	.file 11 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_timer.h"
 	.section	.debug_info,"",@progbits
@@ -1636,35 +1636,41 @@ DHT_GetData:
 	.byte	0x18
 	.byte	0x13
 	.4byte	0x3a
-	.byte	0xa
-	.byte	0x8
-	.byte	0x8
-	.byte	0x5
-	.byte	0x9
-	.4byte	0x951
-	.byte	0xb
+	.byte	0x20
 	.4byte	.LASF122
 	.byte	0x8
+	.byte	0x67
+	.byte	0xe
+	.4byte	0x5c2
+	.byte	0xa
+	.byte	0x8
+	.byte	0x9
+	.byte	0x5
+	.byte	0x9
+	.4byte	0x95d
+	.byte	0xb
+	.4byte	.LASF123
+	.byte	0x9
 	.byte	0x7
 	.byte	0x8
 	.4byte	0x25
 	.byte	0
 	.byte	0xb
-	.4byte	.LASF123
-	.byte	0x8
+	.4byte	.LASF124
+	.byte	0x9
 	.byte	0x8
 	.byte	0x8
 	.4byte	0x25
 	.byte	0x4
 	.byte	0
 	.byte	0x4
-	.4byte	.LASF124
-	.byte	0x8
+	.4byte	.LASF125
+	.byte	0x9
 	.byte	0x9
 	.byte	0x2
-	.4byte	0x92d
-	.byte	0x20
-	.4byte	.LASF125
+	.4byte	0x939
+	.byte	0x21
+	.4byte	.LASF126
 	.byte	0x1
 	.byte	0xa
 	.byte	0x9
@@ -1672,16 +1678,10 @@ DHT_GetData:
 	.byte	0x5
 	.byte	0x3
 	.4byte	pinDht
-	.byte	0x21
-	.4byte	.LASF126
-	.byte	0x9
-	.byte	0x67
-	.byte	0xe
-	.4byte	0x5c2
 	.byte	0x22
 	.4byte	.LASF137
 	.byte	0x1
-	.byte	0x60
+	.byte	0x5d
 	.byte	0x6
 	.4byte	.LFB7
 	.4byte	.LFE7-.LFB7
@@ -1691,49 +1691,49 @@ DHT_GetData:
 	.byte	0x23
 	.4byte	.LASF140
 	.byte	0x1
-	.byte	0x60
+	.byte	0x5d
 	.byte	0x23
 	.4byte	0xa81
 	.4byte	.LLST3
 	.byte	0x24
 	.4byte	.LASF127
 	.byte	0x1
-	.byte	0x62
+	.byte	0x5f
 	.byte	0xd
 	.4byte	0x921
 	.4byte	.LLST4
 	.byte	0x24
 	.4byte	.LASF128
 	.byte	0x1
-	.byte	0x62
+	.byte	0x5f
 	.byte	0x17
 	.4byte	0x921
 	.4byte	.LLST5
 	.byte	0x24
 	.4byte	.LASF129
 	.byte	0x1
-	.byte	0x62
+	.byte	0x5f
 	.byte	0x21
 	.4byte	0x921
 	.4byte	.LLST6
 	.byte	0x24
 	.4byte	.LASF130
 	.byte	0x1
-	.byte	0x62
+	.byte	0x5f
 	.byte	0x2d
 	.4byte	0x921
 	.4byte	.LLST7
 	.byte	0x25
 	.string	"SUM"
 	.byte	0x1
-	.byte	0x62
+	.byte	0x5f
 	.byte	0x39
 	.4byte	0x921
 	.4byte	.LLST8
 	.byte	0x24
 	.4byte	.LASF131
 	.byte	0x1
-	.byte	0x71
+	.byte	0x6d
 	.byte	0xd
 	.4byte	0x921
 	.4byte	.LLST9
@@ -1744,14 +1744,14 @@ DHT_GetData:
 	.byte	0x24
 	.4byte	.LASF132
 	.byte	0x1
-	.byte	0x79
+	.byte	0x75
 	.byte	0xf
 	.4byte	0x25
 	.4byte	.LLST10
 	.byte	0x24
 	.4byte	.LASF133
 	.byte	0x1
-	.byte	0x7a
+	.byte	0x76
 	.byte	0xf
 	.4byte	0x25
 	.4byte	.LLST11
@@ -1786,11 +1786,11 @@ DHT_GetData:
 	.byte	0
 	.byte	0xf
 	.byte	0x4
-	.4byte	0x951
+	.4byte	0x95d
 	.byte	0x28
 	.4byte	.LASF134
 	.byte	0x1
-	.byte	0x40
+	.byte	0x3f
 	.byte	0x9
 	.4byte	0x921
 	.4byte	.LFB6
@@ -1801,14 +1801,14 @@ DHT_GetData:
 	.byte	0x25
 	.string	"i"
 	.byte	0x1
-	.byte	0x42
+	.byte	0x41
 	.byte	0xd
 	.4byte	0x921
 	.4byte	.LLST1
 	.byte	0x25
 	.string	"j"
 	.byte	0x1
-	.byte	0x42
+	.byte	0x41
 	.byte	0x14
 	.4byte	0x921
 	.4byte	.LLST2
@@ -1986,7 +1986,7 @@ DHT_GetData:
 	.byte	0x2d
 	.4byte	.LASF142
 	.4byte	.LASF142
-	.byte	0x9
+	.byte	0x8
 	.byte	0x90
 	.byte	0x5
 	.byte	0x2d
@@ -2454,8 +2454,8 @@ DHT_GetData:
 	.byte	0x13
 	.byte	0x3f
 	.byte	0x19
-	.byte	0x2
-	.byte	0x18
+	.byte	0x3c
+	.byte	0x19
 	.byte	0
 	.byte	0
 	.byte	0x21
@@ -2473,8 +2473,8 @@ DHT_GetData:
 	.byte	0x13
 	.byte	0x3f
 	.byte	0x19
-	.byte	0x3c
-	.byte	0x19
+	.byte	0x2
+	.byte	0x18
 	.byte	0
 	.byte	0
 	.byte	0x22
@@ -2951,7 +2951,7 @@ DHT_GetData:
 	.string	"_wcrtomb_state"
 .LASF114:
 	.string	"_wcsrtombs_state"
-.LASF122:
+.LASF123:
 	.string	"Temperature"
 .LASF8:
 	.string	"long long unsigned int"
@@ -3033,7 +3033,7 @@ DHT_GetData:
 	.string	"unsigned int"
 .LASF16:
 	.string	"__wchb"
-.LASF124:
+.LASF125:
 	.string	"DHT_DataTypedef"
 .LASF69:
 	.string	"_stdout"
@@ -3061,7 +3061,7 @@ DHT_GetData:
 	.string	"_result"
 .LASF15:
 	.string	"__wch"
-.LASF123:
+.LASF124:
 	.string	"Humidity"
 .LASF140:
 	.string	"DHT_Data"
@@ -3085,7 +3085,7 @@ DHT_GetData:
 	.string	"__tm_mon"
 .LASF43:
 	.string	"_atexit"
-.LASF126:
+.LASF122:
 	.string	"suboptarg"
 .LASF75:
 	.string	"__sdidinit"
@@ -3181,7 +3181,7 @@ DHT_GetData:
 	.string	"_fntypes"
 .LASF129:
 	.string	"Temp_byte1"
-.LASF125:
+.LASF126:
 	.string	"pinDht"
 .LASF96:
 	.string	"_add"

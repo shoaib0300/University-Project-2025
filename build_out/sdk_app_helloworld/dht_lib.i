@@ -1428,108 +1428,6 @@ uint32_t bl_timer_now_us(void);
 void bl_timer_delay_us(uint32_t us);
 uint64_t bl_timer_now_us64(void);
 # 6 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c" 2
-
-# 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.h" 1
-
-
-
-
-typedef struct
-{
- float Temperature;
- float Humidity;
-}DHT_DataTypedef;
-
-
-
-void DHT_GetData (DHT_DataTypedef *DHT_Data);
-# 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c" 2
-
-
-uint8_t pinDht;
-
-
-void DHT_init(uint8_t pinDataDHT)
-{
-    pinDht = pinDataDHT;
-}
-
-
-void DHT_Start(void)
-{
-
-    bl_gpio_enable_output(pinDht, 0, 0);
-
-
-    bl_gpio_output_set(pinDht, 0);
-    bl_timer_delay_us(18000);
-
-
-    bl_gpio_output_set(pinDht, 1);
-    bl_timer_delay_us(30);
-
-
-    bl_gpio_enable_input(pinDht, 0, 0);
-}
-
-
-uint8_t DHT_Check_Response(void)
-{
-    uint8_t Response = 0;
-
-
-    bl_timer_delay_us(40);
-
-
-    if (!bl_gpio_input_get_value(pinDht))
-    {
-
-        bl_timer_delay_us(80);
-
-
-        if (bl_gpio_input_get_value(pinDht))
-            Response = 1;
-        else
-            Response = -1;
-    }
-
-
-    while (bl_gpio_input_get_value(pinDht));
-
-    return Response;
-}
-
-
-uint8_t DHT_Read(void)
-{
-    uint8_t i = 0, j;
-
-
-    for (j = 0; j < 8; j++)
-    {
-
-        while (!(bl_gpio_input_get_value(pinDht)));
-
-
-        bl_timer_delay_us(40);
-
-
-        if (!(bl_gpio_input_get_value(pinDht)))
-        {
-            i &= ~(1 << (7 - j));
-        }
-        else
-        {
-            i |= (1 << (7 - j));
-        }
-
-
-        while ((bl_gpio_input_get_value(pinDht)));
-    }
-    return i;
-}
-
-
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 1 3
 # 10 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/machine/ieeefp.h" 1 3
@@ -1806,16 +1704,114 @@ extern long double _strtold_r (struct _reent *, const char *restrict, char **res
 extern long double strtold (const char *restrict, char **restrict);
 # 339 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdlib.h" 3
 
-# 95 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c" 2
+# 7 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c" 2
+# 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.h" 1
 
 
-# 96 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c"
+
+
+
+# 5 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.h"
+typedef struct
+{
+ float Temperature;
+ float Humidity;
+}DHT_DataTypedef;
+
+
+
+void DHT_GetData (DHT_DataTypedef *DHT_Data);
+# 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c" 2
+
+
+uint8_t pinDht;
+
+
+void DHT_init(uint8_t pinDataDHT)
+{
+    pinDht = pinDataDHT;
+}
+
+
+void DHT_Start(void)
+{
+
+    bl_gpio_enable_output(pinDht, 0, 0);
+
+
+    bl_gpio_output_set(pinDht, 0);
+    bl_timer_delay_us(18000);
+
+
+    bl_gpio_output_set(pinDht, 1);
+    bl_timer_delay_us(30);
+
+
+    bl_gpio_enable_input(pinDht, 0, 0);
+}
+
+
+uint8_t DHT_Check_Response(void)
+{
+    uint8_t Response = 0;
+
+
+    bl_timer_delay_us(40);
+
+
+    if (!bl_gpio_input_get_value(pinDht))
+    {
+
+        bl_timer_delay_us(80);
+
+
+        if (bl_gpio_input_get_value(pinDht))
+            Response = 1;
+        else
+            Response = -1;
+    }
+
+
+    while (bl_gpio_input_get_value(pinDht));
+
+    return Response;
+}
+
+uint8_t DHT_Read(void)
+{
+    uint8_t i = 0, j;
+
+
+    for (j = 0; j < 8; j++)
+    {
+
+        while (!(bl_gpio_input_get_value(pinDht)));
+
+
+        bl_timer_delay_us(40);
+
+
+        if (!(bl_gpio_input_get_value(pinDht)))
+        {
+            i &= ~(1 << (7 - j));
+        }
+        else
+        {
+            i |= (1 << (7 - j));
+        }
+
+
+        while ((bl_gpio_input_get_value(pinDht)));
+    }
+    return i;
+}
+
+
 void DHT_GetData(DHT_DataTypedef *DHT_Data)
 {
     uint8_t Rh_byte1, Rh_byte2, Temp_byte1, Temp_byte2, SUM;
 
     DHT_Start();
-
 
     DHT_Check_Response();
 

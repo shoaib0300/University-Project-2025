@@ -1647,7 +1647,7 @@ LOAD /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknow
  .init          0x0000000023000000      0x11c /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
                 0x0000000023000000                bl602_start
 
-.text           0x000000002300011c     0x4d28
+.text           0x000000002300011c     0x4d3c
  *(.text.unlikely .text.unlikely.*)
  *(.text.startup .text.startup.*)
  *(.text .text.*)
@@ -1661,220 +1661,220 @@ LOAD /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknow
                 0x0000000023000150       0x2e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(main.o)
                 0x0000000023000150                LED_Blink
  .text.bfl_main
-                0x000000002300017e      0x10c /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(main.o)
+                0x000000002300017e      0x120 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(main.o)
                 0x000000002300017e                bfl_main
  .text.DHT_init
-                0x000000002300028a        0x6 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
-                0x000000002300028a                DHT_init
+                0x000000002300029e        0x6 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
+                0x000000002300029e                DHT_init
  .text.DHT_Start
-                0x0000000023000290       0x48 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
-                0x0000000023000290                DHT_Start
+                0x00000000230002a4       0x48 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
+                0x00000000230002a4                DHT_Start
  .text.DHT_Check_Response
-                0x00000000230002d8       0x4a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
-                0x00000000230002d8                DHT_Check_Response
+                0x00000000230002ec       0x4a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
+                0x00000000230002ec                DHT_Check_Response
  .text.DHT_Read
-                0x0000000023000322       0x6e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
-                0x0000000023000322                DHT_Read
+                0x0000000023000336       0x6e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
+                0x0000000023000336                DHT_Read
  .text.DHT_GetData
-                0x0000000023000390       0x8e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
-                0x0000000023000390                DHT_GetData
+                0x00000000230003a4       0x8e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
+                0x00000000230003a4                DHT_GetData
  .text.format_int
-                0x000000002300041e      0x25a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
- .text.cvt      0x0000000023000678      0x23a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
- .text.ecvtbuf  0x00000000230008b2        0x4 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
-                0x00000000230008b2                ecvtbuf
- .text.fcvtbuf  0x00000000230008b6        0x4 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
-                0x00000000230008b6                fcvtbuf
- .text.flt      0x00000000230008ba      0x436 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+                0x0000000023000432      0x25a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+ .text.cvt      0x000000002300068c      0x23a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+ .text.ecvtbuf  0x00000000230008c6        0x4 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+                0x00000000230008c6                ecvtbuf
+ .text.fcvtbuf  0x00000000230008ca        0x4 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+                0x00000000230008ca                fcvtbuf
+ .text.flt      0x00000000230008ce      0x436 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
  .text.vsnprintf
-                0x0000000023000cf0      0x4d2 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
-                0x0000000023000cf0                vsnprintf
+                0x0000000023000d04      0x4d2 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+                0x0000000023000d04                vsnprintf
  .text.vsprintf
-                0x00000000230011c2        0xa /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
-                0x00000000230011c2                vsprintf
- .text.vprint   0x00000000230011cc       0x3a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
-                0x00000000230011cc                vprint
- .text.printf   0x0000000023001206       0x2a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
-                0x0000000023001206                printf
+                0x00000000230011d6        0xa /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+                0x00000000230011d6                vsprintf
+ .text.vprint   0x00000000230011e0       0x3a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+                0x00000000230011e0                vprint
+ .text.printf   0x000000002300121a       0x2a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+                0x000000002300121a                printf
  .text.bl_uart_init
-                0x0000000023001230       0xd6 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
-                0x0000000023001230                bl_uart_init
+                0x0000000023001244       0xd6 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
+                0x0000000023001244                bl_uart_init
  .text.bl_uart_data_send
-                0x0000000023001306       0x34 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
-                0x0000000023001306                bl_uart_data_send
+                0x000000002300131a       0x34 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
+                0x000000002300131a                bl_uart_data_send
  .text.bl_timer_delay_us
-                0x000000002300133a       0x1e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_timer.o)
-                0x000000002300133a                bl_timer_delay_us
+                0x000000002300134e       0x1e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_timer.o)
+                0x000000002300134e                bl_timer_delay_us
  .text.bl_gpio_enable_output
-                0x0000000023001358       0x44 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
-                0x0000000023001358                bl_gpio_enable_output
+                0x000000002300136c       0x44 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
+                0x000000002300136c                bl_gpio_enable_output
  .text.bl_gpio_enable_input
-                0x000000002300139c       0x42 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
-                0x000000002300139c                bl_gpio_enable_input
+                0x00000000230013b0       0x42 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
+                0x00000000230013b0                bl_gpio_enable_input
  .text.bl_gpio_output_set
-                0x00000000230013de       0x12 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
-                0x00000000230013de                bl_gpio_output_set
+                0x00000000230013f2       0x12 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
+                0x00000000230013f2                bl_gpio_output_set
  .text.bl_gpio_input_get_value
-                0x00000000230013f0        0x2 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
-                0x00000000230013f0                bl_gpio_input_get_value
+                0x0000000023001404        0x2 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
+                0x0000000023001404                bl_gpio_input_get_value
  .text.UART_Init
-                0x00000000230013f2       0xf4 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
-                0x00000000230013f2                UART_Init
+                0x0000000023001406       0xf4 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
+                0x0000000023001406                UART_Init
  .text.UART_FifoConfig
-                0x00000000230014e6       0x6a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
-                0x00000000230014e6                UART_FifoConfig
+                0x00000000230014fa       0x6a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
+                0x00000000230014fa                UART_FifoConfig
  .text.UART_Enable
-                0x0000000023001550       0x34 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
-                0x0000000023001550                UART_Enable
+                0x0000000023001564       0x34 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
+                0x0000000023001564                UART_Enable
  .text.UART_Disable
-                0x0000000023001584       0x30 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
-                0x0000000023001584                UART_Disable
+                0x0000000023001598       0x30 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
+                0x0000000023001598                UART_Disable
  .text.UART_TxFreeRun
-                0x00000000230015b4       0x24 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
-                0x00000000230015b4                UART_TxFreeRun
+                0x00000000230015c8       0x24 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
+                0x00000000230015c8                UART_TxFreeRun
  .text.UART_IntMask
-                0x00000000230015d8       0x3e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
-                0x00000000230015d8                UART_IntMask
+                0x00000000230015ec       0x3e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
+                0x00000000230015ec                UART_IntMask
  .text.UART_GetTxFifoCount
-                0x0000000023001616       0x18 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
-                0x0000000023001616                UART_GetTxFifoCount
+                0x000000002300162a       0x18 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
+                0x000000002300162a                UART_GetTxFifoCount
  .text.GLB_Set_UART_CLK
-                0x000000002300162e       0x3e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
-                0x000000002300162e                GLB_Set_UART_CLK
+                0x0000000023001642       0x3e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
+                0x0000000023001642                GLB_Set_UART_CLK
  .text.GLB_UART_Fun_Sel
-                0x000000002300166c       0x24 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
-                0x000000002300166c                GLB_UART_Fun_Sel
+                0x0000000023001680       0x24 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
+                0x0000000023001680                GLB_UART_Fun_Sel
  .text.GLB_GPIO_Write
-                0x0000000023001690       0x2a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
-                0x0000000023001690                GLB_GPIO_Write
+                0x00000000230016a4       0x2a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
+                0x00000000230016a4                GLB_GPIO_Write
  .text.GLB_GPIO_Read
-                0x00000000230016ba       0x20 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
-                0x00000000230016ba                GLB_GPIO_Read
+                0x00000000230016ce       0x20 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
+                0x00000000230016ce                GLB_GPIO_Read
  .text.HBN_Set_UART_CLK_Sel
-                0x00000000230016da       0x12 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_hbn.o)
-                0x00000000230016da                HBN_Set_UART_CLK_Sel
- .text          0x00000000230016ec       0xf4 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libm.a(lib_a-s_modf.o)
-                0x00000000230016ec                modf
- .text          0x00000000230017e0       0x4c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clzsi2.o)
-                0x00000000230017e0                __clzsi2
- .text          0x000000002300182c      0x434 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_udivdi3.o)
-                0x000000002300182c                __udivdi3
- .text          0x0000000023001c60      0x410 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_umoddi3.o)
-                0x0000000023001c60                __umoddi3
- .text          0x0000000023002070      0xb50 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(adddf3.o)
-                0x0000000023002070                __adddf3
- .text          0x0000000023002bc0      0x8ac /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(divdf3.o)
-                0x0000000023002bc0                __divdf3
- .text          0x000000002300346c       0xc8 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(eqdf2.o)
-                0x000000002300346c                __eqdf2
-                0x000000002300346c                __nedf2
- .text          0x0000000023003534       0xec /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(gedf2.o)
-                0x0000000023003534                __gtdf2
-                0x0000000023003534                __gedf2
- .text          0x0000000023003620       0xec /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(ledf2.o)
-                0x0000000023003620                __ltdf2
-                0x0000000023003620                __ledf2
- .text          0x000000002300370c      0x79c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(muldf3.o)
-                0x000000002300370c                __muldf3
- .text          0x0000000023003ea8      0xb38 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(subdf3.o)
-                0x0000000023003ea8                __subdf3
- .text          0x00000000230049e0       0xfc /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(fixdfsi.o)
-                0x00000000230049e0                __fixdfsi
- .text          0x0000000023004adc      0x110 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(extendsfdf2.o)
-                0x0000000023004adc                __extendsfdf2
- .text          0x0000000023004bec      0x11c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libc.a(lib_a-memcpy.o)
-                0x0000000023004bec                memcpy
- .text          0x0000000023004d08       0x6c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libc.a(lib_a-rand.o)
-                0x0000000023004d08                srand
-                0x0000000023004d1c                rand
- .text          0x0000000023004d74       0x8c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libc.a(lib_a-strlen.o)
-                0x0000000023004d74                strlen
- .text          0x0000000023004e00       0x44 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libc.a(lib_a-strnlen.o)
-                0x0000000023004e00                strnlen
+                0x00000000230016ee       0x12 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_hbn.o)
+                0x00000000230016ee                HBN_Set_UART_CLK_Sel
+ .text          0x0000000023001700       0xf4 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libm.a(lib_a-s_modf.o)
+                0x0000000023001700                modf
+ .text          0x00000000230017f4       0x4c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clzsi2.o)
+                0x00000000230017f4                __clzsi2
+ .text          0x0000000023001840      0x434 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_udivdi3.o)
+                0x0000000023001840                __udivdi3
+ .text          0x0000000023001c74      0x410 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_umoddi3.o)
+                0x0000000023001c74                __umoddi3
+ .text          0x0000000023002084      0xb50 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(adddf3.o)
+                0x0000000023002084                __adddf3
+ .text          0x0000000023002bd4      0x8ac /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(divdf3.o)
+                0x0000000023002bd4                __divdf3
+ .text          0x0000000023003480       0xc8 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(eqdf2.o)
+                0x0000000023003480                __eqdf2
+                0x0000000023003480                __nedf2
+ .text          0x0000000023003548       0xec /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(gedf2.o)
+                0x0000000023003548                __gtdf2
+                0x0000000023003548                __gedf2
+ .text          0x0000000023003634       0xec /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(ledf2.o)
+                0x0000000023003634                __ltdf2
+                0x0000000023003634                __ledf2
+ .text          0x0000000023003720      0x79c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(muldf3.o)
+                0x0000000023003720                __muldf3
+ .text          0x0000000023003ebc      0xb38 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(subdf3.o)
+                0x0000000023003ebc                __subdf3
+ .text          0x00000000230049f4       0xfc /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(fixdfsi.o)
+                0x00000000230049f4                __fixdfsi
+ .text          0x0000000023004af0      0x110 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(extendsfdf2.o)
+                0x0000000023004af0                __extendsfdf2
+ .text          0x0000000023004c00      0x11c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libc.a(lib_a-memcpy.o)
+                0x0000000023004c00                memcpy
+ .text          0x0000000023004d1c       0x6c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libc.a(lib_a-rand.o)
+                0x0000000023004d1c                srand
+                0x0000000023004d30                rand
+ .text          0x0000000023004d88       0x8c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libc.a(lib_a-strlen.o)
+                0x0000000023004d88                strlen
+ .text          0x0000000023004e14       0x44 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libc.a(lib_a-strnlen.o)
+                0x0000000023004e14                strnlen
  *(.gnu.linkonce.t.*)
 
-.rodata         0x0000000023004e48      0x4a0
+.rodata         0x0000000023004e58      0x4d0
  *(.rdata)
  *(.rodata .rodata.*)
  .rodata.bfl_main.cst4
-                0x0000000023004e48        0x8 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(main.o)
+                0x0000000023004e58        0x8 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(main.o)
  .rodata.bfl_main.str1.4
-                0x0000000023004e50       0xac /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(main.o)
+                0x0000000023004e60       0xdc /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(main.o)
  .rodata.DHT_GetData.cst4
-                0x0000000023004efc        0x4 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
+                0x0000000023004f3c        0x4 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
  .rodata.vsnprintf
-                0x0000000023004f00      0x1f4 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
- *fill*         0x00000000230050f4        0x4 
+                0x0000000023004f40      0x1f4 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+ *fill*         0x0000000023005134        0x4 
  .rodata.cvt.cst8
-                0x00000000230050f8       0x18 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+                0x0000000023005138       0x18 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
  .rodata.lcdigits.2256
-                0x0000000023005110       0x11 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
- *fill*         0x0000000023005121        0x3 
+                0x0000000023005150       0x11 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+ *fill*         0x0000000023005161        0x3 
  .rodata.ucdigits.2257
-                0x0000000023005124       0x11 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
- *fill*         0x0000000023005135        0x3 
+                0x0000000023005164       0x11 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+ *fill*         0x0000000023005175        0x3 
  .rodata.vsnprintf.str1.4
-                0x0000000023005138        0x8 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+                0x0000000023005178        0x8 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
                                           0x7 (size before relaxing)
- .rodata        0x0000000023005140       0x20 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
- .rodata        0x0000000023005160       0x3c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(divdf3.o)
- .rodata        0x000000002300519c       0x3c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(muldf3.o)
- .rodata        0x00000000230051d8      0x100 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clz.o)
-                0x00000000230051d8                __clz_tab
+ .rodata        0x0000000023005180       0x20 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
+ .rodata        0x00000000230051a0       0x3c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(divdf3.o)
+ .rodata        0x00000000230051dc       0x3c /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(muldf3.o)
+ .rodata        0x0000000023005218      0x100 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clz.o)
+                0x0000000023005218                __clz_tab
  *(.sdata2.*)
  .sdata2.uartAddr
-                0x00000000230052d8        0x8 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
+                0x0000000023005318        0x8 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
  .sdata2.uartAddr
-                0x00000000230052e0        0x8 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
-                0x00000000230052e8                . = ALIGN (0x4)
-                0x00000000230052e8                _bl_static_cli_cmds_start = .
+                0x0000000023005320        0x8 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
+                0x0000000023005328                . = ALIGN (0x4)
+                0x0000000023005328                _bl_static_cli_cmds_start = .
  *(.static_cli_cmds)
  *(.static_cli_cmds)
-                0x00000000230052e8                _bl_static_cli_cmds_end = .
-                0x00000000230052e8                . = ALIGN (0x4)
-                0x00000000230052e8                _bl_static_blogcomponent_code_start = .
+                0x0000000023005328                _bl_static_cli_cmds_end = .
+                0x0000000023005328                . = ALIGN (0x4)
+                0x0000000023005328                _bl_static_blogcomponent_code_start = .
  SORT_BY_NAME(*)(.static_blogcomponent_code*)
  *(.static_blogcomponent_code*)
-                0x00000000230052e8                _bl_static_blogcomponent_code_end = .
-                0x00000000230052e8                . = ALIGN (0x4)
-                0x00000000230052e8                _bl_static_blogfile_code_start = .
+                0x0000000023005328                _bl_static_blogcomponent_code_end = .
+                0x0000000023005328                . = ALIGN (0x4)
+                0x0000000023005328                _bl_static_blogfile_code_start = .
  SORT_BY_NAME(*)(.static_blogfile_code*)
  *(.static_blogfile_code*)
-                0x00000000230052e8                _bl_static_blogfile_code_end = .
-                0x00000000230052e8                . = ALIGN (0x4)
-                0x00000000230052e8                _bl_static_blogpri_code_start = .
+                0x0000000023005328                _bl_static_blogfile_code_end = .
+                0x0000000023005328                . = ALIGN (0x4)
+                0x0000000023005328                _bl_static_blogpri_code_start = .
  SORT_BY_NAME(*)(.static_blogpri_code*)
  *(.static_blogpri_code*)
-                0x00000000230052e8                _bl_static_blogpri_code_end = .
+                0x0000000023005328                _bl_static_blogpri_code_end = .
  *(.gnu.linkonce.r.*)
 
-.rela.dyn       0x00000000230052e8        0x0
- .rela.init     0x00000000230052e8        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
+.rela.dyn       0x0000000023005328        0x0
+ .rela.init     0x0000000023005328        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
  .rela.text.hal_boot2_get_flash_addr
-                0x00000000230052e8        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
+                0x0000000023005328        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
  .rela.text.bfl_main
-                0x00000000230052e8        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
+                0x0000000023005328        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
  .rela.text.DHT_init
-                0x00000000230052e8        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
+                0x0000000023005328        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
  .rela.text.DHT_Start
-                0x00000000230052e8        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
+                0x0000000023005328        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
  .rela.text.DHT_Check_Response
-                0x00000000230052e8        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
+                0x0000000023005328        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
  .rela.text.DHT_Read
-                0x00000000230052e8        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
+                0x0000000023005328        0x0 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
 
-.preinit_array  0x00000000230052e8        0x0
-                0x00000000230052e8                . = ALIGN (0x4)
-                0x00000000230052e8                __preinit_array_start = .
+.preinit_array  0x0000000023005328        0x0
+                0x0000000023005328                . = ALIGN (0x4)
+                0x0000000023005328                __preinit_array_start = .
  *(.preinit_array)
-                0x00000000230052e8                __preinit_array_end = .
+                0x0000000023005328                __preinit_array_end = .
 
-.init_array     0x00000000230052e8        0x0
-                0x00000000230052e8                . = ALIGN (0x4)
-                0x00000000230052e8                __init_array_start = .
+.init_array     0x0000000023005328        0x0
+                0x0000000023005328                . = ALIGN (0x4)
+                0x0000000023005328                __init_array_start = .
  *(SORT_BY_INIT_PRIORITY(.init_array.*))
  *(.init_array)
-                0x00000000230052e8                __init_array_end = .
+                0x0000000023005328                __init_array_end = .
 
 .wifibss        0x0000000042030000        0x0
                 0x0000000042030000                PROVIDE (__wifi_bss_start = ADDR (.wifibss))
@@ -1898,8 +1898,8 @@ LOAD /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknow
                 [!provide]                        PROVIDE (_heap_wifi_start = .)
                 [!provide]                        PROVIDE (_heap_wifi_size = ((ORIGIN (ram_wifi) + LENGTH (ram_wifi)) - _heap_wifi_start))
 
-.data           0x000000004200c000      0x988 load address 0x00000000230052e8
-                0x00000000230052e8                PROVIDE (_data_load = LOADADDR (.data))
+.data           0x000000004200c000      0x988 load address 0x0000000023005328
+                0x0000000023005328                PROVIDE (_data_load = LOADADDR (.data))
                 0x000000004200c000                PROVIDE (_data_run = ADDR (.data))
                 0x000000004200c988                PROVIDE (_data_run_end = (ADDR (.data) + SIZEOF (.data)))
  *(.tcm_code)
@@ -2081,7 +2081,7 @@ LOAD /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknow
  *(SORT_BY_NAME(._bt_l2cap_fixed_chan.static.*))
                 0x000000004200c988                _bt_l2cap_fixed_chan_list_end = .
 
-.boot2          0x000000004200c988      0x258 load address 0x0000000023005c70
+.boot2          0x000000004200c988      0x258 load address 0x0000000023005cb0
                 0x000000004200c988                PROVIDE (__boot2_pt_addr_start = .)
  *(.bss.boot2_partition_table)
  .bss.boot2_partition_table
@@ -2091,7 +2091,7 @@ LOAD /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknow
  *(.bss.boot2_flashCfg)
                 0x000000004200cbe0                PROVIDE (__boot2_flashCfg_end = .)
 
-.bss            0x000000004200cbe0      0x219 load address 0x0000000023005c70
+.bss            0x000000004200cbe0      0x219 load address 0x0000000023005cb0
                 0x000000004200cbe0                PROVIDE (__bss_start = ADDR (.bss))
                 0x000000004200cdf9                PROVIDE (__bss_end = (ADDR (.bss) + SIZEOF (.bss)))
  *(.sbss*)
@@ -2238,61 +2238,61 @@ OUTPUT(/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app
  .comment       0x0000000000000028       0x29 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libc.a(lib_a-strnlen.o)
  .comment       0x0000000000000028       0x29 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imf/ilp32f/libc.a(lib_a-impure.o)
 
-.debug_line     0x0000000000000000    0x169d0
+.debug_line     0x0000000000000000    0x169eb
  .debug_line    0x0000000000000000      0x222 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
  .debug_line    0x0000000000000222      0xd8a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(hal_boot2.o)
- .debug_line    0x0000000000000fac      0x5ac /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(main.o)
- .debug_line    0x0000000000001558      0x689 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
- .debug_line    0x0000000000001be1     0x29e2 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
- .debug_line    0x00000000000045c3      0xeea /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
- .debug_line    0x00000000000054ad      0x536 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_sys.o)
- .debug_line    0x00000000000059e3      0x640 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_timer.o)
- .debug_line    0x0000000000006023      0x79d /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
- .debug_line    0x00000000000067c0     0x191b /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
- .debug_line    0x00000000000080db     0x3a72 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
- .debug_line    0x000000000000bb4d     0x2241 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_hbn.o)
- .debug_line    0x000000000000dd8e     0x1984 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_romapi.o)
- .debug_line    0x000000000000f712      0x3ba /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clzsi2.o)
- .debug_line    0x000000000000facc      0x9fc /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_udivdi3.o)
- .debug_line    0x00000000000104c8      0xaac /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_umoddi3.o)
- .debug_line    0x0000000000010f74     0x141d /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(adddf3.o)
- .debug_line    0x0000000000012391     0x10b7 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(divdf3.o)
- .debug_line    0x0000000000013448      0x2d6 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(eqdf2.o)
- .debug_line    0x000000000001371e      0x30f /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(gedf2.o)
- .debug_line    0x0000000000013a2d      0x30f /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(ledf2.o)
- .debug_line    0x0000000000013d3c      0xe85 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(muldf3.o)
- .debug_line    0x0000000000014bc1     0x1477 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(subdf3.o)
- .debug_line    0x0000000000016038      0x2dd /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(fixdfsi.o)
- .debug_line    0x0000000000016315      0x383 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(extendsfdf2.o)
- .debug_line    0x0000000000016698      0x338 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clz.o)
+ .debug_line    0x0000000000000fac      0x5c8 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(main.o)
+ .debug_line    0x0000000000001574      0x688 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
+ .debug_line    0x0000000000001bfc     0x29e2 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+ .debug_line    0x00000000000045de      0xeea /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
+ .debug_line    0x00000000000054c8      0x536 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_sys.o)
+ .debug_line    0x00000000000059fe      0x640 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_timer.o)
+ .debug_line    0x000000000000603e      0x79d /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
+ .debug_line    0x00000000000067db     0x191b /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
+ .debug_line    0x00000000000080f6     0x3a72 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
+ .debug_line    0x000000000000bb68     0x2241 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_hbn.o)
+ .debug_line    0x000000000000dda9     0x1984 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_romapi.o)
+ .debug_line    0x000000000000f72d      0x3ba /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clzsi2.o)
+ .debug_line    0x000000000000fae7      0x9fc /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_udivdi3.o)
+ .debug_line    0x00000000000104e3      0xaac /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_umoddi3.o)
+ .debug_line    0x0000000000010f8f     0x141d /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(adddf3.o)
+ .debug_line    0x00000000000123ac     0x10b7 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(divdf3.o)
+ .debug_line    0x0000000000013463      0x2d6 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(eqdf2.o)
+ .debug_line    0x0000000000013739      0x30f /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(gedf2.o)
+ .debug_line    0x0000000000013a48      0x30f /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(ledf2.o)
+ .debug_line    0x0000000000013d57      0xe85 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(muldf3.o)
+ .debug_line    0x0000000000014bdc     0x1477 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(subdf3.o)
+ .debug_line    0x0000000000016053      0x2dd /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(fixdfsi.o)
+ .debug_line    0x0000000000016330      0x383 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(extendsfdf2.o)
+ .debug_line    0x00000000000166b3      0x338 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clz.o)
 
-.debug_info     0x0000000000000000    0x19dde
+.debug_info     0x0000000000000000    0x19e0c
  .debug_info    0x0000000000000000       0x26 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)
  .debug_info    0x0000000000000026     0x14ed /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(hal_boot2.o)
- .debug_info    0x0000000000001513      0xd66 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(main.o)
- .debug_info    0x0000000000002279      0xc5a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
- .debug_info    0x0000000000002ed3     0x183d /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
- .debug_info    0x0000000000004710     0x198e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
- .debug_info    0x000000000000609e      0xbce /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_sys.o)
- .debug_info    0x0000000000006c6c     0x109d /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_timer.o)
- .debug_info    0x0000000000007d09     0x11f9 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
- .debug_info    0x0000000000008f02     0x1929 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
- .debug_info    0x000000000000a82b     0x29ed /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
- .debug_info    0x000000000000d218     0x2302 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_hbn.o)
- .debug_info    0x000000000000f51a     0x452e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_romapi.o)
- .debug_info    0x0000000000013a48      0xbd7 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clzsi2.o)
- .debug_info    0x000000000001461f     0x1245 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_udivdi3.o)
- .debug_info    0x0000000000015864     0x12a3 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_umoddi3.o)
- .debug_info    0x0000000000016b07      0x5f2 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(adddf3.o)
- .debug_info    0x00000000000170f9      0x773 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(divdf3.o)
- .debug_info    0x000000000001786c      0x29e /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(eqdf2.o)
- .debug_info    0x0000000000017b0a      0x285 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(gedf2.o)
- .debug_info    0x0000000000017d8f      0x285 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(ledf2.o)
- .debug_info    0x0000000000018014      0x7ab /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(muldf3.o)
- .debug_info    0x00000000000187bf      0x5ec /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(subdf3.o)
- .debug_info    0x0000000000018dab      0x21a /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(fixdfsi.o)
- .debug_info    0x0000000000018fc5      0x2af /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(extendsfdf2.o)
- .debug_info    0x0000000000019274      0xb6a /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clz.o)
+ .debug_info    0x0000000000001513      0xd94 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(main.o)
+ .debug_info    0x00000000000022a7      0xc5a /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld/libsdk_app_helloworld.a(dht_lib.o)
+ .debug_info    0x0000000000002f01     0x183d /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(debug.o)
+ .debug_info    0x000000000000473e     0x198e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_uart.o)
+ .debug_info    0x00000000000060cc      0xbce /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_sys.o)
+ .debug_info    0x0000000000006c9a     0x109d /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_timer.o)
+ .debug_info    0x0000000000007d37     0x11f9 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/hal_drv/libhal_drv.a(bl_gpio.o)
+ .debug_info    0x0000000000008f30     0x1929 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_uart.o)
+ .debug_info    0x000000000000a859     0x29ed /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_glb.o)
+ .debug_info    0x000000000000d246     0x2302 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_hbn.o)
+ .debug_info    0x000000000000f548     0x452e /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602_std/libbl602_std.a(bl602_romapi.o)
+ .debug_info    0x0000000000013a76      0xbd7 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clzsi2.o)
+ .debug_info    0x000000000001464d     0x1245 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_udivdi3.o)
+ .debug_info    0x0000000000015892     0x12a3 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_umoddi3.o)
+ .debug_info    0x0000000000016b35      0x5f2 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(adddf3.o)
+ .debug_info    0x0000000000017127      0x773 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(divdf3.o)
+ .debug_info    0x000000000001789a      0x29e /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(eqdf2.o)
+ .debug_info    0x0000000000017b38      0x285 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(gedf2.o)
+ .debug_info    0x0000000000017dbd      0x285 /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(ledf2.o)
+ .debug_info    0x0000000000018042      0x7ab /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(muldf3.o)
+ .debug_info    0x00000000000187ed      0x5ec /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(subdf3.o)
+ .debug_info    0x0000000000018dd9      0x21a /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(fixdfsi.o)
+ .debug_info    0x0000000000018ff3      0x2af /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(extendsfdf2.o)
+ .debug_info    0x00000000000192a2      0xb6a /home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imf/ilp32f/libgcc.a(_clz.o)
 
 .debug_abbrev   0x0000000000000000     0x4278
  .debug_abbrev  0x0000000000000000       0x14 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/bl602/libbl602.a(start.o)

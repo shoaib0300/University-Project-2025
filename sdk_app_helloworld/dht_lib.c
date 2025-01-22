@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <inttypes.h>
 #include <bl_gpio.h>
-#include <bl_timer.h>  // Include bl_timer.h for microsecond delay
-
+#include <bl_timer.h>
+#include <stdlib.h>
 #include  "dht_lib.h"
 
 // Declare global pin variable
@@ -23,14 +23,14 @@ void DHT_Start(void)
     
     // Pull the pin low for at least 18ms (for DHT to start)
     bl_gpio_output_set(pinDht, 0);  // Set the pin LOW
-    bl_timer_delay_us(18000);  // Wait for 18ms
+    bl_timer_delay_us(18000);
     
     // Pull the pin high for at least 20-40us (for DHT to respond)
     bl_gpio_output_set(pinDht, 1);  // Set the pin HIGH
     bl_timer_delay_us(30);  // Wait for 30us
     
     // Set the pin as input (DHT will pull it low to indicate response)
-    bl_gpio_enable_input(pinDht, 0, 0);  // Use no pull-up, no pull-down resistors
+    bl_gpio_enable_input(pinDht, 0, 0);
 }
 
 /* Check if the DHT sensor responds */
@@ -51,7 +51,7 @@ uint8_t DHT_Check_Response(void)
         if (bl_gpio_input_get_value(pinDht)) 
             Response = 1;
         else 
-            Response = -1;  // No response
+            Response = -1;
     }
     
     // Wait until the pin goes LOW
@@ -60,7 +60,6 @@ uint8_t DHT_Check_Response(void)
     return Response;
 }
 
-/* Read a byte of data from the DHT sensor */
 uint8_t DHT_Read(void)
 {
     uint8_t i = 0, j;
@@ -91,15 +90,12 @@ uint8_t DHT_Read(void)
 }
 
 /* Get the temperature and humidity data from the DHT sensor */
-#include <stdlib.h> // Required for rand()
-
 void DHT_GetData(DHT_DataTypedef *DHT_Data)
 {
     uint8_t Rh_byte1, Rh_byte2, Temp_byte1, Temp_byte2, SUM;
 
-    DHT_Start();  // Start communication
-    
-    // Check for sensor response
+    DHT_Start();
+
     DHT_Check_Response();
     
     // Read the sensor data (humidity and temperature)
