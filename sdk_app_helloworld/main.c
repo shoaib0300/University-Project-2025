@@ -1,131 +1,121 @@
-// Description:
-// This program reads temperature and humidity data from a DHT sensor 
-// and controls two LEDs based on the readings. It uses FreeRTOS for 
-// task scheduling and UART for serial communication. The LEDs are 
-// controlled as follows:
-// - LED 1 (connected to pin 3) blinks when the temperature exceeds 
-//   a predefined threshold (30°C).
-// - LED 2 (connected to pin 11) blinks when the humidity falls below 
-//   a predefined threshold (40%).
-// The program runs in a continuous loop, reading data from the DHT sensor
-// every 3 seconds and adjusting the LED states accordingly.
-
-//The DHT11 sensor has a typical accuracy of ±5% RH (relative humidity).
-
-// Key Concepts
-//  Relative Humidity (RH):
-//  It is expressed as a percentage (%).
-//  RH = (Actual Water Vapor Density / Maximum Water Vapor Density) x 100%
-
-// Saturation Point:
-//  At 22°C, air can hold a maximum of approximately 19.8 g/m³ of water vapor. 
-//  If the air contains 19.8 g/m³, the RH is 100%. If it contains half that amount (9.9 g/m³), the RH is 50%.
-
-// FreeRTOS includes
 #include <FreeRTOS.h>
-#include <task.h>
 #include <stdio.h>
 #include <inttypes.h>
-#include <bl_uart.h>
-#include <bl_gpio.h>
-#include <bl_timer.h>
-
+#include <task.h>
+#include "bl_uart.h"
+#include "bl_gpio.h"
+#include "bl_timer.h"
 #include "dht_lib.h"
+#include "dht_lib.c"
 
-// Declare the DHT_init function
-void DHT_init(uint8_t pin);
 
-// Define pins for the LEDs and DHT sensor
-#define LED_11_PIN 3   // LED 1 pin
-#define LED_14_PIN 11  // LED 2 pin
-#define DHT_DATA_PIN 4 // DHT data pin
+// Pin definitions
+#define LED_TEMP_PIN 3       // LED for temperature threshold
+#define LED_HUM_PIN 11       // LED for humidity threshold
+#define DHT_DATA_PIN 4       // DHT sensor data pin
+#define SOUND_SENSOR_PIN 12  // KY-037 sound sensor pin
+#define LED_CLAP_PIN 14      // LED for clap detection
 
-// Define LED states
-#define LED_ON 1  // high voltage
-#define LED_OFF 0 // low voltage
+// Thresholds
+#define TEMP_THRESHOLD 30    // Temperature threshold (in °C)
+#define HUM_THRESHOLD 20     // Humidity threshold (in %)
 
-#define DISABLE_PULLUP 0
-#define DISABLE_PULLDOWN 0
-
-// Threshold values for temperature and humidity
-#define TEMP_THRESHOLD 30  // Temperature threshold (in °C)
-#define HUM_THRESHOLD 40   // Humidity threshold (in %)
-
-// Define the DHT DataTypedef structure (assuming it's defined in "dht_lib.h")
+// Global variables
 DHT_DataTypedef DHT11_Data;
 float Temperature, Humidity;
-uint8_t good_rep;
+uint8_t led_clap_state = 0; // LED state for clap detection
 
-// Function to initialize the LEDs as outputs
-void LED_Init(void)
-{
-    // Configure both LEDs as outputs, with no pull-up or pull-down resistors
-    bl_gpio_enable_output(LED_11_PIN, DISABLE_PULLUP, DISABLE_PULLDOWN);
-    bl_gpio_enable_output(LED_14_PIN, DISABLE_PULLUP, DISABLE_PULLDOWN);
+// Function to initialize GPIO pins
+void GPIO_Init(void) {
+    bl_gpio_enable_output(LED_TEMP_PIN, 0, 0);  // LED for temperature
+    bl_gpio_enable_output(LED_HUM_PIN, 0, 0);   // LED for humidity
+    bl_gpio_enable_output(LED_CLAP_PIN, 0, 0);  // LED for clap detection
+    bl_gpio_enable_input(SOUND_SENSOR_PIN, 0, 0); // Sound sensor
 }
 
-// Function to control LED states
-void LED_SetState(uint8_t pin, uint8_t state)
-{
-    // Set the LED pin to HIGH or LOW based on the state
+// Function to set LED state
+void LED_SetState(uint8_t pin, uint8_t state) {
     bl_gpio_output_set(pin, state);
 }
 
-// Function to blink an LED
-void LED_Blink(uint8_t pin, uint32_t delay_us)
-{
-    LED_SetState(pin, LED_ON);  // Turn on LED
-    bl_timer_delay_us(delay_us); // Delay for specified time
-    LED_SetState(pin, LED_OFF); // Turn off LED
-    bl_timer_delay_us(delay_us); // Delay for specified time
+// Function to blink LED
+void LED_Blink(uint8_t pin, uint32_t delay_us) {
+    LED_SetState(pin, 1);  // Turn on
+    bl_timer_delay_us(delay_us);
+    LED_SetState(pin, 0);  // Turn off
+    bl_timer_delay_us(delay_us);
 }
 
-int bfl_main(void)
-{
-    // Initialize UART
-    bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
+// Function to detect a clap
+int Clap_Detected(void) {
+    static int prev_state = 0;
+    int curr_state = bl_gpio_input_get_value(SOUND_SENSOR_PIN);
+
+    if (prev_state == 0 && curr_state == 1) {
+        prev_state = curr_state;
+        return 1;  // Clap detected
+    }
+    prev_state = curr_state;
+    return 0;
+}
+
+// Task to handle temperature and humidity sensing
+void Task_TempHumidity(void) {
     printf("***************************************\r\n");
     printf("* The Current Room Conditions are:    *\r\n");
     printf("***************************************\r\n");
-
-    // Initialize DHT sensor
-    DHT_init(DHT_DATA_PIN);
-    LED_Init(); // Initialize LEDs
-
-    while (1) {
-        // Get DHT data (temperature and humidity)
+    for (int i = 0; i < 5; i++) {
         DHT_GetData(&DHT11_Data);
-        good_rep = (DHT11_Data.Temperature != 0 && DHT11_Data.Humidity != 0) ? 1 : 0;
-        
-        if (good_rep) {
-            // If data is successfully retrieved, store it
+        if (DHT11_Data.Temperature && DHT11_Data.Humidity) {
             Temperature = DHT11_Data.Temperature;
             Humidity = DHT11_Data.Humidity;
-            printf("DHT Sensor Reading: Temperature = %.2f°C, Humidity = %.2f%%\r\n", Temperature, Humidity);
-            // fflush(stdout); // Ensure the output is flushed to the terminal immediately
-        } else {
-            // If data is not successfully retrieved, print an error
-            printf("Failed to read from DHT sensor.\n");
-        }
+            printf("Temperature: %.2f°C, Humidity: %.2f%%\r\n", Temperature, Humidity);
 
-        if (Temperature > TEMP_THRESHOLD) {
-            LED_Blink(LED_11_PIN, 500000); // Blink every 500ms (500,000 microseconds)
-            printf("Temperature exceeds threshold!\n");
-        } else {
-            // Otherwise, turn off LED 1
-            LED_SetState(LED_11_PIN, LED_OFF);
-        }
+            if (Temperature > TEMP_THRESHOLD || Temperature < 20) {
+                LED_Blink(LED_TEMP_PIN, 500000); // Blink if temperature exceeds threshold or is less than 20
+            } else {
+                LED_SetState(LED_TEMP_PIN, 0); // Turn off LED
+            }
 
-        if (Humidity < HUM_THRESHOLD) {
-            LED_Blink(LED_14_PIN, 500000); // Blink every 500ms (500,000 microseconds)
-            // printf("Humidity falls below threshold!\n");
-        } else {
-            // Otherwise, turn off LED 2
-            LED_SetState(LED_14_PIN, LED_OFF);
-        }
+            if (Humidity < HUM_THRESHOLD || Humidity > 30) {
+                LED_Blink(LED_HUM_PIN, 500000); 
 
-        // Delay for 3 seconds before reading again (3000 milliseconds = 3 seconds)
-        bl_timer_delay_us(3000000);  // 3 seconds delay in microseconds
+            } else {
+                LED_SetState(LED_HUM_PIN, 0); // Turn off LED
+
+            }
+        } else {
+            printf("Failed to read DHT sensor.\n");
+        }
+        bl_timer_delay_us(3000000); // 3 seconds delay
+    }
+}
+
+// Task to handle clap detection
+void Task_ClapDetection(void) {
+    printf("Starting Clap Detection Task...\n");
+    for (int i = 0; i < 10; i++) { // Run for 10 iterations
+        if (Clap_Detected()) {
+            // Toggle LED state on clap
+            led_clap_state = !led_clap_state;
+            LED_SetState(LED_CLAP_PIN, led_clap_state);
+            printf("Clap detected! LED toggled.\r\n");
+        }
+        bl_timer_delay_us(200000); // 200ms delay
+    }
+}
+
+int bfl_main(void) {
+    // Initialize UART and GPIO
+    bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
+    printf("Combined Program Starting...\r\n");
+    GPIO_Init();
+    DHT_init(DHT_DATA_PIN);
+
+    // Main loop alternating tasks
+    while (1) {
+        Task_TempHumidity();   // Run temperature and humidity task
+        Task_ClapDetection();  // Run clap detection task
     }
 
     return 0;

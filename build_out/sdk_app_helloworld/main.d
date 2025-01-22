@@ -23,7 +23,8 @@ main.o: \
  /home/shoaib/bl_iot_sdk/components/bl602/bl602_std/bl602_std/Common/platform_print/bflb_platform.h \
  /home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_gpio.h \
  /home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_timer.h \
- /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.h
+ /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.h \
+ /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c
 
 /home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h:
 
@@ -72,4 +73,6 @@ main.o: \
 /home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_timer.h:
 
 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.h:
+
+/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c:
 /home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/./main.c:
