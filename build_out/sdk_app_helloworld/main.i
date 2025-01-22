@@ -3003,7 +3003,7 @@ int bfl_main(void)
 
             Temperature = DHT11_Data.Temperature;
             Humidity = DHT11_Data.Humidity;
-            printf("DHT Sensor Reading: Temperature = %.2f°C, Humidity = %.2f%%\n", Temperature, Humidity);
+            printf("DHT Sensor Reading: Temperature = %.2f°C, Humidity = %.2f%%\r\n", Temperature, Humidity);
 
         } else {
 
@@ -3020,7 +3020,7 @@ int bfl_main(void)
 
         if (Humidity < 40) {
             LED_Blink(11, 500000);
-            printf("Humidity falls below threshold!\n");
+
         } else {
 
             LED_SetState(11, 0);

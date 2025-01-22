@@ -270,21 +270,16 @@ bfl_main:
 	beq	a5,zero,.L19
 	.loc 1 118 13 is_stmt 1
 	li	a1,499712
-	li	a0,11
 	addi	a1,a1,288
+	li	a0,11
 	call	LED_Blink
 .LVL22:
-	.loc 1 119 13
-	lui	a0,%hi(.LC6)
-	addi	a0,a0,%lo(.LC6)
-	call	printf
-.LVL23:
 .L14:
 	.loc 1 126 9
 	li	a0,2998272
 	addi	a0,a0,1728
 	call	bl_timer_delay_us
-.LVL24:
+.LVL23:
 	.loc 1 95 9 is_stmt 0
 	j	.L15
 .L7:
@@ -296,20 +291,20 @@ bfl_main:
 	.loc 1 98 9 is_stmt 1
 	.loc 1 106 13
 	call	printf
-.LVL25:
+.LVL24:
 	j	.L8
 .L18:
 	.loc 1 114 13
-.LVL26:
+.LVL25:
 .LBB16:
 .LBB17:
 	.loc 1 71 5
 	li	a1,0
 	li	a0,3
 	call	bl_gpio_output_set
-.LVL27:
+.LVL26:
 	j	.L11
-.LVL28:
+.LVL27:
 .L19:
 .LBE17:
 .LBE16:
@@ -320,7 +315,7 @@ bfl_main:
 	li	a1,0
 	li	a0,11
 	call	bl_gpio_output_set
-.LVL29:
+.LVL28:
 	j	.L14
 .LBE19:
 .LBE18:
@@ -343,15 +338,13 @@ bfl_main:
 	.string	"Starting DHT sensor communication...\n"
 	.zero	2
 .LC1:
-	.string	"DHT Sensor Reading: Temperature = %.2f\302\260C, Humidity = %.2f%%\n"
-	.zero	2
+	.string	"DHT Sensor Reading: Temperature = %.2f\302\260C, Humidity = %.2f%%\r\n"
+	.zero	1
 .LC2:
 	.string	"Failed to read from DHT sensor.\n"
 	.zero	3
 .LC4:
 	.string	"Temperature exceeds threshold!\n"
-.LC6:
-	.string	"Humidity falls below threshold!\n"
 	.text
 .Letext0:
 	.file 2 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stdint-gcc.h"
@@ -369,7 +362,7 @@ bfl_main:
 	.file 14 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_timer.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.4byte	0xd79
+	.4byte	0xd62
 	.2byte	0x4
 	.4byte	.Ldebug_abbrev0
 	.byte	0x4
@@ -1673,9 +1666,9 @@ bfl_main:
 	.4byte	.LFE12-.LFB12
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xbb2
+	.4byte	0xb9b
 	.byte	0x24
-	.4byte	0xc86
+	.4byte	0xc6f
 	.4byte	.LBB16
 	.4byte	.LBE16-.LBB16
 	.byte	0x1
@@ -1683,14 +1676,14 @@ bfl_main:
 	.byte	0xd
 	.4byte	0xa59
 	.byte	0x25
-	.4byte	0xc9f
+	.4byte	0xc88
 	.4byte	.LLST8
 	.byte	0x25
-	.4byte	0xc93
+	.4byte	0xc7c
 	.4byte	.LLST9
 	.byte	0x26
-	.4byte	.LVL27
-	.4byte	0xd28
+	.4byte	.LVL26
+	.4byte	0xd11
 	.byte	0x27
 	.byte	0x1
 	.byte	0x5a
@@ -1704,7 +1697,7 @@ bfl_main:
 	.byte	0
 	.byte	0
 	.byte	0x24
-	.4byte	0xc86
+	.4byte	0xc6f
 	.4byte	.LBB18
 	.4byte	.LBE18-.LBB18
 	.byte	0x1
@@ -1712,14 +1705,14 @@ bfl_main:
 	.byte	0xd
 	.4byte	0xa8e
 	.byte	0x28
-	.4byte	0xc9f
+	.4byte	0xc88
 	.byte	0
 	.byte	0x28
-	.4byte	0xc93
+	.4byte	0xc7c
 	.byte	0xb
 	.byte	0x26
-	.4byte	.LVL29
-	.4byte	0xd28
+	.4byte	.LVL28
+	.4byte	0xd11
 	.byte	0x27
 	.byte	0x1
 	.byte	0x5a
@@ -1734,7 +1727,7 @@ bfl_main:
 	.byte	0
 	.byte	0x29
 	.4byte	.LVL12
-	.4byte	0xd34
+	.4byte	0xd1d
 	.4byte	0xac0
 	.byte	0x27
 	.byte	0x1
@@ -1772,7 +1765,7 @@ bfl_main:
 	.byte	0
 	.byte	0x29
 	.4byte	.LVL13
-	.4byte	0xd40
+	.4byte	0xd29
 	.4byte	0xad7
 	.byte	0x27
 	.byte	0x1
@@ -1783,7 +1776,7 @@ bfl_main:
 	.byte	0
 	.byte	0x29
 	.4byte	.LVL14
-	.4byte	0xd4c
+	.4byte	0xd35
 	.4byte	0xaea
 	.byte	0x27
 	.byte	0x1
@@ -1793,10 +1786,10 @@ bfl_main:
 	.byte	0
 	.byte	0x2a
 	.4byte	.LVL15
-	.4byte	0xcac
+	.4byte	0xc95
 	.byte	0x29
 	.4byte	.LVL16
-	.4byte	0xd58
+	.4byte	0xd41
 	.4byte	0xb0a
 	.byte	0x27
 	.byte	0x1
@@ -1807,7 +1800,7 @@ bfl_main:
 	.byte	0
 	.byte	0x29
 	.4byte	.LVL19
-	.4byte	0xd40
+	.4byte	0xd29
 	.4byte	0xb21
 	.byte	0x27
 	.byte	0x1
@@ -1818,7 +1811,7 @@ bfl_main:
 	.byte	0
 	.byte	0x29
 	.4byte	.LVL20
-	.4byte	0xbb2
+	.4byte	0xb9b
 	.4byte	0xb3d
 	.byte	0x27
 	.byte	0x1
@@ -1834,7 +1827,7 @@ bfl_main:
 	.byte	0
 	.byte	0x29
 	.4byte	.LVL21
-	.4byte	0xd40
+	.4byte	0xd29
 	.4byte	0xb54
 	.byte	0x27
 	.byte	0x1
@@ -1845,7 +1838,7 @@ bfl_main:
 	.byte	0
 	.byte	0x29
 	.4byte	.LVL22
-	.4byte	0xbb2
+	.4byte	0xb9b
 	.4byte	0xb70
 	.byte	0x27
 	.byte	0x1
@@ -1861,19 +1854,8 @@ bfl_main:
 	.byte	0
 	.byte	0x29
 	.4byte	.LVL23
-	.4byte	0xd40
+	.4byte	0xd4d
 	.4byte	0xb87
-	.byte	0x27
-	.byte	0x1
-	.byte	0x5a
-	.byte	0x5
-	.byte	0x3
-	.4byte	.LC6
-	.byte	0
-	.byte	0x29
-	.4byte	.LVL24
-	.4byte	0xd64
-	.4byte	0xb9e
 	.byte	0x27
 	.byte	0x1
 	.byte	0x5a
@@ -1882,8 +1864,8 @@ bfl_main:
 	.4byte	0x2dc6c0
 	.byte	0
 	.byte	0x26
-	.4byte	.LVL25
-	.4byte	0xd40
+	.4byte	.LVL24
+	.4byte	0xd29
 	.byte	0x27
 	.byte	0x1
 	.byte	0x5a
@@ -1901,7 +1883,7 @@ bfl_main:
 	.4byte	.LFE11-.LFB11
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xc86
+	.4byte	0xc6f
 	.byte	0x2c
 	.string	"pin"
 	.byte	0x1
@@ -1917,22 +1899,22 @@ bfl_main:
 	.4byte	0x75
 	.4byte	.LLST3
 	.byte	0x2e
-	.4byte	0xc86
+	.4byte	0xc6f
 	.4byte	.LBB10
 	.4byte	.Ldebug_ranges0+0
 	.byte	0x1
 	.byte	0x4d
 	.byte	0x5
-	.4byte	0xc24
+	.4byte	0xc0d
 	.byte	0x25
-	.4byte	0xc9f
+	.4byte	0xc88
 	.4byte	.LLST4
 	.byte	0x25
-	.4byte	0xc93
+	.4byte	0xc7c
 	.4byte	.LLST5
 	.byte	0x26
 	.4byte	.LVL7
-	.4byte	0xd28
+	.4byte	0xd11
 	.byte	0x27
 	.byte	0x1
 	.byte	0x5a
@@ -1947,22 +1929,22 @@ bfl_main:
 	.byte	0
 	.byte	0
 	.byte	0x24
-	.4byte	0xc86
+	.4byte	0xc6f
 	.4byte	.LBB14
 	.4byte	.LBE14-.LBB14
 	.byte	0x1
 	.byte	0x4f
 	.byte	0x5
-	.4byte	0xc60
+	.4byte	0xc49
 	.byte	0x25
-	.4byte	0xc9f
+	.4byte	0xc88
 	.4byte	.LLST6
 	.byte	0x25
-	.4byte	0xc93
+	.4byte	0xc7c
 	.4byte	.LLST7
 	.byte	0x26
 	.4byte	.LVL9
-	.4byte	0xd28
+	.4byte	0xd11
 	.byte	0x27
 	.byte	0x1
 	.byte	0x5a
@@ -1978,8 +1960,8 @@ bfl_main:
 	.byte	0
 	.byte	0x29
 	.4byte	.LVL8
-	.4byte	0xd64
-	.4byte	0xc74
+	.4byte	0xd4d
+	.4byte	0xc5d
 	.byte	0x27
 	.byte	0x1
 	.byte	0x5a
@@ -1989,7 +1971,7 @@ bfl_main:
 	.byte	0
 	.byte	0x2f
 	.4byte	.LVL11
-	.4byte	0xd64
+	.4byte	0xd4d
 	.byte	0x27
 	.byte	0x1
 	.byte	0x5a
@@ -2005,7 +1987,7 @@ bfl_main:
 	.byte	0x44
 	.byte	0x6
 	.byte	0x1
-	.4byte	0xcac
+	.4byte	0xc95
 	.byte	0x31
 	.string	"pin"
 	.byte	0x1
@@ -2028,11 +2010,11 @@ bfl_main:
 	.4byte	.LFE9-.LFB9
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xcf9
+	.4byte	0xce2
 	.byte	0x29
 	.4byte	.LVL0
-	.4byte	0xd70
-	.4byte	0xcdf
+	.4byte	0xd59
+	.4byte	0xcc8
 	.byte	0x27
 	.byte	0x1
 	.byte	0x5a
@@ -2051,7 +2033,7 @@ bfl_main:
 	.byte	0
 	.byte	0x2f
 	.4byte	.LVL1
-	.4byte	0xd70
+	.4byte	0xd59
 	.byte	0x27
 	.byte	0x1
 	.byte	0x5a
@@ -2070,21 +2052,21 @@ bfl_main:
 	.byte	0
 	.byte	0
 	.byte	0x33
-	.4byte	0xc86
+	.4byte	0xc6f
 	.4byte	.LFB10
 	.4byte	.LFE10-.LFB10
 	.byte	0x1
 	.byte	0x9c
-	.4byte	0xd28
+	.4byte	0xd11
 	.byte	0x25
-	.4byte	0xc93
+	.4byte	0xc7c
 	.4byte	.LLST0
 	.byte	0x25
-	.4byte	0xc9f
+	.4byte	0xc88
 	.4byte	.LLST1
 	.byte	0x34
 	.4byte	.LVL3
-	.4byte	0xd28
+	.4byte	0xd11
 	.byte	0
 	.byte	0x35
 	.4byte	.LASF137
@@ -2888,16 +2870,16 @@ bfl_main:
 	.section	.debug_loc,"",@progbits
 .Ldebug_loc0:
 .LLST8:
-	.4byte	.LVL26
-	.4byte	.LVL28
+	.4byte	.LVL25
+	.4byte	.LVL27
 	.2byte	0x2
 	.byte	0x30
 	.byte	0x9f
 	.4byte	0
 	.4byte	0
 .LLST9:
-	.4byte	.LVL26
-	.4byte	.LVL28
+	.4byte	.LVL25
+	.4byte	.LVL27
 	.2byte	0x2
 	.byte	0x33
 	.byte	0x9f

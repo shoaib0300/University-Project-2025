@@ -13,6 +13,4 @@ typedef struct
 void DHT_GetData (DHT_DataTypedef *DHT_Data);
 
 
-
-
 #endif  //!__DHT_LIB__H__

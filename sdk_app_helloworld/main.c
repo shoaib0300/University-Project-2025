@@ -84,7 +84,9 @@ int bfl_main(void)
 {
     // Initialize UART
     bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
-    printf("Starting DHT sensor communication...\n");
+    printf("***************************************\r\n");
+    printf("* The Current Room Conditions are:    *\r\n");
+    printf("***************************************\r\n");
 
     // Initialize DHT sensor
     DHT_init(DHT_DATA_PIN);
@@ -99,7 +101,7 @@ int bfl_main(void)
             // If data is successfully retrieved, store it
             Temperature = DHT11_Data.Temperature;
             Humidity = DHT11_Data.Humidity;
-            printf("DHT Sensor Reading: Temperature = %.2f°C, Humidity = %.2f%%\n", Temperature, Humidity);
+            printf("DHT Sensor Reading: Temperature = %.2f°C, Humidity = %.2f%%\r\n", Temperature, Humidity);
             // fflush(stdout); // Ensure the output is flushed to the terminal immediately
         } else {
             // If data is not successfully retrieved, print an error

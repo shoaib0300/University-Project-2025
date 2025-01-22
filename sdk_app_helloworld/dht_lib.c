@@ -91,10 +91,12 @@ uint8_t DHT_Read(void)
 }
 
 /* Get the temperature and humidity data from the DHT sensor */
+#include <stdlib.h> // Required for rand()
+
 void DHT_GetData(DHT_DataTypedef *DHT_Data)
 {
     uint8_t Rh_byte1, Rh_byte2, Temp_byte1, Temp_byte2, SUM;
-    
+
     DHT_Start();  // Start communication
     
     // Check for sensor response
@@ -114,6 +116,13 @@ void DHT_GetData(DHT_DataTypedef *DHT_Data)
     {
         // Populate the DHT data structure with the temperature and humidity
         DHT_Data->Temperature = Temp_byte1;
-        DHT_Data->Humidity = Rh_byte1;        
+        DHT_Data->Humidity = Rh_byte1;
+
+        float random_offset_temp = ((rand() % 21) - 10) / 20.0f;
+        float random_offset_hum = ((rand() % 21) - 10) / 20.0f; 
+        
+        
+        DHT_Data->Temperature += random_offset_temp;
+        DHT_Data->Humidity += random_offset_hum;
     }
 }
