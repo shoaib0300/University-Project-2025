@@ -2953,11 +2953,13 @@ typedef struct
 void DHT_GetData (DHT_DataTypedef *DHT_Data);
 # 34 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
 
+
 void DHT_init(uint8_t pin);
-# 52 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
+# 55 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
 DHT_DataTypedef DHT11_Data;
 float Temperature, Humidity;
 uint8_t good_rep;
+
 
 void LED_Init(void)
 {
@@ -2969,6 +2971,7 @@ void LED_Init(void)
 
 void LED_SetState(uint8_t pin, uint8_t state)
 {
+
     bl_gpio_output_set(pin, state);
 }
 
@@ -3005,6 +3008,7 @@ int bfl_main(void)
             printf("DHT Sensor Reading: Temperature = %.2f°C, Humidity = %.2f%%\r\n", Temperature, Humidity);
 
         } else {
+
             printf("Failed to read from DHT sensor.\n");
         }
 
@@ -3012,6 +3016,7 @@ int bfl_main(void)
             LED_Blink(3, 500000);
             printf("Temperature exceeds threshold!\n");
         } else {
+
             LED_SetState(3, 0);
         }
 
@@ -3019,8 +3024,10 @@ int bfl_main(void)
             LED_Blink(11, 500000);
 
         } else {
+
             LED_SetState(11, 0);
         }
+
 
         bl_timer_delay_us(3000000);
     }

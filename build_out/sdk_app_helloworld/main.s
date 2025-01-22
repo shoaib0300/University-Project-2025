@@ -13,36 +13,36 @@
 LED_Init:
 .LFB9:
 	.file 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
-	.loc 1 57 1
+	.loc 1 61 1
 	.cfi_startproc
-	.loc 1 59 5
-	.loc 1 57 1 is_stmt 0
+	.loc 1 63 5
+	.loc 1 61 1 is_stmt 0
 	addi	sp,sp,-16
 	.cfi_def_cfa_offset 16
-	.loc 1 59 5
+	.loc 1 63 5
 	li	a2,0
 	li	a1,0
 	li	a0,3
-	.loc 1 57 1
+	.loc 1 61 1
 	sw	ra,12(sp)
 	.cfi_offset 1, -4
-	.loc 1 59 5
+	.loc 1 63 5
 	call	bl_gpio_enable_output
 .LVL0:
-	.loc 1 60 5 is_stmt 1
-	.loc 1 61 1 is_stmt 0
+	.loc 1 64 5 is_stmt 1
+	.loc 1 65 1 is_stmt 0
 	lw	ra,12(sp)
 	.cfi_restore 1
-	.loc 1 60 5
+	.loc 1 64 5
 	li	a2,0
-	.loc 1 61 1
-	.loc 1 60 5
+	.loc 1 65 1
+	.loc 1 64 5
 	li	a1,0
 	li	a0,11
-	.loc 1 61 1
+	.loc 1 65 1
 	addi	sp,sp,16
 	.cfi_def_cfa_offset 0
-	.loc 1 60 5
+	.loc 1 64 5
 	tail	bl_gpio_enable_output
 .LVL1:
 	.cfi_endproc
@@ -54,10 +54,10 @@ LED_Init:
 	.type	LED_SetState, @function
 LED_SetState:
 .LFB10:
-	.loc 1 65 1 is_stmt 1
+	.loc 1 69 1 is_stmt 1
 	.cfi_startproc
 .LVL2:
-	.loc 1 66 5
+	.loc 1 71 5
 	tail	bl_gpio_output_set
 .LVL3:
 	.cfi_endproc
@@ -69,11 +69,11 @@ LED_SetState:
 	.type	LED_Blink, @function
 LED_Blink:
 .LFB11:
-	.loc 1 71 1
+	.loc 1 76 1
 	.cfi_startproc
 .LVL4:
-	.loc 1 72 5
-	.loc 1 71 1 is_stmt 0
+	.loc 1 77 5
+	.loc 1 76 1 is_stmt 0
 	addi	sp,sp,-16
 	.cfi_def_cfa_offset 16
 	sw	s0,8(sp)
@@ -81,43 +81,43 @@ LED_Blink:
 	mv	s0,a1
 .LBB10:
 .LBB11:
-	.loc 1 66 5
+	.loc 1 71 5
 	li	a1,1
 .LVL5:
 .LBE11:
 .LBE10:
-	.loc 1 71 1
+	.loc 1 76 1
 	sw	ra,12(sp)
 	sw	s1,4(sp)
 	.cfi_offset 1, -4
 	.cfi_offset 9, -12
-	.loc 1 71 1
+	.loc 1 76 1
 	mv	s1,a0
 .LVL6:
 .LBB13:
 .LBB12:
-	.loc 1 66 5 is_stmt 1
+	.loc 1 71 5 is_stmt 1
 	call	bl_gpio_output_set
 .LVL7:
 .LBE12:
 .LBE13:
-	.loc 1 73 5
+	.loc 1 78 5
 	mv	a0,s0
 	call	bl_timer_delay_us
 .LVL8:
-	.loc 1 74 5
+	.loc 1 79 5
 .LBB14:
 .LBB15:
-	.loc 1 66 5
+	.loc 1 71 5
 	mv	a0,s1
 	li	a1,0
 	call	bl_gpio_output_set
 .LVL9:
 .LBE15:
 .LBE14:
-	.loc 1 75 5
+	.loc 1 80 5
 	mv	a0,s0
-	.loc 1 76 1 is_stmt 0
+	.loc 1 81 1 is_stmt 0
 	lw	s0,8(sp)
 	.cfi_restore 8
 .LVL10:
@@ -127,7 +127,7 @@ LED_Blink:
 	.cfi_restore 9
 	addi	sp,sp,16
 	.cfi_def_cfa_offset 0
-	.loc 1 75 5
+	.loc 1 80 5
 	tail	bl_timer_delay_us
 .LVL11:
 	.cfi_endproc
@@ -140,30 +140,30 @@ LED_Blink:
 	.type	bfl_main, @function
 bfl_main:
 .LFB12:
-	.loc 1 79 1 is_stmt 1
+	.loc 1 84 1 is_stmt 1
 	.cfi_startproc
-	.loc 1 81 5
+	.loc 1 86 5
 	li	a5,1998848
-	.loc 1 79 1 is_stmt 0
+	.loc 1 84 1 is_stmt 0
 	addi	sp,sp,-64
 	.cfi_def_cfa_offset 64
-	.loc 1 81 5
+	.loc 1 86 5
 	addi	a5,a5,1152
 	li	a4,255
 	li	a3,255
 	li	a2,7
 	li	a1,16
 	li	a0,0
-	.loc 1 79 1
+	.loc 1 84 1
 	sw	ra,60(sp)
 	sw	s0,56(sp)
 	sw	s1,52(sp)
 	.cfi_offset 1, -4
 	.cfi_offset 8, -8
 	.cfi_offset 9, -12
-	.loc 1 82 5
+	.loc 1 87 5
 	lui	s0,%hi(.LC0)
-	.loc 1 79 1
+	.loc 1 84 1
 	sw	s2,48(sp)
 	sw	s3,44(sp)
 	sw	s4,40(sp)
@@ -176,71 +176,71 @@ bfl_main:
 	.cfi_offset 41, -40
 	.cfi_offset 50, -44
 	.cfi_offset 40, -36
-	.loc 1 81 5
+	.loc 1 86 5
 	call	bl_uart_init
 .LVL12:
-	.loc 1 82 5 is_stmt 1
+	.loc 1 87 5 is_stmt 1
 	addi	a0,s0,%lo(.LC0)
 	call	printf
 .LVL13:
-	.loc 1 83 5
+	.loc 1 88 5
 	lui	a0,%hi(.LC1)
 	addi	a0,a0,%lo(.LC1)
 	call	printf
 .LVL14:
-	.loc 1 84 5
+	.loc 1 89 5
 	addi	a0,s0,%lo(.LC0)
 	call	printf
 .LVL15:
-	.loc 1 87 5
+	.loc 1 92 5
 	li	a0,4
 	call	DHT_init
 .LVL16:
-	.loc 1 88 5
+	.loc 1 93 5
 	call	LED_Init
 .LVL17:
-	.loc 1 105 12 is_stmt 0
+	.loc 1 111 12 is_stmt 0
 	lui	a5,%hi(.LC4)
 	flw	fs1,%lo(.LC4)(a5)
-	.loc 1 112 12
+	.loc 1 119 12
 	lui	a5,%hi(.LC6)
 	flw	fs2,%lo(.LC6)(a5)
-	.loc 1 92 9
+	.loc 1 97 9
 	lui	s0,%hi(DHT11_Data)
 	lui	s1,%hi(good_rep)
 	lui	s2,%hi(Temperature)
 	lui	s3,%hi(Humidity)
-	.loc 1 93 18
+	.loc 1 98 18
 	li	s4,1
 .L15:
-	.loc 1 90 5 is_stmt 1
-	.loc 1 92 9
+	.loc 1 95 5 is_stmt 1
+	.loc 1 97 9
 	addi	a0,s0,%lo(DHT11_Data)
 	call	DHT_GetData
 .LVL18:
-	.loc 1 93 9
-	.loc 1 93 31 is_stmt 0
+	.loc 1 98 9
+	.loc 1 98 31 is_stmt 0
 	addi	a5,s0,%lo(DHT11_Data)
 	flw	fs0,0(a5)
-	.loc 1 93 82
+	.loc 1 98 82
 	fmv.s.x	fa5,zero
 	feq.s	a4,fs0,fa5
 	bne	a4,zero,.L7
-	.loc 1 93 62 discriminator 1
+	.loc 1 98 62 discriminator 1
 	flw	fa0,4(a5)
-	.loc 1 93 82 discriminator 1
+	.loc 1 98 82 discriminator 1
 	feq.s	a5,fa0,fa5
 	bne	a5,zero,.L7
-	.loc 1 98 22
+	.loc 1 103 22
 	fsw	fa0,%lo(Humidity)(s3)
-	.loc 1 93 18
+	.loc 1 98 18
 	sb	s4,%lo(good_rep)(s1)
-	.loc 1 95 9 is_stmt 1
-	.loc 1 97 13
-	.loc 1 97 25 is_stmt 0
+	.loc 1 100 9 is_stmt 1
+	.loc 1 102 13
+	.loc 1 102 25 is_stmt 0
 	fsw	fs0,%lo(Temperature)(s2)
-	.loc 1 98 13 is_stmt 1
-	.loc 1 99 13
+	.loc 1 103 13 is_stmt 1
+	.loc 1 104 13
 	call	__extendsfdf2
 .LVL19:
 	fmv.s	fa0,fs0
@@ -257,59 +257,59 @@ bfl_main:
 	call	printf
 .LVL21:
 .L8:
-	.loc 1 105 9
-	.loc 1 105 12 is_stmt 0
+	.loc 1 111 9
+	.loc 1 111 12 is_stmt 0
 	flw	fa5,%lo(Temperature)(s2)
 	fgt.s	a5,fa5,fs1
 	beq	a5,zero,.L18
-	.loc 1 106 13 is_stmt 1
+	.loc 1 112 13 is_stmt 1
 	li	a1,499712
 	li	a0,3
 	addi	a1,a1,288
 	call	LED_Blink
 .LVL22:
-	.loc 1 107 13
+	.loc 1 113 13
 	lui	a0,%hi(.LC5)
 	addi	a0,a0,%lo(.LC5)
 	call	printf
 .LVL23:
 .L11:
-	.loc 1 112 9
-	.loc 1 112 12 is_stmt 0
+	.loc 1 119 9
+	.loc 1 119 12 is_stmt 0
 	flw	fa5,%lo(Humidity)(s3)
 	flt.s	a5,fa5,fs2
 	beq	a5,zero,.L19
-	.loc 1 113 13 is_stmt 1
+	.loc 1 120 13 is_stmt 1
 	li	a1,499712
 	addi	a1,a1,288
 	li	a0,11
 	call	LED_Blink
 .LVL24:
 .L14:
-	.loc 1 119 9
+	.loc 1 128 9
 	li	a0,2998272
 	addi	a0,a0,1728
 	call	bl_timer_delay_us
 .LVL25:
-	.loc 1 92 9 is_stmt 0
+	.loc 1 97 9 is_stmt 0
 	j	.L15
 .L7:
-	.loc 1 102 13
+	.loc 1 108 13
 	lui	a0,%hi(.LC3)
 	addi	a0,a0,%lo(.LC3)
-	.loc 1 93 18
+	.loc 1 98 18
 	sb	zero,%lo(good_rep)(s1)
-	.loc 1 95 9 is_stmt 1
-	.loc 1 102 13
+	.loc 1 100 9 is_stmt 1
+	.loc 1 108 13
 	call	printf
 .LVL26:
 	j	.L8
 .L18:
-	.loc 1 109 13
+	.loc 1 116 13
 .LVL27:
 .LBB16:
 .LBB17:
-	.loc 1 66 5
+	.loc 1 71 5
 	li	a1,0
 	li	a0,3
 	call	bl_gpio_output_set
@@ -319,10 +319,10 @@ bfl_main:
 .L19:
 .LBE17:
 .LBE16:
-	.loc 1 116 13
+	.loc 1 124 13
 .LBB18:
 .LBB19:
-	.loc 1 66 5
+	.loc 1 71 5
 	li	a1,0
 	li	a0,11
 	call	bl_gpio_output_set
@@ -1637,7 +1637,7 @@ bfl_main:
 	.byte	0x22
 	.4byte	.LASF131
 	.byte	0x1
-	.byte	0x34
+	.byte	0x37
 	.byte	0x11
 	.4byte	0x9b0
 	.byte	0x5
@@ -1646,7 +1646,7 @@ bfl_main:
 	.byte	0x22
 	.4byte	.LASF127
 	.byte	0x1
-	.byte	0x35
+	.byte	0x38
 	.byte	0x7
 	.4byte	0x9a9
 	.byte	0x5
@@ -1655,7 +1655,7 @@ bfl_main:
 	.byte	0x22
 	.4byte	.LASF128
 	.byte	0x1
-	.byte	0x35
+	.byte	0x38
 	.byte	0x14
 	.4byte	0x9a9
 	.byte	0x5
@@ -1664,7 +1664,7 @@ bfl_main:
 	.byte	0x22
 	.4byte	.LASF132
 	.byte	0x1
-	.byte	0x36
+	.byte	0x39
 	.byte	0x9
 	.4byte	0x5b
 	.byte	0x5
@@ -1673,7 +1673,7 @@ bfl_main:
 	.byte	0x23
 	.4byte	.LASF148
 	.byte	0x1
-	.byte	0x4e
+	.byte	0x53
 	.byte	0x5
 	.4byte	0x25
 	.4byte	.LFB12
@@ -1686,7 +1686,7 @@ bfl_main:
 	.4byte	.LBB16
 	.4byte	.LBE16-.LBB16
 	.byte	0x1
-	.byte	0x6d
+	.byte	0x74
 	.byte	0xd
 	.4byte	0xa59
 	.byte	0x25
@@ -1715,7 +1715,7 @@ bfl_main:
 	.4byte	.LBB18
 	.4byte	.LBE18-.LBB18
 	.byte	0x1
-	.byte	0x74
+	.byte	0x7c
 	.byte	0xd
 	.4byte	0xa8e
 	.byte	0x28
@@ -1913,7 +1913,7 @@ bfl_main:
 	.byte	0x2b
 	.4byte	.LASF135
 	.byte	0x1
-	.byte	0x46
+	.byte	0x4b
 	.byte	0x6
 	.4byte	.LFB11
 	.4byte	.LFE11-.LFB11
@@ -1923,14 +1923,14 @@ bfl_main:
 	.byte	0x2c
 	.string	"pin"
 	.byte	0x1
-	.byte	0x46
+	.byte	0x4b
 	.byte	0x18
 	.4byte	0x5b
 	.4byte	.LLST2
 	.byte	0x2d
 	.4byte	.LASF133
 	.byte	0x1
-	.byte	0x46
+	.byte	0x4b
 	.byte	0x26
 	.4byte	0x75
 	.4byte	.LLST3
@@ -1939,7 +1939,7 @@ bfl_main:
 	.4byte	.LBB10
 	.4byte	.Ldebug_ranges0+0
 	.byte	0x1
-	.byte	0x48
+	.byte	0x4d
 	.byte	0x5
 	.4byte	0xc3b
 	.byte	0x25
@@ -1969,7 +1969,7 @@ bfl_main:
 	.4byte	.LBB14
 	.4byte	.LBE14-.LBB14
 	.byte	0x1
-	.byte	0x4a
+	.byte	0x4f
 	.byte	0x5
 	.4byte	0xc77
 	.byte	0x25
@@ -2020,27 +2020,27 @@ bfl_main:
 	.byte	0x30
 	.4byte	.LASF149
 	.byte	0x1
-	.byte	0x40
+	.byte	0x44
 	.byte	0x6
 	.byte	0x1
 	.4byte	0xcc3
 	.byte	0x31
 	.string	"pin"
 	.byte	0x1
-	.byte	0x40
+	.byte	0x44
 	.byte	0x1b
 	.4byte	0x5b
 	.byte	0x32
 	.4byte	.LASF134
 	.byte	0x1
-	.byte	0x40
+	.byte	0x44
 	.byte	0x28
 	.4byte	0x5b
 	.byte	0
 	.byte	0x2b
 	.4byte	.LASF136
 	.byte	0x1
-	.byte	0x38
+	.byte	0x3c
 	.byte	0x6
 	.4byte	.LFB9
 	.4byte	.LFE9-.LFB9
@@ -2126,7 +2126,7 @@ bfl_main:
 	.4byte	.LASF140
 	.4byte	.LASF140
 	.byte	0x1
-	.byte	0x23
+	.byte	0x24
 	.byte	0x6
 	.byte	0x35
 	.4byte	.LASF141

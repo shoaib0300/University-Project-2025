@@ -32,6 +32,7 @@
 
 #include "dht_lib.h"
 
+// Declare the DHT_init function
 void DHT_init(uint8_t pin);
 
 // Define pins for the LEDs and DHT sensor
@@ -39,12 +40,14 @@ void DHT_init(uint8_t pin);
 #define LED_14_PIN 11  // LED 2 pin
 #define DHT_DATA_PIN 4 // DHT data pin
 
+// Define LED states
 #define LED_ON 1  // high voltage
 #define LED_OFF 0 // low voltage
 
 #define DISABLE_PULLUP 0
 #define DISABLE_PULLDOWN 0
 
+// Threshold values for temperature and humidity
 #define TEMP_THRESHOLD 30  // Temperature threshold (in °C)
 #define HUM_THRESHOLD 40   // Humidity threshold (in %)
 
@@ -53,6 +56,7 @@ DHT_DataTypedef DHT11_Data;
 float Temperature, Humidity;
 uint8_t good_rep;
 
+// Function to initialize the LEDs as outputs
 void LED_Init(void)
 {
     // Configure both LEDs as outputs, with no pull-up or pull-down resistors
@@ -63,6 +67,7 @@ void LED_Init(void)
 // Function to control LED states
 void LED_SetState(uint8_t pin, uint8_t state)
 {
+    // Set the LED pin to HIGH or LOW based on the state
     bl_gpio_output_set(pin, state);
 }
 
@@ -99,6 +104,7 @@ int bfl_main(void)
             printf("DHT Sensor Reading: Temperature = %.2f°C, Humidity = %.2f%%\r\n", Temperature, Humidity);
             // fflush(stdout); // Ensure the output is flushed to the terminal immediately
         } else {
+            // If data is not successfully retrieved, print an error
             printf("Failed to read from DHT sensor.\n");
         }
 
@@ -106,6 +112,7 @@ int bfl_main(void)
             LED_Blink(LED_11_PIN, 500000); // Blink every 500ms (500,000 microseconds)
             printf("Temperature exceeds threshold!\n");
         } else {
+            // Otherwise, turn off LED 1
             LED_SetState(LED_11_PIN, LED_OFF);
         }
 
@@ -113,9 +120,11 @@ int bfl_main(void)
             LED_Blink(LED_14_PIN, 500000); // Blink every 500ms (500,000 microseconds)
             // printf("Humidity falls below threshold!\n");
         } else {
+            // Otherwise, turn off LED 2
             LED_SetState(LED_14_PIN, LED_OFF);
         }
 
+        // Delay for 3 seconds before reading again (3000 milliseconds = 3 seconds)
         bl_timer_delay_us(3000000);  // 3 seconds delay in microseconds
     }
 

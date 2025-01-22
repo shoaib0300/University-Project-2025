@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <inttypes.h>
 #include <bl_gpio.h>
-#include <bl_timer.h>
+#include <bl_timer.h>  // Include bl_timer.h for microsecond delay
 #include <stdlib.h>
 #include  "dht_lib.h"
 
