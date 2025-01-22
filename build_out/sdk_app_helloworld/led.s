@@ -70,17 +70,17 @@ task_led:
 	addi	a0,s0,%lo(.LC0)
 	call	printf
 .LVL6:
-	.loc 1 55 9 is_stmt 0
+	.loc 1 55 7 is_stmt 0
 	lui	s0,%hi(.LC5)
 	.loc 1 34 9
 	lui	s1,%hi(.LC2)
 	.loc 1 37 12
 	li	s2,20
-	.loc 1 48 12
+	.loc 1 46 12
 	li	s3,10
-	.loc 1 52 13
+	.loc 1 51 11
 	lui	s4,%hi(.LC4)
-	.loc 1 40 13
+	.loc 1 39 11
 	lui	s5,%hi(.LC3)
 .L7:
 	.loc 1 32 1 is_stmt 1
@@ -110,25 +110,25 @@ task_led:
 	.loc 1 37 12
 	andi	a5,a5,0xff
 	bgtu	a5,s2,.L3
-	.loc 1 39 11 is_stmt 1
+	.loc 1 38 11 is_stmt 1
 	li	a1,1
 	li	a0,3
 	call	bl_gpio_output_set
 .LVL10:
-	.loc 1 40 13
+	.loc 1 39 11
 	lbu	a1,14(sp)
 	addi	a0,s5,%lo(.LC3)
 	call	printf
 .LVL11:
 .L4:
-	.loc 1 48 9
-	.loc 1 48 31 is_stmt 0
+	.loc 1 46 9
+	.loc 1 46 31 is_stmt 0
 	lbu	a5,15(sp)
 	addi	a5,a5,-16
-	.loc 1 48 12
+	.loc 1 46 12
 	andi	a5,a5,0xff
 	bgtu	a5,s3,.L5
-	.loc 1 49 13 is_stmt 1
+	.loc 1 47 13 is_stmt 1
 	li	a1,0
 	li	a0,11
 	call	bl_gpio_output_set
@@ -141,26 +141,26 @@ task_led:
 	.loc 1 33 8 is_stmt 0
 	j	.L7
 .L3:
-	.loc 1 43 11 is_stmt 1
+	.loc 1 42 11 is_stmt 1
 	li	a1,0
 	li	a0,3
 	call	bl_gpio_output_set
 .LVL14:
 	j	.L4
 .L5:
-	.loc 1 51 11
+	.loc 1 50 11
 	li	a1,1
 	li	a0,11
 	call	bl_gpio_output_set
 .LVL15:
-	.loc 1 52 13
+	.loc 1 51 11
 	lbu	a1,15(sp)
 	addi	a0,s4,%lo(.LC4)
 	call	printf
 .LVL16:
 	j	.L6
 .L2:
-	.loc 1 55 9
+	.loc 1 55 7
 	addi	a0,s0,%lo(.LC5)
 	call	printf
 .LVL17:

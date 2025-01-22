@@ -1,642 +1,9 @@
-# 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
+# 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c"
 # 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/build_out/sdk_app_helloworld//"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
-# 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h" 1
-# 34 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 1 3 4
-# 149 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 3 4
+# 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c"
 
-# 149 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 3 4
-typedef int ptrdiff_t;
-# 216 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 3 4
-typedef unsigned int size_t;
-# 328 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 3 4
-typedef int wchar_t;
-# 35 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
-# 49 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stdint.h" 1 3 4
-# 11 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stdint.h" 3 4
-# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stdint-gcc.h" 1 3 4
-# 34 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stdint-gcc.h" 3 4
-typedef signed char int8_t;
-
-
-typedef short int int16_t;
-
-
-typedef long int int32_t;
-
-
-typedef long long int int64_t;
-
-
-typedef unsigned char uint8_t;
-
-
-typedef short unsigned int uint16_t;
-
-
-typedef long unsigned int uint32_t;
-
-
-typedef long long unsigned int uint64_t;
-
-
-
-
-typedef signed char int_least8_t;
-typedef short int int_least16_t;
-typedef long int int_least32_t;
-typedef long long int int_least64_t;
-typedef unsigned char uint_least8_t;
-typedef short unsigned int uint_least16_t;
-typedef long unsigned int uint_least32_t;
-typedef long long unsigned int uint_least64_t;
-
-
-
-typedef int int_fast8_t;
-typedef int int_fast16_t;
-typedef int int_fast32_t;
-typedef long long int int_fast64_t;
-typedef unsigned int uint_fast8_t;
-typedef unsigned int uint_fast16_t;
-typedef unsigned int uint_fast32_t;
-typedef long long unsigned int uint_fast64_t;
-
-
-
-
-typedef int intptr_t;
-
-
-typedef unsigned int uintptr_t;
-
-
-
-
-typedef long long int intmax_t;
-typedef long long unsigned int uintmax_t;
-# 12 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stdint.h" 2 3 4
-# 50 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
-
-
-
-
-
-
-# 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOSConfig.h" 1
-# 74 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOSConfig.h"
-# 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/platform.h" 1
-# 127 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/platform.h"
-
-# 127 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/platform.h"
-unsigned long get_cpu_freq(void);
-unsigned long get_timer_freq(void);
-uint64_t get_timer_value(void);
-# 75 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOSConfig.h" 2
-# 149 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOSConfig.h"
-void vAssertCalled( void );
-# 57 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
-
-
-# 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/projdefs.h" 1
-# 35 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/projdefs.h"
-typedef void (*TaskFunction_t)( void * );
-# 60 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
-
-
-# 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/portable.h" 1
-# 45 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/portable.h"
-# 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/deprecated_definitions.h" 1
-# 46 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/portable.h" 2
-
-
-
-
-
-
-# 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h" 1
-# 62 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
-typedef uint32_t StackType_t;
-typedef int32_t BaseType_t;
-typedef uint32_t UBaseType_t;
-typedef uint32_t TickType_t;
-# 84 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
-extern BaseType_t TrapNetCounter;
-extern void vTaskSwitchContext( void );
-# 94 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
-extern void vTaskEnterCritical( void );
-extern void vTaskExitCritical( void );
-# 149 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/portable/GCC/RISC-V/portmacro.h"
-inline __attribute__(( always_inline)) static BaseType_t xPortIsInsideInterrupt( void )
-{
-    return TrapNetCounter ? 1 : 0;
-}
-# 53 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/portable.h" 2
-# 99 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/portable.h"
-# 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/mpu_wrappers.h" 1
-# 100 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/portable.h" 2
-# 117 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/portable.h"
-        StackType_t *pxPortInitialiseStack( StackType_t *pxTopOfStack, TaskFunction_t pxCode, void *pvParameters ) ;
-
-
-
-
-typedef struct HeapRegion
-{
-    uint8_t *pucStartAddress;
-    size_t xSizeInBytes;
-} HeapRegion_t;
-# 139 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/portable.h"
-void vPortDefineHeapRegions( const HeapRegion_t * const pxHeapRegions ) ;
-
-
-
-
-
-void *pvPortMalloc( size_t xSize ) ;
-void vPortFree( void *pv ) ;
-void vPortInitialiseBlocks( void ) ;
-size_t xPortGetFreeHeapSize( void ) ;
-size_t xPortGetMinimumEverFreeHeapSize( void ) ;
-
-
-
-
-
-BaseType_t xPortStartScheduler( void ) ;
-
-
-
-
-
-
-void vPortEndScheduler( void ) ;
-# 63 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h" 2
-# 1044 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-struct xSTATIC_LIST_ITEM
-{
-
-
-
-    TickType_t xDummy2;
-    void *pvDummy3[ 4 ];
-
-
-
-};
-typedef struct xSTATIC_LIST_ITEM StaticListItem_t;
-
-
-struct xSTATIC_MINI_LIST_ITEM
-{
-
-
-
-    TickType_t xDummy2;
-    void *pvDummy3[ 2 ];
-};
-typedef struct xSTATIC_MINI_LIST_ITEM StaticMiniListItem_t;
-
-
-typedef struct xSTATIC_LIST
-{
-
-
-
-    UBaseType_t uxDummy2;
-    void *pvDummy3;
-    StaticMiniListItem_t xDummy4;
-
-
-
-} StaticList_t;
-# 1095 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-typedef struct xSTATIC_TCB
-{
-    void *pxDummy1;
-
-
-
-    StaticListItem_t xDummy3[ 2 ];
-    UBaseType_t uxDummy5;
-    void *pxDummy6;
-    uint8_t ucDummy7[ ( 16 ) ];
-
-
-
-
-        UBaseType_t uxDummy9;
-
-
-        UBaseType_t uxDummy10[ 2 ];
-
-
-        UBaseType_t uxDummy12[ 2 ];
-# 1130 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-        uint32_t ulDummy18;
-        uint8_t ucDummy19;
-
-
-        uint8_t uxDummy20;
-# 1143 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-} StaticTask_t;
-# 1159 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-typedef struct xSTATIC_QUEUE
-{
-    void *pvDummy1[ 3 ];
-
-    union
-    {
-        void *pvDummy2;
-        UBaseType_t uxDummy2;
-    } u;
-
-    StaticList_t xDummy3[ 2 ];
-    UBaseType_t uxDummy4[ 3 ];
-    uint8_t ucDummy5[ 2 ];
-
-
-        uint8_t ucDummy6;
-
-
-
-
-
-
-
-        UBaseType_t uxDummy8;
-        uint8_t ucDummy9;
-
-
-} StaticQueue_t;
-typedef StaticQueue_t StaticSemaphore_t;
-# 1203 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-typedef struct xSTATIC_EVENT_GROUP
-{
-    TickType_t xDummy1;
-    StaticList_t xDummy2;
-
-
-        UBaseType_t uxDummy3;
-
-
-
-            uint8_t ucDummy4;
-
-
-} StaticEventGroup_t;
-# 1232 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-typedef struct xSTATIC_TIMER
-{
-    void *pvDummy1;
-    StaticListItem_t xDummy2;
-    TickType_t xDummy3;
-    void *pvDummy5;
-    TaskFunction_t pvDummy6;
-
-        UBaseType_t uxDummy7;
-
-    uint8_t ucDummy8;
-
-} StaticTimer_t;
-# 1260 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/FreeRTOS.h"
-typedef struct xSTATIC_STREAM_BUFFER
-{
-    size_t uxDummy1[ 4 ];
-    void * pvDummy2[ 3 ];
-    uint8_t ucDummy3;
-
-        UBaseType_t uxDummy4;
-
-} StaticStreamBuffer_t;
-
-
-typedef StaticStreamBuffer_t StaticMessageBuffer_t;
-# 2 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
-# 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h" 1
-# 36 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-# 1 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/list.h" 1
-# 139 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/list.h"
-struct xLIST;
-struct xLIST_ITEM
-{
-   
-    TickType_t xItemValue;
-    struct xLIST_ITEM * pxNext;
-    struct xLIST_ITEM * pxPrevious;
-    void * pvOwner;
-    struct xLIST * pvContainer;
-   
-};
-typedef struct xLIST_ITEM ListItem_t;
-
-struct xMINI_LIST_ITEM
-{
-   
-    TickType_t xItemValue;
-    struct xLIST_ITEM * pxNext;
-    struct xLIST_ITEM * pxPrevious;
-};
-typedef struct xMINI_LIST_ITEM MiniListItem_t;
-
-
-
-
-typedef struct xLIST
-{
-   
-    volatile UBaseType_t uxNumberOfItems;
-    ListItem_t * pxIndex;
-    MiniListItem_t xListEnd;
-   
-} List_t;
-# 345 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/list.h"
-void vListInitialise( List_t * const pxList ) ;
-# 356 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/list.h"
-void vListInitialiseItem( ListItem_t * const pxItem ) ;
-# 369 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/list.h"
-void vListInsert( List_t * const pxList, ListItem_t * const pxNewListItem ) ;
-# 390 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/list.h"
-void vListInsertEnd( List_t * const pxList, ListItem_t * const pxNewListItem ) ;
-# 405 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/list.h"
-UBaseType_t uxListRemove( ListItem_t * const pxItemToRemove ) ;
-# 37 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h" 2
-# 69 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-struct tskTaskControlBlock;
-typedef struct tskTaskControlBlock* TaskHandle_t;
-
-
-
-
-
-typedef BaseType_t (*TaskHookFunction_t)( void * );
-
-
-typedef enum
-{
-    eRunning = 0,
-    eReady,
-    eBlocked,
-    eSuspended,
-    eDeleted,
-    eInvalid
-} eTaskState;
-
-
-typedef enum
-{
-    eNoAction = 0,
-    eSetBits,
-    eIncrement,
-    eSetValueWithOverwrite,
-    eSetValueWithoutOverwrite
-} eNotifyAction;
-
-
-
-
-typedef struct xTIME_OUT
-{
-    BaseType_t xOverflowCount;
-    TickType_t xTimeOnEntering;
-} TimeOut_t;
-
-
-
-
-typedef struct xMEMORY_REGION
-{
-    void *pvBaseAddress;
-    uint32_t ulLengthInBytes;
-    uint32_t ulParameters;
-} MemoryRegion_t;
-
-
-
-
-typedef struct xTASK_PARAMETERS
-{
-    TaskFunction_t pvTaskCode;
-    const char * const pcName;
-    uint16_t usStackDepth;
-    void *pvParameters;
-    UBaseType_t uxPriority;
-    StackType_t *puxStackBuffer;
-    MemoryRegion_t xRegions[ 1 ];
-
-
-
-} TaskParameters_t;
-
-
-
-typedef struct xTASK_STATUS
-{
-    TaskHandle_t xHandle;
-    const char *pcTaskName;
-    UBaseType_t xTaskNumber;
-    eTaskState eCurrentState;
-    UBaseType_t uxCurrentPriority;
-    UBaseType_t uxBasePriority;
-    uint32_t ulRunTimeCounter;
-    StackType_t *pxStackBase;
-    uint16_t usStackHighWaterMark;
-} TaskStatus_t;
-
-
-typedef enum
-{
-    eAbortSleep = 0,
-    eStandardSleep,
-    eNoTasksWaitingTimeout
-} eSleepModeStatus;
-# 330 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-    BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
-                            const char * const pcName,
-                            const uint16_t usStackDepth,
-                            void * const pvParameters,
-                            UBaseType_t uxPriority,
-                            TaskHandle_t * const pxCreatedTask ) ;
-# 446 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-    TaskHandle_t xTaskCreateStatic( TaskFunction_t pxTaskCode,
-                                    const char * const pcName,
-                                    const uint32_t ulStackDepth,
-                                    void * const pvParameters,
-                                    UBaseType_t uxPriority,
-                                    StackType_t * const puxStackBuffer,
-                                    StaticTask_t * const pxTaskBuffer ) ;
-# 665 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskAllocateMPURegions( TaskHandle_t xTask, const MemoryRegion_t * const pxRegions ) ;
-# 706 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskDelete( TaskHandle_t xTaskToDelete ) ;
-# 758 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskDelay( const TickType_t xTicksToDelay ) ;
-# 817 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskDelayUntil( TickType_t * const pxPreviousWakeTime, const TickType_t xTimeIncrement ) ;
-# 842 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskAbortDelay( TaskHandle_t xTask ) ;
-# 889 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-UBaseType_t uxTaskPriorityGet( const TaskHandle_t xTask ) ;
-
-
-
-
-
-
-
-UBaseType_t uxTaskPriorityGetFromISR( const TaskHandle_t xTask ) ;
-# 915 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-eTaskState eTaskGetState( TaskHandle_t xTask ) ;
-# 971 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskGetInfo( TaskHandle_t xTask, TaskStatus_t *pxTaskStatus, BaseType_t xGetFreeStackSpace, eTaskState eState ) ;
-# 1013 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskPrioritySet( TaskHandle_t xTask, UBaseType_t uxNewPriority ) ;
-# 1064 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskSuspend( TaskHandle_t xTaskToSuspend ) ;
-# 1113 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskResume( TaskHandle_t xTaskToResume ) ;
-# 1142 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskResumeFromISR( TaskHandle_t xTaskToResume ) ;
-# 1175 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskStartScheduler( void ) ;
-# 1231 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskEndScheduler( void ) ;
-# 1282 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskSuspendAll( void ) ;
-# 1336 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskResumeAll( void ) ;
-# 1351 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-TickType_t xTaskGetTickCount( void ) ;
-BaseType_t xTaskGetTickCount2( TickType_t *ticks, BaseType_t *overflow ) ;
-# 1368 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-TickType_t xTaskGetTickCountFromISR( void ) ;
-# 1382 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-UBaseType_t uxTaskGetNumberOfTasks( void ) ;
-# 1395 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-char *pcTaskGetName( TaskHandle_t xTaskToQuery ) ;
-# 1411 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-TaskHandle_t xTaskGetHandle( const char *pcNameToQuery ) ;
-# 1438 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-UBaseType_t uxTaskGetStackHighWaterMark( TaskHandle_t xTask ) ;
-# 1465 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-uint16_t uxTaskGetStackHighWaterMark2( TaskHandle_t xTask ) ;
-# 1529 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskCallApplicationTaskHook( TaskHandle_t xTask, void *pvParameter ) ;
-# 1538 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-TaskHandle_t xTaskGetIdleTaskHandle( void ) ;
-# 1637 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-UBaseType_t uxTaskGetSystemState( TaskStatus_t * const pxTaskStatusArray, const UBaseType_t uxArraySize, uint32_t * const pulTotalRunTime ) ;
-# 1684 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskList( char * pcWriteBuffer ) ;
-# 1738 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskGetRunTimeStats( char *pcWriteBuffer ) ;
-# 1768 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-TickType_t xTaskGetIdleRunTimeCounter( void ) ;
-# 1849 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskGenericNotify( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue ) ;
-# 1940 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskGenericNotifyFromISR( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue, BaseType_t *pxHigherPriorityTaskWoken ) ;
-# 2017 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskNotifyWait( uint32_t ulBitsToClearOnEntry, uint32_t ulBitsToClearOnExit, uint32_t *pulNotificationValue, TickType_t xTicksToWait ) ;
-# 2118 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskNotifyGiveFromISR( TaskHandle_t xTaskToNotify, BaseType_t *pxHigherPriorityTaskWoken ) ;
-# 2187 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-uint32_t ulTaskNotifyTake( BaseType_t xClearCountOnExit, TickType_t xTicksToWait ) ;
-# 2203 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskNotifyStateClear( TaskHandle_t xTask );
-# 2224 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskIncrementTick( void ) ;
-# 2257 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskPlaceOnEventList( List_t * const pxEventList, const TickType_t xTicksToWait ) ;
-void vTaskPlaceOnUnorderedEventList( List_t * pxEventList, const TickType_t xItemValue, const TickType_t xTicksToWait ) ;
-# 2271 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskPlaceOnEventListRestricted( List_t * const pxEventList, TickType_t xTicksToWait, const BaseType_t xWaitIndefinitely ) ;
-# 2297 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList ) ;
-void vTaskRemoveFromUnorderedEventList( ListItem_t * pxEventListItem, const TickType_t xItemValue ) ;
-# 2308 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
- void vTaskSwitchContext( void ) ;
-
-
-
-
-
-TickType_t uxTaskResetEventItemValue( void ) ;
-
-
-
-
-TaskHandle_t xTaskGetCurrentTaskHandle( void ) ;
-
-
-
-
-void vTaskSetTimeOutState( TimeOut_t * const pxTimeOut ) ;
-
-
-
-
-
-BaseType_t xTaskCheckForTimeOut( TimeOut_t * const pxTimeOut, TickType_t * const pxTicksToWait ) ;
-
-
-
-
-
-void vTaskMissedYield( void ) ;
-
-
-
-
-
-BaseType_t xTaskGetSchedulerState( void ) ;
-
-
-
-
-
-BaseType_t xTaskPriorityInherit( TaskHandle_t const pxMutexHolder ) ;
-
-
-
-
-
-BaseType_t xTaskPriorityDisinherit( TaskHandle_t const pxMutexHolder ) ;
-# 2364 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskPriorityDisinheritAfterTimeout( TaskHandle_t const pxMutexHolder, UBaseType_t uxHighestPriorityWaitingTask ) ;
-
-
-
-
-UBaseType_t uxTaskGetTaskNumber( TaskHandle_t xTask ) ;
-
-
-
-
-
-void vTaskSetTaskNumber( TaskHandle_t xTask, const UBaseType_t uxHandle ) ;
-# 2385 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-void vTaskStepTick( const TickType_t xTicksToJump ) ;
-void vTaskStepTickSafe( const TickType_t xTicksToJump ) ;
-# 2402 "/home/shoaib/bl_iot_sdk/components/bl602/freertos_riscv_ram/config/task.h"
-eSleepModeStatus eTaskConfirmSleepModeStatus( void ) ;
-
-
-
-
-
-TaskHandle_t pvTaskIncrementMutexHeldCount( void ) ;
-
-
-
-
-
-void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut ) ;
-# 3 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 1 3
 # 29 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/_ansi.h" 1 3
@@ -721,9 +88,15 @@ typedef unsigned int __uintptr_t;
 # 46 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/cdefs.h" 2 3
 
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 1 3 4
+# 216 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 3 4
+typedef unsigned int size_t;
 # 48 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/cdefs.h" 2 3
 # 36 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 2 3
 # 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 1 3 4
+# 149 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 3 4
+typedef int ptrdiff_t;
+# 328 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 3 4
+typedef int wchar_t;
 # 37 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 2 3
 
 
@@ -1897,7 +1270,134 @@ _putchar_unlocked(int _c)
 }
 # 797 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/stdio.h" 3
 
-# 4 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
+# 3 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c" 2
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 1 3
+# 18 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 3
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_intsup.h" 1 3
+# 35 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_intsup.h" 3
+       
+       
+       
+       
+       
+       
+       
+       
+# 190 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_intsup.h" 3
+       
+       
+       
+       
+       
+       
+       
+       
+# 19 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 2 3
+
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stdint.h" 1 3 4
+# 11 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stdint.h" 3 4
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stdint-gcc.h" 1 3 4
+# 34 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stdint-gcc.h" 3 4
+typedef signed char int8_t;
+
+
+typedef short int int16_t;
+
+
+typedef long int int32_t;
+
+
+typedef long long int int64_t;
+
+
+typedef unsigned char uint8_t;
+
+
+typedef short unsigned int uint16_t;
+
+
+typedef long unsigned int uint32_t;
+
+
+typedef long long unsigned int uint64_t;
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef long int int_least32_t;
+typedef long long int int_least64_t;
+typedef unsigned char uint_least8_t;
+typedef short unsigned int uint_least16_t;
+typedef long unsigned int uint_least32_t;
+typedef long long unsigned int uint_least64_t;
+
+
+
+typedef int int_fast8_t;
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+typedef long long int int_fast64_t;
+typedef unsigned int uint_fast8_t;
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+typedef long long unsigned int uint_fast64_t;
+
+
+
+
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+
+
+
+
+typedef long long int intmax_t;
+typedef long long unsigned int uintmax_t;
+# 12 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stdint.h" 2 3 4
+# 21 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 2 3
+
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/lib/gcc/riscv64-unknown-elf/8.3.0/include/stddef.h" 1 3 4
+# 23 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 2 3
+
+
+# 1 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 1 3
+# 9 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/sys/_locale.h" 3
+struct __locale_t;
+typedef struct __locale_t *locale_t;
+# 26 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 2 3
+# 312 "/home/shoaib/bl_iot_sdk/toolchain/riscv/Linux/riscv64-unknown-elf/include/inttypes.h" 3
+typedef struct {
+  intmax_t quot;
+  intmax_t rem;
+} imaxdiv_t;
+
+struct _reent;
+
+
+
+
+
+extern intmax_t imaxabs(intmax_t j);
+extern imaxdiv_t imaxdiv(intmax_t numer, intmax_t denomer);
+extern intmax_t strtoimax(const char *restrict, char **restrict, int);
+extern intmax_t _strtoimax_r(struct _reent *, const char *restrict, char **restrict, int);
+extern uintmax_t strtoumax(const char *restrict, char **restrict, int);
+extern uintmax_t _strtoumax_r(struct _reent *, const char *restrict, char **restrict, int);
+extern intmax_t wcstoimax(const wchar_t *restrict, wchar_t **restrict, int);
+extern intmax_t _wcstoimax_r(struct _reent *, const wchar_t *restrict, wchar_t **restrict, int);
+extern uintmax_t wcstoumax(const wchar_t *restrict, wchar_t **restrict, int);
+extern uintmax_t _wcstoumax_r(struct _reent *, const wchar_t *restrict, wchar_t **restrict, int);
+
+
+extern intmax_t strtoimax_l(const char *restrict, char **_restrict, int, locale_t);
+extern uintmax_t strtoumax_l(const char *restrict, char **_restrict, int, locale_t);
+extern intmax_t wcstoimax_l(const wchar_t *restrict, wchar_t **_restrict, int, locale_t);
+extern uintmax_t wcstoumax_l(const wchar_t *restrict, wchar_t **_restrict, int, locale_t);
+# 4 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c" 2
 # 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_gpio.h" 1
 # 34 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_gpio.h"
 
@@ -1921,64 +1421,138 @@ int bl_gpio_int_clear(uint8_t gpioPin,uint8_t intClear);
 void bl_gpio_intmask(uint8_t gpiopin, uint8_t mask);
 void bl_set_gpio_intmod(uint8_t gpioPin, uint8_t intCtrlMod, uint8_t intTrgMod);
 void bl_gpio_register(gpio_ctx_t *pstnode);
-# 5 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
-# 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h" 1
-# 17 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/adc.h"
-void init_adc(uint8_t pin);
-uint32_t read_adc();
-void convert_to_binary(uint32_t n);
+# 5 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c" 2
+# 1 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_timer.h" 1
+# 33 "/home/shoaib/bl_iot_sdk/components/hal_drv/bl602_hal/bl_timer.h"
+uint32_t bl_timer_now_us(void);
+void bl_timer_delay_us(uint32_t us);
+uint64_t bl_timer_now_us64(void);
+# 6 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c" 2
 
-uint8_t read_humidity(uint8_t *humidity);
-uint8_t read_temperature(uint8_t *temperature);
-# 6 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 2
-# 19 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
-void task_led(void *pvParameters)
+# 1 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.h" 1
+
+
+
+
+typedef struct
+{
+ float Temperature;
+ float Humidity;
+}DHT_DataTypedef;
+
+
+
+void DHT_GetData (DHT_DataTypedef *DHT_Data);
+# 8 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/dht_lib.c" 2
+
+
+uint8_t pinDht;
+
+
+void DHT_init(uint8_t pinDataDHT)
+{
+    pinDht = pinDataDHT;
+}
+
+
+void DHT_Start(void)
 {
 
-  bl_gpio_enable_output(3, 0, 0);
-  bl_gpio_enable_output(11, 0, 0);
-
-  uint8_t humidity = 0;
-  uint8_t temperature = 0;
-  printf("***************************************\r\n");
-  printf("* The Current Room Conditions are:    *\r\n");
-  printf("***************************************\r\n");
+    bl_gpio_enable_output(pinDht, 0, 0);
 
 
-while (1) {
-    if (read_humidity(&humidity) == 0 && read_temperature(&temperature) == 0) {
-        printf("Humidity: %d, Temperature: %d\r\n", humidity, temperature);
+    bl_gpio_output_set(pinDht, 0);
+    bl_timer_delay_us(18000);
 
 
-        if (humidity >= 40 && humidity <= 60) {
-          bl_gpio_output_set(3, 1);
-          printf("Warning Humidity: %d\r\n", humidity);
-        }
-        else {
-          bl_gpio_output_set(3, 0);
-        }
+    bl_gpio_output_set(pinDht, 1);
+    bl_timer_delay_us(30);
 
 
-        if (temperature >= 16 && temperature <= 26) {
-            bl_gpio_output_set(11, 0);
-        }
-        else {
-          bl_gpio_output_set(11, 1);
-          printf("Warning Temperature: %d\r\n", temperature);
-        }
+    bl_gpio_enable_input(pinDht, 0, 0);
+}
+
+
+uint8_t DHT_Check_Response(void)
+{
+    uint8_t Response = 0;
+
+
+    bl_timer_delay_us(40);
+
+
+    if (!bl_gpio_input_get_value(pinDht))
+    {
+
+        bl_timer_delay_us(80);
+
+
+        if (bl_gpio_input_get_value(pinDht))
+            Response = 1;
+        else
+            Response = -1;
     }
-    else {
-      printf("Failed to read DHT11 sensor data\n");
+
+
+    while (bl_gpio_input_get_value(pinDht));
+
+    return Response;
+}
+
+
+uint8_t DHT_Read(void)
+{
+    uint8_t i = 0, j;
+
+
+    for (j = 0; j < 8; j++)
+    {
+
+        while (!(bl_gpio_input_get_value(pinDht)));
+
+
+        bl_timer_delay_us(40);
+
+
+        if (!(bl_gpio_input_get_value(pinDht)))
+        {
+            i &= ~(1 << (7 - j));
+        }
+        else
+        {
+            i |= (1 << (7 - j));
+        }
+
+
+        while ((bl_gpio_input_get_value(pinDht)));
     }
+    return i;
+}
 
 
-    vTaskDelay(2000 / ( ( TickType_t ) 1000 / ( ( TickType_t ) 1000 ) ));
-  }
+void DHT_GetData(DHT_DataTypedef *DHT_Data)
+{
+    uint8_t Rh_byte1, Rh_byte2, Temp_byte1, Temp_byte2, SUM;
+
+    DHT_Start();
 
 
-  vTaskDelete(
-# 63 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c" 3 4
-             ((void *)0)
-# 63 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/led.c"
-                 );
+    DHT_Check_Response();
+
+
+    Rh_byte1 = DHT_Read();
+    Rh_byte2 = DHT_Read();
+    Temp_byte1 = DHT_Read();
+    Temp_byte2 = DHT_Read();
+    SUM = DHT_Read();
+
+
+    uint8_t is_good = (SUM == (Rh_byte1 + Rh_byte2 + Temp_byte1 + Temp_byte2));
+
+    if (is_good)
+    {
+
+        DHT_Data->Temperature = Temp_byte1;
+        DHT_Data->Humidity = Rh_byte1;
+    }
 }

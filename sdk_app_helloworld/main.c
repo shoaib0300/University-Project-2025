@@ -1,58 +1,122 @@
+// Description:
+// This program reads temperature and humidity data from a DHT sensor 
+// and controls two LEDs based on the readings. It uses FreeRTOS for 
+// task scheduling and UART for serial communication. The LEDs are 
+// controlled as follows:
+// - LED 1 (connected to pin 3) blinks when the temperature exceeds 
+//   a predefined threshold (30°C).
+// - LED 2 (connected to pin 11) blinks when the humidity falls below 
+//   a predefined threshold (40%).
+// The program runs in a continuous loop, reading data from the DHT sensor
+// every 3 seconds and adjusting the LED states accordingly.
+
+
 // FreeRTOS includes
 #include <FreeRTOS.h>
 #include <task.h>
 #include <stdio.h>
 #include <inttypes.h>
 #include <bl_uart.h>
-#include "adc.h"
-#include "adc.c"
+#include <bl_gpio.h>
+#include <bl_timer.h>
 
-/* Define heap regions */
-extern uint8_t _heap_start;
-extern uint8_t _heap_size;
-extern uint8_t _heap_wifi_start;
-extern uint8_t _heap_wifi_size;
+#include "dht_lib.h"
 
-static HeapRegion_t xHeapRegions[] =
+// Declare the DHT_init function
+void DHT_init(uint8_t pin);
+
+// Define pins for the LEDs and DHT sensor
+#define LED_11_PIN 3   // LED 1 pin
+#define LED_14_PIN 11  // LED 2 pin
+#define DHT_DATA_PIN 4 // DHT data pin
+
+// Define LED states
+#define LED_ON 1  // high voltage
+#define LED_OFF 0 // low voltage
+
+#define DISABLE_PULLUP 0
+#define DISABLE_PULLDOWN 0
+
+// Threshold values for temperature and humidity
+#define TEMP_THRESHOLD 30  // Temperature threshold (in °C)
+#define HUM_THRESHOLD 40   // Humidity threshold (in %)
+
+// Define the DHT DataTypedef structure (assuming it's defined in "dht_lib.h")
+DHT_DataTypedef DHT11_Data;
+float Temperature, Humidity;
+uint8_t good_rep;
+
+// Function to initialize the LEDs as outputs
+void LED_Init(void)
 {
-  { &_heap_start, (unsigned int) &_heap_size},
-  { &_heap_wifi_start, (unsigned int) &_heap_wifi_size },
-  { NULL, 0},
-  { NULL, 0}
-};
+    // Configure both LEDs as outputs, with no pull-up or pull-down resistors
+    bl_gpio_enable_output(LED_11_PIN, DISABLE_PULLUP, DISABLE_PULLDOWN);
+    bl_gpio_enable_output(LED_14_PIN, DISABLE_PULLUP, DISABLE_PULLDOWN);
+}
 
-/* Size of the stack for the task */
-#define LED_STACK_SIZE 512
-
-void bfl_main(void)
+// Function to control LED states
+void LED_SetState(uint8_t pin, uint8_t state)
 {
-  /* Initialize UART
-   * Ports: 16+7 (TX+RX)
-   * Baudrate: 2 million
-   */
-  bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
-  
-   /* (Re)define Heap */
-  vPortDefineHeapRegions(xHeapRegions);
-  
-  /* Set up LED task */
-  static StackType_t led_stack[LED_STACK_SIZE];
-  static StaticTask_t led_task;
+    // Set the LED pin to HIGH or LOW based on the state
+    bl_gpio_output_set(pin, state);
+}
 
-  /* Start up LED task */
-  extern void task_led(void *pvParameters); 
+// Function to blink an LED
+void LED_Blink(uint8_t pin, uint32_t delay_us)
+{
+    LED_SetState(pin, LED_ON);  // Turn on LED
+    bl_timer_delay_us(delay_us); // Delay for specified time
+    LED_SetState(pin, LED_OFF); // Turn off LED
+    bl_timer_delay_us(delay_us); // Delay for specified time
+}
 
-  /* Create the task */
-  xTaskCreateStatic(
-    task_led, /* name of the function implementing the task -> defined in led.c */
-    (char*)"led", /* human readable name of the task */
-    LED_STACK_SIZE, /* Stack size */
-    NULL, /* parameters for the function -> not required here */
-    15, /* Task priority */
-    led_stack, /* Stack to use for the task */
-    &led_task /* Task handle (could be referenced in API calls later, e.g. for changing its priority )*/    
-  );
-  
-  /* Also start the task (task creation only creates the task control block) */
-  vTaskStartScheduler();
+int bfl_main(void)
+{
+    // Initialize UART
+    bl_uart_init(0, 16, 7, 255, 255, 2 * 1000 * 1000);
+    printf("Starting DHT sensor communication...\n");
+
+    // Initialize DHT sensor
+    DHT_init(DHT_DATA_PIN);
+    LED_Init(); // Initialize LEDs
+
+    while (1) {
+        // Get DHT data (temperature and humidity)
+        DHT_GetData(&DHT11_Data);
+        good_rep = (DHT11_Data.Temperature != 0 && DHT11_Data.Humidity != 0) ? 1 : 0;
+        
+        if (good_rep) {
+            // If data is successfully retrieved, store it
+            Temperature = DHT11_Data.Temperature;
+            Humidity = DHT11_Data.Humidity;
+            printf("\rDHT Sensor Reading: Temperature = %.2f°C, Humidity = %.2f%%", Temperature, Humidity);
+            fflush(stdout); // Ensure the output is flushed to the terminal immediately
+
+        } else {
+            // If data is not successfully retrieved, print an error
+            printf("Failed to read from DHT sensor.\n");
+        }
+
+        // Control LED behavior based on temperature and humidity
+        if (Temperature > TEMP_THRESHOLD) {
+            // If temperature is above threshold, blink LED 1 (LED_11_PIN)
+            LED_Blink(LED_11_PIN, 500000); // Blink every 500ms (500,000 microseconds)
+        } else {
+            // Otherwise, turn off LED 1
+            LED_SetState(LED_11_PIN, LED_OFF);
+        }
+
+        if (Humidity < HUM_THRESHOLD) {
+            // If humidity is below threshold, blink LED 2 (LED_14_PIN)
+            LED_Blink(LED_14_PIN, 500000); // Blink every 500ms (500,000 microseconds)
+        } else {
+            // Otherwise, turn off LED 2
+            LED_SetState(LED_14_PIN, LED_OFF);
+        }
+
+        // Delay for 3 seconds before reading again (3000 milliseconds = 3 seconds)
+        bl_timer_delay_us(3000000);  // 3 seconds delay in microseconds
+    }
+
+    return 0;
 }
