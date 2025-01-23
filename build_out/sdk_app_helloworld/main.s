@@ -671,18 +671,19 @@ Task_TempHumidity:
 	.loc 2 67 10
 	.loc 2 74 16 is_stmt 0
 	lui	a5,%hi(.LC4)
-	flw	fs1,%lo(.LC4)(a5)
+	flw	fs2,%lo(.LC4)(a5)
 	lui	a5,%hi(.LC0)
 	.loc 2 80 16
-	flw	fs2,%lo(.LC0)(a5)
+	flw	fs1,%lo(.LC0)(a5)
 	.loc 2 80 31
-	fmv.s	fs3,fs1
+	lui	a5,%hi(.LC5)
+	flw	fs3,%lo(.LC5)(a5)
+	.loc 2 74 34
+	fmv.s	fs4,fs1
 .LBE23:
 	.loc 2 66 5
 	li	s1,5
 .LBB28:
-	.loc 2 74 34
-	fmv.s	fs4,fs2
 	.loc 2 68 9
 	lui	s2,%hi(DHT11_Data)
 .LVL70:
@@ -733,7 +734,7 @@ Task_TempHumidity:
 	.loc 2 74 29 is_stmt 0
 	flw	fa5,%lo(Temperature)(s3)
 	.loc 2 74 16
-	fgt.s	a5,fa5,fs1
+	fgt.s	a5,fa5,fs2
 	bne	a5,zero,.L38
 	.loc 2 74 34 discriminator 1
 	flt.s	a5,fa5,fs4
@@ -750,7 +751,7 @@ Task_TempHumidity:
 	.loc 2 80 26 is_stmt 0
 	flw	fa5,%lo(Humidity)(s0)
 	.loc 2 80 16
-	flt.s	a5,fa5,fs2
+	flt.s	a5,fa5,fs1
 	bne	a5,zero,.L42
 	.loc 2 80 31 discriminator 1
 	fgt.s	a5,fa5,fs3
@@ -829,8 +830,8 @@ Task_TempHumidity:
 .LBE27:
 .LBE26:
 	.loc 2 88 13
-	lui	a0,%hi(.LC5)
-	addi	a0,a0,%lo(.LC5)
+	lui	a0,%hi(.LC6)
+	addi	a0,a0,%lo(.LC6)
 	call	printf
 .LVL84:
 	j	.L45
@@ -851,11 +852,11 @@ Task_ClapDetection:
 	addi	sp,sp,-32
 	.cfi_def_cfa_offset 32
 	.loc 2 96 5
-	lui	a0,%hi(.LC6)
+	lui	a0,%hi(.LC7)
 	.loc 2 95 31
 	sw	s1,20(sp)
 	.loc 2 96 5
-	addi	a0,a0,%lo(.LC6)
+	addi	a0,a0,%lo(.LC7)
 	.cfi_offset 9, -12
 .LBB30:
 	.loc 2 104 9
@@ -880,7 +881,7 @@ Task_ClapDetection:
 	.loc 2 100 30 is_stmt 0
 	lui	s2,%hi(.LANCHOR1)
 	.loc 2 102 13
-	lui	s3,%hi(.LC7)
+	lui	s3,%hi(.LC8)
 	.loc 2 104 9
 	addi	s1,s1,-704
 .LVL86:
@@ -915,7 +916,7 @@ Task_ClapDetection:
 .LBE33:
 .LBE34:
 	.loc 2 102 13
-	addi	a0,s3,%lo(.LC7)
+	addi	a0,s3,%lo(.LC8)
 	call	printf
 .LVL90:
 .L52:
@@ -972,8 +973,8 @@ bfl_main:
 	call	bl_uart_init
 .LVL93:
 	.loc 2 111 5 is_stmt 1
-	lui	a0,%hi(.LC8)
-	addi	a0,a0,%lo(.LC8)
+	lui	a0,%hi(.LC9)
+	addi	a0,a0,%lo(.LC9)
 	call	printf
 .LVL94:
 	.loc 2 112 5
@@ -1012,15 +1013,17 @@ bfl_main:
 	.word	1101004800
 	.section	.rodata.Task_ClapDetection.str1.4,"aMS",@progbits,1
 	.align	2
-.LC6:
-	.string	"Starting Clap Detection Task...\n"
-	.zero	3
 .LC7:
+	.string	"Starting Clap Detection Task...\r\n"
+	.zero	2
+.LC8:
 	.string	"Clap detected! LED toggled.\r\n"
 	.section	.rodata.Task_TempHumidity.cst4,"aM",@progbits,4
 	.align	2
 .LC4:
-	.word	1106247680
+	.word	1103626240
+.LC5:
+	.word	1109393408
 	.section	.rodata.Task_TempHumidity.str1.4,"aMS",@progbits,1
 	.align	2
 .LC1:
@@ -1032,11 +1035,11 @@ bfl_main:
 .LC3:
 	.string	"Temperature: %.2f\302\260C, Humidity: %.2f%%\r\n"
 	.zero	3
-.LC5:
+.LC6:
 	.string	"Failed to read DHT sensor.\n"
 	.section	.rodata.bfl_main.str1.4,"aMS",@progbits,1
 	.align	2
-.LC8:
+.LC9:
 	.string	"Combined Program Starting...\r\n"
 	.section	.sbss.led_clap_state,"aw",@nobits
 	.set	.LANCHOR1,. + 0
@@ -2448,7 +2451,7 @@ prev_state.3909:
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC8
+	.4byte	.LC9
 	.byte	0
 	.byte	0x28
 	.4byte	.LVL95
@@ -2516,7 +2519,7 @@ prev_state.3909:
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC7
+	.4byte	.LC8
 	.byte	0
 	.byte	0x2e
 	.4byte	.LVL92
@@ -2537,7 +2540,7 @@ prev_state.3909:
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC6
+	.4byte	.LC7
 	.byte	0
 	.byte	0
 	.byte	0x2f
@@ -2691,7 +2694,7 @@ prev_state.3909:
 	.byte	0x5a
 	.byte	0x5
 	.byte	0x3
-	.4byte	.LC5
+	.4byte	.LC6
 	.byte	0
 	.byte	0
 	.byte	0x26

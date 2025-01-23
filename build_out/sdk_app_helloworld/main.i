@@ -3405,13 +3405,13 @@ void Task_TempHumidity(void) {
             Humidity = DHT11_Data.Humidity;
             printf("Temperature: %.2f°C, Humidity: %.2f%%\r\n", Temperature, Humidity);
 
-            if (Temperature > 30 || Temperature < 20) {
+            if (Temperature > 25 || Temperature < 20) {
                 LED_Blink(3, 500000);
             } else {
                 LED_SetState(3, 0);
             }
 
-            if (Humidity < 20 || Humidity > 30) {
+            if (Humidity < 20 || Humidity > 40) {
                 LED_Blink(11, 500000);
 
             } else {
@@ -3427,7 +3427,7 @@ void Task_TempHumidity(void) {
 
 
 void Task_ClapDetection(void) {
-    printf("Starting Clap Detection Task...\n");
+    printf("Starting Clap Detection Task...\r\n");
     for (int i = 0; i < 10; i++) {
         if (Clap_Detected()) {
 

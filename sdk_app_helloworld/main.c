@@ -1,12 +1,12 @@
-#include <FreeRTOS.h>
-#include <stdio.h>
-#include <inttypes.h>
-#include <task.h>
-#include "bl_uart.h"
-#include "bl_gpio.h"
-#include "bl_timer.h"
-#include "dht_lib.h"
-#include "dht_lib.c"
+#include <FreeRTOS.h> // FreeRTOS library needed for task management
+#include <stdio.h>   // Standard I/O library for printf
+#include <inttypes.h> // Integer types for data types
+#include <task.h>   // Task management library
+#include "bl_uart.h" // UART library for serial communication
+#include "bl_gpio.h" // GPIO library for pin configuration
+#include "bl_timer.h" // Timer library for delay functions
+#include "dht_lib.h" // DHT sensor library
+#include "dht_lib.c" // DHT sensor library implementation
 
 
 // Pin definitions
@@ -17,7 +17,7 @@
 #define LED_CLAP_PIN 14      // LED for clap detection
 
 // Thresholds
-#define TEMP_THRESHOLD 30    // Temperature threshold (in °C)
+#define TEMP_THRESHOLD 25    // Temperature threshold (in °C)
 #define HUM_THRESHOLD 20     // Humidity threshold (in %)
 
 // Global variables
@@ -77,7 +77,7 @@ void Task_TempHumidity(void) {
                 LED_SetState(LED_TEMP_PIN, 0); // Turn off LED
             }
 
-            if (Humidity < HUM_THRESHOLD || Humidity > 30) {
+            if (Humidity < HUM_THRESHOLD || Humidity > 40) {
                 LED_Blink(LED_HUM_PIN, 500000); 
 
             } else {
@@ -93,7 +93,7 @@ void Task_TempHumidity(void) {
 
 // Task to handle clap detection
 void Task_ClapDetection(void) {
-    printf("Starting Clap Detection Task...\n");
+    printf("Starting Clap Detection Task...\r\n");
     for (int i = 0; i < 10; i++) { // Run for 10 iterations
         if (Clap_Detected()) {
             // Toggle LED state on clap
