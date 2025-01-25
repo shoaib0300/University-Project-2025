@@ -4,6 +4,7 @@
         "*.text": "dockercompose",
         "\"files.associations\": { \"*.module\": \"php\" }": "\"files.associations\": { \"*.module\": \"php\" }",
         "stdlib.h": "c",
-        "freertos.h": "c"
+        "freertos.h": "c",
+        "hal_hwtimer.h": "c"
     }
 }
