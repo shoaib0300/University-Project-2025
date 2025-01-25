@@ -3354,10 +3354,18 @@ void DHT_GetData(DHT_DataTypedef *DHT_Data)
     }
 }
 # 10 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
-# 24 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
+# 23 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
 DHT_DataTypedef DHT11_Data;
 float Temperature, Humidity;
 uint8_t led_clap_state = 0;
+
+
+void GPIO_SetState(uint8_t pin, uint8_t state);
+
+
+void GPIO_SetState(uint8_t pin, uint8_t state) {
+    bl_gpio_output_set(pin, state);
+}
 
 
 void GPIO_Init(void) {
@@ -3365,18 +3373,17 @@ void GPIO_Init(void) {
     bl_gpio_enable_output(11, 0, 0);
     bl_gpio_enable_output(14, 0, 0);
     bl_gpio_enable_input(12, 0, 0);
-}
 
-
-void LED_SetState(uint8_t pin, uint8_t state) {
-    bl_gpio_output_set(pin, state);
+    GPIO_SetState(3, 1);
+    GPIO_SetState(11, 1);
+    GPIO_SetState(14, 1);
 }
 
 
 void LED_Blink(uint8_t pin, uint32_t delay_us) {
-    LED_SetState(pin, 1);
+    GPIO_SetState(pin, 1);
     bl_timer_delay_us(delay_us);
-    LED_SetState(pin, 0);
+    GPIO_SetState(pin, 0);
     bl_timer_delay_us(delay_us);
 }
 
@@ -3394,6 +3401,7 @@ int Clap_Detected(void) {
 }
 
 
+
 void Task_TempHumidity(void) {
     printf("***************************************\r\n");
     printf("* The Current Room Conditions are:    *\r\n");
@@ -3405,18 +3413,18 @@ void Task_TempHumidity(void) {
             Humidity = DHT11_Data.Humidity;
             printf("Temperature: %.2f°C, Humidity: %.2f%%\r\n", Temperature, Humidity);
 
-            if (Temperature > 25 || Temperature < 20) {
-                LED_Blink(3, 500000);
+            if (Temperature > 30) {
+
+                GPIO_SetState(3, 1);
             } else {
-                LED_SetState(3, 0);
+                GPIO_SetState(3, 0);
             }
 
-            if (Humidity < 20 || Humidity > 40) {
-                LED_Blink(11, 500000);
+            if (Humidity > 30) {
 
+                GPIO_SetState(11, 1);
             } else {
-                LED_SetState(11, 0);
-
+                GPIO_SetState(11, 0);
             }
         } else {
             printf("Failed to read DHT sensor.\n");
@@ -3429,11 +3437,9 @@ void Task_TempHumidity(void) {
 void Task_ClapDetection(void) {
     printf("Starting Clap Detection Task...\r\n");
     for (int i = 0; i < 10; i++) {
-        if (Clap_Detected()) {
 
-            led_clap_state = !led_clap_state;
-            LED_SetState(14, led_clap_state);
-            printf("Clap detected! LED toggled.\r\n");
+        if (Clap_Detected()) {
+            printf("Clap detected!\r\n");
         }
         bl_timer_delay_us(200000);
     }

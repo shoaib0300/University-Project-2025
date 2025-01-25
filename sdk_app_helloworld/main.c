@@ -8,41 +8,47 @@
 #include "dht_lib.h" // DHT sensor library
 #include "dht_lib.c" // DHT sensor library implementation
 
-
 // Pin definitions
-#define LED_TEMP_PIN 3       // LED for temperature threshold
-#define LED_HUM_PIN 11       // LED for humidity threshold
+#define LED_TEMP_PIN 3       // LED for temperature threshold (shared with fan)
+#define LED_HUM_PIN 11       // LED for humidity threshold (shared with fan)
 #define DHT_DATA_PIN 4       // DHT sensor data pin
 #define SOUND_SENSOR_PIN 12  // KY-037 sound sensor pin
 #define LED_CLAP_PIN 14      // LED for clap detection
 
 // Thresholds
-#define TEMP_THRESHOLD 25    // Temperature threshold (in °C)
-#define HUM_THRESHOLD 20     // Humidity threshold (in %)
+#define TEMP_THRESHOLD 30    // Temperature threshold (in °C)
+#define HUM_THRESHOLD 30     // Humidity threshold (in %)
 
 // Global variables
 DHT_DataTypedef DHT11_Data;
 float Temperature, Humidity;
 uint8_t led_clap_state = 0; // LED state for clap detection
 
-// Function to initialize GPIO pins
-void GPIO_Init(void) {
-    bl_gpio_enable_output(LED_TEMP_PIN, 0, 0);  // LED for temperature
-    bl_gpio_enable_output(LED_HUM_PIN, 0, 0);   // LED for humidity
-    bl_gpio_enable_output(LED_CLAP_PIN, 0, 0);  // LED for clap detection
-    bl_gpio_enable_input(SOUND_SENSOR_PIN, 0, 0); // Sound sensor
+
+void GPIO_SetState(uint8_t pin, uint8_t state);
+
+// Function to set GPIO pin state
+void GPIO_SetState(uint8_t pin, uint8_t state) {
+    bl_gpio_output_set(pin, state);
 }
 
-// Function to set LED state
-void LED_SetState(uint8_t pin, uint8_t state) {
-    bl_gpio_output_set(pin, state);
+// Function to initialize GPIO pins
+void GPIO_Init(void) {
+    bl_gpio_enable_output(LED_TEMP_PIN, 0, 0);  // LED/Fan for temperature
+    bl_gpio_enable_output(LED_HUM_PIN, 0, 0);   // LED/Fan for humidity
+    bl_gpio_enable_output(LED_CLAP_PIN, 0, 0);  // LED for clap detection
+    bl_gpio_enable_input(SOUND_SENSOR_PIN, 0, 0); // Sound sensor
+    // Keep LEDs always on
+    GPIO_SetState(LED_TEMP_PIN, 1);  // Turn on LED for temperature
+    GPIO_SetState(LED_HUM_PIN, 1);   // Turn on LED for humidity
+    GPIO_SetState(LED_CLAP_PIN, 1);  // Turn on LED for clap detection
 }
 
 // Function to blink LED
 void LED_Blink(uint8_t pin, uint32_t delay_us) {
-    LED_SetState(pin, 1);  // Turn on
+    GPIO_SetState(pin, 1);  // Turn on
     bl_timer_delay_us(delay_us);
-    LED_SetState(pin, 0);  // Turn off
+    GPIO_SetState(pin, 0);  // Turn off
     bl_timer_delay_us(delay_us);
 }
 
@@ -59,6 +65,7 @@ int Clap_Detected(void) {
     return 0;
 }
 
+
 // Task to handle temperature and humidity sensing
 void Task_TempHumidity(void) {
     printf("***************************************\r\n");
@@ -71,18 +78,18 @@ void Task_TempHumidity(void) {
             Humidity = DHT11_Data.Humidity;
             printf("Temperature: %.2f°C, Humidity: %.2f%%\r\n", Temperature, Humidity);
 
-            if (Temperature > TEMP_THRESHOLD || Temperature < 20) {
-                LED_Blink(LED_TEMP_PIN, 500000); // Blink if temperature exceeds threshold or is less than 20
+            if (Temperature > TEMP_THRESHOLD) {
+                // Keep fan and LED on, no toggling
+                GPIO_SetState(LED_TEMP_PIN, 1);  // Keep LED on
             } else {
-                LED_SetState(LED_TEMP_PIN, 0); // Turn off LED
+                GPIO_SetState(LED_TEMP_PIN, 0);  // Keep LED on
             }
 
-            if (Humidity < HUM_THRESHOLD || Humidity > 40) {
-                LED_Blink(LED_HUM_PIN, 500000); 
-
+            if (Humidity > HUM_THRESHOLD) {
+                // Keep fan and LED on, no toggling
+                GPIO_SetState(LED_HUM_PIN, 1);  // Keep LED on
             } else {
-                LED_SetState(LED_HUM_PIN, 0); // Turn off LED
-
+                GPIO_SetState(LED_HUM_PIN, 0);  // Keep LED on
             }
         } else {
             printf("Failed to read DHT sensor.\n");
@@ -91,15 +98,13 @@ void Task_TempHumidity(void) {
     }
 }
 
-// Task to handle clap detection
+
 void Task_ClapDetection(void) {
     printf("Starting Clap Detection Task...\r\n");
     for (int i = 0; i < 10; i++) { // Run for 10 iterations
+        // The LED is always on, no need to detect or toggle LED state
         if (Clap_Detected()) {
-            // Toggle LED state on clap
-            led_clap_state = !led_clap_state;
-            LED_SetState(LED_CLAP_PIN, led_clap_state);
-            printf("Clap detected! LED toggled.\r\n");
+            printf("Clap detected!\r\n");
         }
         bl_timer_delay_us(200000); // 200ms delay
     }
