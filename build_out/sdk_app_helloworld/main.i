@@ -3413,14 +3413,14 @@ void Task_TempHumidity(void) {
             Humidity = DHT11_Data.Humidity;
             printf("Temperature: %.2f°C, Humidity: %.2f%%\r\n", Temperature, Humidity);
 
-            if (Temperature > 30) {
+            if (Temperature > 20) {
 
                 GPIO_SetState(3, 1);
             } else {
                 GPIO_SetState(3, 0);
             }
 
-            if (Humidity > 30) {
+            if (Humidity > 60) {
 
                 GPIO_SetState(11, 1);
             } else {

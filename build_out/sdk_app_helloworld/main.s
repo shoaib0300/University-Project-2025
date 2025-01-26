@@ -710,16 +710,17 @@ Task_TempHumidity:
 .LBB42:
 	.loc 2 74 10
 	.loc 2 81 16 is_stmt 0
+	lui	a5,%hi(.LC0)
+	flw	fs1,%lo(.LC0)(a5)
+	.loc 2 88 16
 	lui	a5,%hi(.LC4)
-	flw	fs1,%lo(.LC4)(a5)
+	flw	fs2,%lo(.LC4)(a5)
 .LBE42:
 	.loc 2 73 5
 	li	s0,5
 .LBB51:
 	.loc 2 75 9
 	lui	s1,%hi(DHT11_Data)
-	.loc 2 88 16
-	fmv.s	fs2,fs1
 	.loc 2 95 13
 	lui	s4,%hi(.LC5)
 	.loc 2 77 25
@@ -1017,7 +1018,7 @@ bfl_main:
 	.section	.rodata.Task_TempHumidity.cst4,"aM",@progbits,4
 	.align	2
 .LC4:
-	.word	1106247680
+	.word	1114636288
 	.section	.rodata.Task_TempHumidity.str1.4,"aMS",@progbits,1
 	.align	2
 .LC1:

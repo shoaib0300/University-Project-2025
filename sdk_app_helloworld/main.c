@@ -16,8 +16,8 @@
 #define LED_CLAP_PIN 14      // LED for clap detection
 
 // Thresholds
-#define TEMP_THRESHOLD 30    // Temperature threshold (in °C)
-#define HUM_THRESHOLD 30     // Humidity threshold (in %)
+#define TEMP_THRESHOLD 20    // Temperature threshold (in °C)
+#define HUM_THRESHOLD 60     // Humidity threshold (in %)
 
 // Global variables
 DHT_DataTypedef DHT11_Data;
