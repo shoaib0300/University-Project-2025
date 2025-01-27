@@ -216,7 +216,6 @@ function updateRooms() {
         container.appendChild(roomDiv);
     });
 }
-
 function editRoom(roomId) {
     const room = rooms.find(r => r.id === roomId);
     if (room) {
@@ -234,7 +233,6 @@ function editRoom(roomId) {
                         <label for="edit-room-temperature">Temperature:</label>
                         <input type="number" id="edit-room-temperature" value="${room.temperature}" required>
                     </div>
-
                     <div class="form-group">
                         <label for="edit-min-temp">Min Temperature:</label>
                         <input type="number" id="edit-min-temp" value="${room.minTemp}" required>
@@ -282,6 +280,7 @@ function editRoom(roomId) {
             saveRooms();
             document.body.removeChild(popup);
         });
+
         cancelButton.addEventListener('click', () => {
             document.body.removeChild(popup);
         });
