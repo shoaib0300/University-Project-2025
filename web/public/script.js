@@ -340,6 +340,19 @@ let audioChunks = [];
 let audioBlobUrl; // To store the recorded audio URL
 const lightButton = document.getElementById('light-button');
 const audioPlayer = document.getElementById('audio-player');
+const lightBulb = document.createElement('img'); // Create bulb image element
+
+// Initialize the bulb image
+lightBulb.id = 'light-bulb';
+lightBulb.src = 'bulb-off.jpg'; // Default to the "off" bulb image
+lightBulb.alt = 'Light Bulb';
+lightBulb.style.width = '100px';
+lightBulb.style.margin = '20px 0';
+lightBulb.style.transition = 'filter 0.3s ease-in-out';
+
+// Add the bulb image to the light container
+const lightContainer = document.getElementById('light-container');
+lightContainer.insertBefore(lightBulb, lightButton);
 
 // Function to toggle the light
 function toggleLight(status) {
@@ -348,14 +361,22 @@ function toggleLight(status) {
         lightButton.classList.add('on');
         lightButton.classList.remove('off');
         lightButton.textContent = 'Turn Light Off';
+        lightBulb.src = 'bulb-on.png'; // Update to the "on" bulb image
         startRecording();
     } else {
         lightButton.classList.add('off');
         lightButton.classList.remove('on');
         lightButton.textContent = 'Turn Light On';
+        lightBulb.src = 'bulb-off.jpg'; // Update to the "off" bulb image
         stopAndDeleteRecording();
     }
 }
+
+// Example: Add an event listener to the button for testing
+lightButton.addEventListener('click', () => {
+    const isOn = lightButton.classList.contains('on');
+    toggleLight(isOn ? 'off' : 'on');
+});
 
 // Speech Recognition
 const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
