@@ -3,38 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Builing Rooms Temperature and Humidity Monitor</title>
+    <title>All Building Rooms Temperature and Humidity Monitor</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>All Building Rooms Temperature and Humidity Monitor</h1>
+        <a href="/">
+            <img src="logo.webp" alt="Logo">
+        </a>
+        <h2 class="content-line">
+            EKPOSINS
+        </h2>
     </header>
+
+    <div id="audio-controls">
+        <button id="start-recording">Start Recording</button>
+        <button id="stop-recording" disabled>Stop Recording</button>
+        <audio id="audio-player" controls></audio>
+    </div>
+    
     <div id="rooms-container">
         <!-- Rooms will be dynamically generated here -->
     </div>
 
+    <div id="empty-div">
+    </div>
+
     <script src="script.js"></script>
+    <footer>
+        <p>
+        <img src="logo.jpg" alt="Logo" style="height: 30px; margin-right: 10px;" />
+        &copy; <?php echo date("Y"); ?> All University Rooms Temperature and Humidity Monitor. All rights reserved.
+        </p>
+    </footer>
+
 </body>
 </html>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-
-    header {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 0;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    header h1 {
-        margin: 0;
-        font-size: 2.5em;
-    }
-</style>

@@ -324,3 +324,43 @@ function simulateRoomConditions() {
 
 // Update room conditions every 3 seconds
 setInterval(simulateRoomConditions, 3000);
+
+
+let mediaRecorder;
+let audioChunks = [];
+
+// Access the user's microphone
+document.getElementById('start-recording').addEventListener('click', async () => {
+    try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+
+        // When data is available, store it
+        mediaRecorder.ondataavailable = (event) => {
+            audioChunks.push(event.data);
+        };
+
+        // When recording stops, create a URL for the recorded audio
+        mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+            const audioUrl = URL.createObjectURL(audioBlob);
+            const audioPlayer = document.getElementById('audio-player');
+            audioPlayer.src = audioUrl;
+        };
+
+        // Start recording
+        mediaRecorder.start();
+        document.getElementById('stop-recording').disabled = false;
+        document.getElementById('start-recording').disabled = true;
+
+    } catch (error) {
+        console.error('Microphone access denied:', error);
+    }
+});
+
+// Stop recording
+document.getElementById('stop-recording').addEventListener('click', () => {
+    mediaRecorder.stop();
+    document.getElementById('stop-recording').disabled = true;
+    document.getElementById('start-recording').disabled = false;
+});

@@ -1,30 +1,72 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
-
 h1 {
     text-align: center;
-    color: #333;
+    color: #3d52a0;
 }
 
-header {
-    margin: 20px 20px 40px 20px;
+/* header {
+    margin: 20px auto 40px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffeb3b;
+    background-color: #7091e6;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    transition: transform 0.3s ease;
+    color: #ede8f5;
+    max-width: 50%;
+
+    h1 {
+        color: #ede8f5;
+    }
+} */
+
+header {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+    justify-content: center;
+    h1 {
+        color: #ede8f5;
+    }
 }
 
-header:hover {
-    transform: scale(.50);
+header img {
+    max-height: 150px;
+    width: auto;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.1);
+}
+
+header h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+footer {
+    background-color: #7091e6;
+    color: #ede8f5;
+    text-align: center;
+    padding: 0;
+    gap: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer img {
+    vertical-align: middle; /* Align the logo properly with text */
+    min-height: 50px; /* Adjust size as needed */
+    margin-right: 10px; /* Space between logo and text */
 }
 
 #rooms-container {
@@ -32,7 +74,8 @@ header:hover {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-template-columns: repeat(4, 1fr); /* Explicitly set to 4 columns */
     gap: 20px;
-    margin-top: 20px;
+    margin: 20px;
+    padding-bottom: 100px;
 }
 
 .temperature, .humidity {
@@ -45,6 +88,11 @@ header:hover {
     padding: 15px;
     background: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.room:hover {
+    background-color: #ede8f5;
+    color: #3d52a0;
 }
 
 .room h2 {
@@ -60,24 +108,35 @@ header:hover {
 
 .status.on {
     color: #fff;
-    background-color: #28a745;
+    background-color: #abb1b6;
     padding: 5px;
 }
 
 .status.off {
     color: #fff;
-    background-color: #dc3545;
+    background-color: #222831;
     padding: 5px;
 }
 
 .enable-button {
     color: white;
-    background-color: #28a745;
-    padding: 15px;
+    background-color: #abb1b6;
+    padding: 10px;
     border: none;
+    border-radius: 8px;
     font-size: 16px;
+    cursor: pointer;
 }
 
+.edit-button {
+    color: white;
+    background-color: #abb1b6;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 .temperature-container {
     display: flex;
@@ -147,14 +206,12 @@ input:checked + .slider:before {
     margin-right: 5px;
 }
 
-
-/* Add these styles to your existing CSS */
 .create-room {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #e6f2ff;
+    background-color: #adbbda;
     border: 2px dashed #2196F3;
 }
 
@@ -179,7 +236,7 @@ input:checked + .slider:before {
 }
 
 .delete-button {
-    background-color: #dc3545;
+    background-color: #222831;
     color: white;
     border: none;
     width: 30px;
@@ -220,7 +277,7 @@ input:checked + .slider:before {
 .popup-content h2 {
     margin-top: 0;
     text-align: center;
-    color: #333;
+    color: #3d52a0;
 }
 
 .form-group {
@@ -261,4 +318,9 @@ input:checked + .slider:before {
 .form-actions .cancel-button {
     background-color: #f44336;
     color: white;
+}
+
+#audio-controls {
+    margin: 50px auto;
+    display: flex;
 }
