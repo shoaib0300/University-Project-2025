@@ -335,7 +335,6 @@ setInterval(simulateRoomConditions, 3000);
 
 
 // Light control and recording functionality
-
 let mediaRecorder;
 let audioChunks = [];
 let audioBlobUrl; // To store the recorded audio URL
@@ -344,19 +343,16 @@ const audioPlayer = document.getElementById('audio-player');
 
 // Function to toggle the light
 function toggleLight(status) {
+    console.log('Toggling light to:', status);
     if (status === 'on') {
         lightButton.classList.add('on');
         lightButton.classList.remove('off');
         lightButton.textContent = 'Turn Light Off';
-
-        // Start recording the voice command
         startRecording();
     } else {
         lightButton.classList.add('off');
         lightButton.classList.remove('on');
         lightButton.textContent = 'Turn Light On';
-
-        // Stop recording and delete the audio
         stopAndDeleteRecording();
     }
 }
@@ -373,12 +369,14 @@ recognition.start();
 // Handle recognized speech
 recognition.onresult = (event) => {
     const command = event.results[0][0].transcript.toLowerCase();
-    console.log('Speech command:', command);
+    console.log('Speech command received:', command);
 
     if (command.includes('turn on the light')) {
         toggleLight('on');
     } else if (command.includes('turn off the light')) {
         toggleLight('off');
+    } else {
+        console.log('Command not recognized.');
     }
 };
 
@@ -387,7 +385,6 @@ recognition.onend = () => {
     recognition.start();
 };
 
-// Function to start recording
 
 // Event listener for the start recording button
 document.getElementById('start-recording').addEventListener('click', async () => {
