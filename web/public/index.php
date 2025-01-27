@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Building Rooms Temperature and Humidity Monitor</title>
+    <title>Eksipnos..  All Building Rooms Temperature and Humidity Monitor</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
             <img src="logo.webp" alt="Logo">
         </a>
         <h2 class="content-line">
-            EKPOSINS
+            Eksipnos
         </h2>
     </header>
 

@@ -190,7 +190,10 @@ function updateRooms() {
 
         roomDiv.innerHTML = `
             <div class="room-header">
-                <h2>${room.name}</h2>
+                <div class="room-data">
+                    <h2>${room.name} | Floor: ${room.floor}</h2>
+                    <p>Building: ${room.building}</p>
+                </div>
                 <button class="edit-button" onclick="editRoom(${room.id})">✎ Edit</button>
                 <button class="delete-button" onclick="deleteRoom(${room.id})">✖</button>
             </div>
