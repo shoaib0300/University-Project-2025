@@ -155,7 +155,7 @@ function updateRooms() {
                 room.fanText = 'Heater On';
             } else if (room.temperature > room.maxTemp) {
                 room.fanOn = true;
-                room.fanText = 'Air Conditioner is On';
+                room.fanText = 'AC Fan On';
             } else {
                 room.fanOn = false;
                 room.fanText = 'Fan Off';
@@ -190,10 +190,7 @@ function updateRooms() {
 
         roomDiv.innerHTML = `
             <div class="room-header">
-                <div class="room-data">
-                    <h2>${room.name} | Floor: ${room.floor}</h2>
-                    <p>Building: ${room.building}</p>
-                </div>
+                <h2>${room.name}</h2>
                 <button class="edit-button" onclick="editRoom(${room.id})">✎ Edit</button>
                 <button class="delete-button" onclick="deleteRoom(${room.id})">✖</button>
             </div>
