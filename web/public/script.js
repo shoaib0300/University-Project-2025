@@ -2,6 +2,15 @@ const rooms = [];
 
 let nextRoomId = 4; // To ensure unique IDs for new rooms
 
+function generateUniqueId() {
+    let id = nextRoomId;
+    while (rooms.some(room => room.id === id)) {
+        id++;
+    }
+    nextRoomId = id + 1;
+    return id;
+}
+
 function toggleTemperatureUnit(roomId) {
     const room = rooms.find(r => r.id === roomId);
     if (room) {
@@ -103,7 +112,7 @@ function showCreateRoomPopup() {
         const maxHum = document.getElementById('max-hum').value;
 
         const newRoom = {
-            id: nextRoomId++,
+            id: generateUniqueId(),
             name: roomName,
             floor: roomFloor,
             building: buildingName,
