@@ -22,14 +22,11 @@
     
     <div id="light-container">
         <p class="lights-on">Say 'Turn On The Light' or 'Turn Off The Light'</p>
-        <button id="light-button" class="off">Turn Light On</button>
+        <button hidden id="light-button" class="off">Turn Light On</button>
         <audio id="audio-player" controls style="display: none;"></audio>
     </div>
 
     <div id="audio-controls">
-        <button id="start-recording">Start Recording</button>
-        <button id="stop-recording" disabled>Stop Recording</button>
-        <audio id="audio-player" controls></audio>
     </div>
 
     <div id="empty-div"></div>
