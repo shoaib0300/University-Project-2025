@@ -155,7 +155,7 @@ function updateRooms() {
                 room.fanText = 'Heater On';
             } else if (room.temperature > room.maxTemp) {
                 room.fanOn = true;
-                room.fanText = 'AC Fan On';
+                room.fanText = 'Air Conditioner is On';
             } else {
                 room.fanOn = false;
                 room.fanText = 'Fan Off';
@@ -326,41 +326,115 @@ function simulateRoomConditions() {
 setInterval(simulateRoomConditions, 3000);
 
 
+// Light control and recording functionality
+
 let mediaRecorder;
 let audioChunks = [];
+let audioBlobUrl; // To store the recorded audio URL
+const lightButton = document.getElementById('light-button');
+const audioPlayer = document.getElementById('audio-player');
 
-// Access the user's microphone
+// Function to toggle the light
+function toggleLight(status) {
+    if (status === 'on') {
+        lightButton.classList.add('on');
+        lightButton.classList.remove('off');
+        lightButton.textContent = 'Turn Light Off';
+
+        // Start recording the voice command
+        startRecording();
+    } else {
+        lightButton.classList.add('off');
+        lightButton.classList.remove('on');
+        lightButton.textContent = 'Turn Light On';
+
+        // Stop recording and delete the audio
+        stopAndDeleteRecording();
+    }
+}
+
+// Speech Recognition
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+recognition.lang = 'en-US';
+recognition.interimResults = false;
+recognition.maxAlternatives = 1;
+
+// Start speech recognition
+recognition.start();
+
+// Handle recognized speech
+recognition.onresult = (event) => {
+    const command = event.results[0][0].transcript.toLowerCase();
+    console.log('Speech command:', command);
+
+    if (command.includes('turn on the light')) {
+        toggleLight('on');
+    } else if (command.includes('turn off the light')) {
+        toggleLight('off');
+    }
+};
+
+// Restart recognition to continuously listen for commands
+recognition.onend = () => {
+    recognition.start();
+};
+
+// Function to start recording
+
+// Event listener for the start recording button
 document.getElementById('start-recording').addEventListener('click', async () => {
-    try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        mediaRecorder = new MediaRecorder(stream);
+    console.log('Start recording button clicked'); // Debug
+    await startRecording();
+});
 
-        // When data is available, store it
+// Event listener for the stop recording button
+document.getElementById('stop-recording').addEventListener('click', stopAndDeleteRecording);
+
+async function startRecording() {
+    try {
+        console.log('Requesting microphone access...');
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        console.log('Microphone access granted:', stream);
+
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+
         mediaRecorder.ondataavailable = (event) => {
+            console.log('Data available:', event.data);
             audioChunks.push(event.data);
         };
 
-        // When recording stops, create a URL for the recorded audio
         mediaRecorder.onstop = () => {
             const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-            const audioUrl = URL.createObjectURL(audioBlob);
-            const audioPlayer = document.getElementById('audio-player');
-            audioPlayer.src = audioUrl;
+            audioBlobUrl = URL.createObjectURL(audioBlob);
+            audioPlayer.src = audioBlobUrl;
+            audioPlayer.style.display = 'block';
+            console.log('Recording saved and URL generated:', audioBlobUrl);
         };
 
-        // Start recording
         mediaRecorder.start();
+        console.log('Recording started.');
         document.getElementById('stop-recording').disabled = false;
         document.getElementById('start-recording').disabled = true;
-
     } catch (error) {
-        console.error('Microphone access denied:', error);
+        console.error('Error accessing microphone:', error);
     }
-});
+}
 
-// Stop recording
-document.getElementById('stop-recording').addEventListener('click', () => {
-    mediaRecorder.stop();
+function stopAndDeleteRecording() {
+    if (mediaRecorder && mediaRecorder.state === 'recording') {
+        mediaRecorder.stop();
+        console.log('Recording stopped.');
+    }
+
+    if (audioBlobUrl) {
+        URL.revokeObjectURL(audioBlobUrl);
+        audioBlobUrl = null;
+        audioPlayer.src = '';
+        audioPlayer.style.display = 'none';
+        console.log('Audio deleted.');
+    }
+
     document.getElementById('stop-recording').disabled = true;
     document.getElementById('start-recording').disabled = false;
-});
+}
