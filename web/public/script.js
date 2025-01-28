@@ -199,9 +199,12 @@ function updateRooms() {
 
         roomDiv.innerHTML = `
             <div class="room-header">
-                <h2>${room.name}</h2>
-                <button class="edit-button" onclick="editRoom(${room.id})">✎ Edit</button>
-                <button class="delete-button" onclick="deleteRoom(${room.id})">✖</button>
+                <div class="titles">
+                    <h2>${room.name} | ${room.floor}</h2>
+                    <h4><br>${room.building}</h4>
+                </div>   
+                <button class="edit-button" onclick="editRoom(${room.id})">Edit</button>
+                <button class="delete-button" onclick="deleteRoom(${room.id})">Delete</button>
             </div>
             <div class="temperature-container">
                 <p class="temperature">Temperature: ${convertedTemp}°${room.temperatureUnit}</p>
