@@ -75,3 +75,6 @@ Screen settings:
 ```sh
 screen /dev/ttyUSB0 2000000
 ```
+
+// php file run
+d/web/public$ php -S localhost:8000

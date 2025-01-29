@@ -154,7 +154,7 @@ function updateRooms() {
         if (room.active) {
             const tempChange = (Math.random() * 2 - 1).toFixed(1); 
             const humChange = Math.floor(Math.random() * 3) - 1;   
-
+            // change the values here for hardcore
             room.temperature = parseFloat((20.0 + parseFloat(tempChange)).toFixed(1)); 
             room.humidity = 50 + humChange;
 
@@ -337,6 +337,41 @@ function simulateRoomConditions() {
 setInterval(simulateRoomConditions, 3000);
 
 
+function getRoomData() {
+    return rooms.map(room => ({
+        id: room.id,
+        name: room.name,
+        floor: room.floor,
+        building: room.building,
+        temperature: room.temperature,
+        humidity: room.humidity,
+        lightOn: room.lightOn,
+        fanOn: room.fanOn,
+        active: room.active,
+        temperatureUnit: room.temperatureUnit,
+        minTemp: room.minTemp,
+        maxTemp: room.maxTemp,
+        minHum: room.minHum,
+        maxHum: room.maxHum,
+    }));
+}
+
+function sendRoomData() {
+    fetch('saveData.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ rooms: getRoomData() }) // Send proper rooms data
+    })
+    .then(response => response.json())
+    .then(data => console.log('Server response:', data))
+    .catch(error => console.error('Error:', error));
+}
+
+// Send data every 5 seconds
+setInterval(sendRoomData, 5000);
+
 // Light control and recording functionality
 let mediaRecorder;
 let audioChunks = [];
@@ -409,15 +444,15 @@ recognition.onresult = (event) => {
 
 // Restart recognition to continuously listen for commands
 recognition.onend = () => {
-    console.log('Speech recognition ended, restarting...');
+    // console.log('Speech recognition ended, restarting...');
     recognition.start();
 };
 
 // Add error handling
-recognition.onerror = (event) => {
-    console.error('Speech recognition error:', event.error);
+// recognition.onerror = (event) => {
+    // console.error('Speech recognition error:', event.error);
     // Attempt to restart recognition after error
-    setTimeout(() => {
-        recognition.start();
-    }, 1000);
-};
+//     setTimeout(() => {
+//         recognition.start();
+//     }, 1000);
+// };
