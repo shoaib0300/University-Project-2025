@@ -1,2 +1,0 @@
-temperature: 35.2 C
-Humidity: 52%

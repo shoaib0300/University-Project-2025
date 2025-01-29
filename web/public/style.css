@@ -241,10 +241,10 @@ input:checked + .slider:before {
     background-color: #222831;
     color: white;
     border: none;
-    width: 30px;
+    width: fit-content;
     height: 30px;
-    border-radius: 50%;
     display: flex;
+    border-radius: 5px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
