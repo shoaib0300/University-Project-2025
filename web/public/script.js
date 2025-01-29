@@ -392,78 +392,32 @@ recognition.start();
 
 // Handle recognized speech
 recognition.onresult = (event) => {
-    const command = event.results[0][0].transcript.toLowerCase();
+    const command = event.results[0][0].transcript.toLowerCase().trim();
     console.log('Speech command received:', command);
 
-    if (command.includes('turn on the light')) {
+    // More flexible command matching
+    if (command.includes('turn') && command.includes('on') && command.includes('light')) {
+        console.log('Turning light on');
         toggleLight('on');
-    } else if (command.includes('turn off the light')) {
+    } else if (command.includes('turn') && command.includes('off') && command.includes('light')) {
+        console.log('Turning light off');
         toggleLight('off');
     } else {
-        console.log('Command not recognized.');
+        console.log('Command not recognized:', command);
     }
 };
 
 // Restart recognition to continuously listen for commands
 recognition.onend = () => {
+    console.log('Speech recognition ended, restarting...');
     recognition.start();
 };
 
-
-// Event listener for the start recording button
-document.getElementById('start-recording').addEventListener('click', async () => {
-    console.log('Start recording button clicked'); // Debug
-    await startRecording();
-});
-
-// Event listener for the stop recording button
-document.getElementById('stop-recording').addEventListener('click', stopAndDeleteRecording);
-
-async function startRecording() {
-    try {
-        console.log('Requesting microphone access...');
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        console.log('Microphone access granted:', stream);
-
-        mediaRecorder = new MediaRecorder(stream);
-        audioChunks = [];
-
-        mediaRecorder.ondataavailable = (event) => {
-            console.log('Data available:', event.data);
-            audioChunks.push(event.data);
-        };
-
-        mediaRecorder.onstop = () => {
-            const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-            audioBlobUrl = URL.createObjectURL(audioBlob);
-            audioPlayer.src = audioBlobUrl;
-            audioPlayer.style.display = 'block';
-            console.log('Recording saved and URL generated:', audioBlobUrl);
-        };
-
-        mediaRecorder.start();
-        console.log('Recording started.');
-        document.getElementById('stop-recording').disabled = false;
-        document.getElementById('start-recording').disabled = true;
-    } catch (error) {
-        console.error('Error accessing microphone:', error);
-    }
-}
-
-function stopAndDeleteRecording() {
-    if (mediaRecorder && mediaRecorder.state === 'recording') {
-        mediaRecorder.stop();
-        console.log('Recording stopped.');
-    }
-
-    if (audioBlobUrl) {
-        URL.revokeObjectURL(audioBlobUrl);
-        audioBlobUrl = null;
-        audioPlayer.src = '';
-        audioPlayer.style.display = 'none';
-        console.log('Audio deleted.');
-    }
-
-    document.getElementById('stop-recording').disabled = true;
-    document.getElementById('start-recording').disabled = false;
-}
+// Add error handling
+recognition.onerror = (event) => {
+    console.error('Speech recognition error:', event.error);
+    // Attempt to restart recognition after error
+    setTimeout(() => {
+        recognition.start();
+    }, 1000);
+};

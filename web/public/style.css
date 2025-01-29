@@ -3,27 +3,12 @@ html, body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    background-color: #ede8f5;
 }
 h1 {
     text-align: center;
     color: #3d52a0;
 }
-
-/* header {
-    margin: 20px auto 40px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #7091e6;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    color: #ede8f5;
-    max-width: 50%;
-
-    h1 {
-        color: #ede8f5;
-    }
-} */
-
 header {
     margin: 20px 0;
     display: flex;
@@ -385,4 +370,139 @@ input:checked + .slider:before {
 
 #light-button.off {
     background-color: #ccc; /* Light is off */
+}
+
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    /* Ensure content takes full width */
+    body, html {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Adjust grid layout for smaller screens */
+    #rooms-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 1-2 columns for smaller devices */
+        margin: 10px;
+    }
+
+    /* Header adjustments */
+    header {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    /* Adjust room card styling */
+    .room {
+        padding: 10px;
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    /* Temperature and humidity text size */
+    .temperature, .humidity {
+        font-size: 16px;
+    }
+
+    /* Footer changes for mobile */
+    footer {
+        padding: 50px 25px;
+        font-size: 14px;
+
+        p {
+            padding: 20px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        }
+    }
+
+    footer img {
+        max-height: 40px; 
+        max-width: 50%;
+        padding-bottom: 20px;
+    }
+
+    /* Adjust switch styles */
+    .switch {
+        width: 50px; /* Smaller switch size */
+        height: 25px;
+    }
+
+    .slider {
+        padding: 0 3px;
+    }
+
+    .slider .celsius, .slider .fahrenheit {
+        font-size: 10px;
+    }
+
+    .slider:before {
+        height: 20px;
+        width: 20px;
+    }
+
+    /* Adjust button sizes */
+    .enable-button, .edit-button, .create-room button, .delete-button, .form-actions button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    /* Voice control button */
+    .voice-control {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    /* Light controls adjustments */
+    #light-container {
+        margin-top: 30px;
+    }
+
+    #light-bulb {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    #light-button {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+}
+
+/* For extra small devices (below 480px) */
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    .room {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+
+    .enable-button, .edit-button, .create-room button, .delete-button, .form-actions button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .voice-control {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    #light-button {
+        font-size: 16px;
+    }
 }
