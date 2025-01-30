@@ -5,15 +5,15 @@
             "name": "Prof Ralf Colmar",
             "floor": "2",
             "building": "University Computer Department",
-            "temperature": 24.1,
-            "humidity": 59,
+            "temperature": 20.3,
+            "humidity": 51,
             "lightOn": true,
             "fanOn": true,
             "active": true,
             "temperatureUnit": "C",
-            "minTemp": 25,
-            "maxTemp": 25,
-            "minHum": 30,
+            "minTemp": 20,
+            "maxTemp": 20,
+            "minHum": 50,
             "maxHum": 60
         },
         {
@@ -21,8 +21,8 @@
             "name": "Room 34",
             "floor": "3",
             "building": "University Bio Department",
-            "temperature": 25.6,
-            "humidity": 61,
+            "temperature": 19.3,
+            "humidity": 49,
             "lightOn": true,
             "fanOn": true,
             "active": true,
@@ -31,7 +31,23 @@
             "maxTemp": 25,
             "minHum": 30,
             "maxHum": 60
+        },
+        {
+            "id": 6,
+            "name": "Test Room ",
+            "floor": "4",
+            "building": "Computer Science",
+            "temperature": 20.5,
+            "humidity": 51,
+            "lightOn": false,
+            "fanOn": false,
+            "active": true,
+            "temperatureUnit": "C",
+            "minTemp": 15,
+            "maxTemp": 25,
+            "minHum": 30,
+            "maxHum": 60
         }
     ],
-    "timestamp": "2025-01-29 19:40:22"
+    "timestamp": "2025-01-30 10:58:05"
 }

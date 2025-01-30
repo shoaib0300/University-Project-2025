@@ -77,4 +77,10 @@ screen /dev/ttyUSB0 2000000
 ```
 
 // php file run
-d/web/public$ php -S localhost:8000
+/web/public$ php -S localhost:8000
+
+make executable
+gcc main.c get_data_from_json.c -o executable -lcjson
+
+//exectuable
+./executable

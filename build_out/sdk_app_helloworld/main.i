@@ -3354,7 +3354,7 @@ void DHT_GetData(DHT_DataTypedef *DHT_Data)
     }
 }
 # 10 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c" 2
-# 23 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
+# 25 "/home/shoaib/bl_iot_sdk/customer_app/sdk_app_helloworld/sdk_app_helloworld/main.c"
 DHT_DataTypedef DHT11_Data;
 float Temperature, Humidity;
 uint8_t led_clap_state = 0;
@@ -3413,14 +3413,14 @@ void Task_TempHumidity(void) {
             Humidity = DHT11_Data.Humidity;
             printf("Temperature: %.2f°C, Humidity: %.2f%%\r\n", Temperature, Humidity);
 
-            if (Temperature > 20) {
+            if (Temperature > 20 || Temperature < 19) {
 
                 GPIO_SetState(3, 1);
             } else {
                 GPIO_SetState(3, 0);
             }
 
-            if (Humidity > 60) {
+            if (Humidity > 60 || Humidity < 25) {
 
                 GPIO_SetState(11, 1);
             } else {

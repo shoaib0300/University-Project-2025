@@ -17,7 +17,9 @@
 
 // Thresholds
 #define TEMP_THRESHOLD 20    // Temperature threshold (in °C)
+#define TEMP_MIN 19    // Temperature threshold (in °C)
 #define HUM_THRESHOLD 60     // Humidity threshold (in %)
+#define HUM_MIN 25     // Humidity threshold (in %)
 
 // Global variables
 DHT_DataTypedef DHT11_Data;
@@ -78,14 +80,14 @@ void Task_TempHumidity(void) {
             Humidity = DHT11_Data.Humidity;
             printf("Temperature: %.2f°C, Humidity: %.2f%%\r\n", Temperature, Humidity);
 
-            if (Temperature > TEMP_THRESHOLD) {
+            if (Temperature > TEMP_THRESHOLD || Temperature < TEMP_MIN) {
                 // Keep fan and LED on, no toggling
                 GPIO_SetState(LED_TEMP_PIN, 1);  // Keep LED on
             } else {
                 GPIO_SetState(LED_TEMP_PIN, 0);  // Keep LED on
             }
 
-            if (Humidity > HUM_THRESHOLD) {
+            if (Humidity > HUM_THRESHOLD || Humidity < HUM_MIN) {
                 // Keep fan and LED on, no toggling
                 GPIO_SetState(LED_HUM_PIN, 1);  // Keep LED on
             } else {
